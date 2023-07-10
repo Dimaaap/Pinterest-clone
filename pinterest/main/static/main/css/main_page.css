@@ -1,0 +1,176 @@
+header {
+    font-family: "Rubik";
+
+}
+
+.main-header {
+    margin-top: 10px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.logo-container {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.logo-title {
+    color: #FA0000;
+    font-size: 30px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.header-options-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: 450;
+}
+
+.li-content {
+    display: flex;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-options {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: -200px;
+}
+
+.header-li {
+    margin-right: 50px;
+}
+
+.header-li:hover {
+    text-decoration: underline;
+}
+
+.login-button,
+.register-button {
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.login {
+    text-decoration: none;
+}
+
+.login-button {
+    color: white;
+    font-weight: 450;
+    background: red;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.register-button {
+    color: black;
+    padding: 10px;
+    border-radius: 50px;
+    font-weight: medium;
+    background: #C6C6C6;
+}
+
+.login-button:hover {
+    color: white;
+    background: #B52222;
+}
+
+.register-button:hover {
+    color: black;
+    background: #B9B9B9;
+}
+
+.main-title {
+    margin-top: 200px;
+    margin-left: 500px;
+}
+
+.find-new-title {
+    font-size: 55px;
+}
+
+.carousel-title {
+    font-size: 40px;
+    margin-left: 5px;
+    color: #B5A909;
+}
+
+
+.carousel-title{
+    font-family: 'Rubik';
+    display: none;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: -350px;
+}
+
+.carousel-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicator.active {
+    background-color: #333;
+}
+
+.carousel-indicator.active::before {
+    content: "",
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: red;
+}
+
+#first-title {
+    color: #D8BD0C;
+}
+
+#second-title {
+    color: #0F7000;
+}
+
+#third-title {
+    color: #1352B2;
+}
+
+#fourth-title {
+    color: color: #0F7000;
+}
+
+#first-point {
+    background: orange;
+}
+
+.show {
+    display: block;
+}
