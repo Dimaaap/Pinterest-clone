@@ -3,20 +3,33 @@ window.addEventListener("DOMContentLoaded", function(){
     const firstPhrase = document.getElementById("first-title");
     firstPhrase.classList.add("show");
     const indicators = document.querySelectorAll(".carousel-indicator");
+    const firstIndicator = document.getElementById("first-point");
+    firstIndicator.classList.add("active");
 
     let currentIndex = 0;
     let intervalId;
 
+    //Функція, яка проходиться кожною фразою і кожним значком у списку фраз і значків і спочатку приховує все,а потім
+    //ітеративно відкриває наступний елемент у списку
     function updateCarousel(){
         for(let i = 0; i < phrases.length; i++){
             phrases[i].classList.remove("show");
+            indicators[i].classList.remove("active");
         }
         phrases[currentIndex].classList.add("show");
+        indicators[currentIndex].classList.add("active");
     }
 
     function autoRotateCarousel() {
         currentIndex = (currentIndex + 1) % phrases.length;
         updateCarousel();
+    }
+
+    function startAutoRotateCarousel(){
+        intervalId = setInterval(function(){
+            autoRotateCarousel();
+            updateCarousel();
+        }, 5000);
     }
 
     indicators.forEach(function(indicator) {

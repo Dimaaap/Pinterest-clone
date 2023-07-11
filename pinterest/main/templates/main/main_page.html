@@ -10,46 +10,5 @@
 {% endblock %}
 
 {% block body %}
-    <section id="top">
-        <header class="main-header">
-            <div class="header-content">
-                <div class="flex-container">
-                    <div class="logo-container">
-                        <h1 class="logo-title">Fineterest</h1>
-                    </div>
-                    <div class="li-content">
-                        <div class="header-options-container">
-                            <ul class="header-options">
-                                <li class="header-li">Опис</li>
-                                <li class="header-li">Бізнес</li>
-                                <li class="header-li">Блог</li>
-                            </ul>
-                        </div>
-                        <div class="login-container">
-                            <a href="#" class="login login-button">Увійти</a>
-                            <a href="#" class="login register-button">Реєстрація</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="main-title">
-            <h1 class="find-new-title">Знайдіть свіжі ідеї:</h1>
-            <div class="carousel">
-                <div id="phrase-container">
-                    <h3 class="carousel-title" id="first-title" data-index="0">Iдея страв на вечерю</h3>
-                    <h3 class="carousel-title" id="second-title" data-index="1">Ідея домашнього декору</h3>
-                    <h3 class="carousel-title" id="third-title" data-index="2">Ідея стильного образу</h3>
-                    <h3 class="carousel-title" id="fourth-title" data-index="3">Ідея для садівників</h3>
-                </div>
-                <br>
-                <div class="carousel-indicators">
-                    <span class="carousel-indicator" id="first-point" data-index="0"></span>
-                    <span class="carousel-indicator" id="second-point" data-index="1"></span>
-                    <span class="carousel-indicator" id="third-point" data-index="2"></span>
-                    <span class="carousel-indicator" id="fourth-point" data-index="3"></span>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include "./_includes/top_section.html" %}
 {% endblock %}
