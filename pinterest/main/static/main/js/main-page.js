@@ -1,3 +1,5 @@
+const button = document.querySelector(".link-btn");
+
 window.addEventListener("DOMContentLoaded", function(){
     let phrases = document.getElementsByClassName("carousel-title");
     const firstPhrase = document.getElementById("first-title");
@@ -18,6 +20,9 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         phrases[currentIndex].classList.add("show");
         indicators[currentIndex].classList.add("active");
+
+        const currentTextColor = window.getComputedStyle(phrases[currentIndex]).color;
+        button.style.backgroundColor = currentTextColor;
     }
 
     function autoRotateCarousel() {
@@ -40,4 +45,14 @@ window.addEventListener("DOMContentLoaded", function(){
     });
 
     setInterval(autoRotateCarousel, 5000);
+    function jumpButton(){
+    button.style.transform = "translateY(-20px)";
+    button.addEventListener("transitionend", function() {
+    button.style.transform = "translateY(0)";
+    setTimeout(jumpButton, 500);
+  }, { once: true });
+}
+
+jumpButton();
+
 })
