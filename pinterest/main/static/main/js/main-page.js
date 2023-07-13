@@ -7,9 +7,42 @@ window.addEventListener("DOMContentLoaded", function(){
     const indicators = document.querySelectorAll(".carousel-indicator");
     const firstIndicator = document.getElementById("first-point");
     firstIndicator.classList.add("active");
+    const photos = document.querySelectorAll(".section-img");
+
+    const photoGroups = [
+        [
+            "../static/main/images/main_page/dishes/dishes-first.jpg",
+            "../static/main/images/main_page/dishes/dishes-two.jpg",
+            "../static/main/images/main_page/dishes/dishes-three.jpg",
+            "../static/main/images/main_page/dishes/dishes-four.jpg",
+
+        ],
+        [
+            "../static/main/images/main_page/house-decor/house-first.jpg",
+            "../static/main/images/main_page/house-decor/house-second.jpg",
+            "../static/main/images/main_page/house-decor/house-third.jpg",
+            "../static/main/images/main_page/house-decor/house-fourth.jpg"
+        ],
+        [
+            "../static/main/images/main_page/fashion-look/look-first.jpg",
+            "../static/main/images/main_page/fashion-look/look-second.jpg",
+            "../static/main/images/main_page/fashion-look/look-third.jpg",
+            "../static/main/images/main_page/fashion-look/look-fourth.jpg"
+
+        ],
+        [
+            "../static/main/images/main_page/style-garden/garden-first.jpg",
+            "../static/main/images/main_page/style-garden/garden-second.jpg",
+            "../static/main/images/main_page/style-garden/garden-third.jpg",
+            "../static/main/images/main_page/style-garden/garder-fourh.jpg",
+        ]
+    ]
+    const carouselGroups = document.querySelectorAll(".carousel-group")
+    const carouselPhotos = document.querySelector(".carousel-photos");
 
     let currentIndex = 0;
     let intervalId;
+
 
     //Функція, яка проходиться кожною фразою і кожним значком у списку фраз і значків і спочатку приховує все,а потім
     //ітеративно відкриває наступний елемент у списку
@@ -20,6 +53,21 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         phrases[currentIndex].classList.add("show");
         indicators[currentIndex].classList.add("active");
+        const currentGroup = photoGroups[currentIndex];
+        carouselPhotos.innerHTML = "";
+
+        currentGroup.forEach(function(photoSrc, index){
+            const img = document.createElement("img");
+            img.src = photoSrc;
+            img.classList.add("section-img");
+            if(index === 1 || index === 2){
+                img.classList.add("lower");
+            }
+            if(index === 2){
+                img.classList.add("left-section")
+            }
+            carouselPhotos.appendChild(img);
+        })
 
         const currentTextColor = window.getComputedStyle(phrases[currentIndex]).color;
         button.style.backgroundColor = currentTextColor;
