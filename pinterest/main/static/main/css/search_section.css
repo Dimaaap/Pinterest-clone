@@ -2,7 +2,120 @@
     font-family: "Rubik";
 }
 
+
 #search {
     background: #E2FD31;
     margin-bottom: 0px;
+}
+
+.content {
+    padding: 50px;
+    display: flex;
+    height: 100%;
+}
+
+.img-content {
+    position: relative;
+    width: 70%;
+    height: 36em;
+}
+
+.img-container {
+    position: relative;
+}
+
+
+.img-container:nth-child(1) {
+    margin-top: 10%;
+    margin-left: 20%;
+    position: relative;
+    z-index: 4;
+}
+
+.img-container:nth-child(2){
+    margin-top: -48%;
+    margin-left: 40%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.img-container:nth-child(3){
+    margin-top: -3%;
+    margin-left: 5%;
+    position: relative;
+    z-index: 1;
+}
+
+.img-container:nth-child(4){
+    margin-left: 40%;
+    z-index: 1;
+}
+
+.search {
+    position: relative;
+    z-index: 6;
+    margin-left: 20%;
+    margin-top: -33%;
+}
+
+.search-chicken-dinner {
+    display: inline-block;
+    text-decoration: none;
+    color: #C40101;
+    font-weight: bold;
+    font-size: 18px;
+    background: white;
+    padding: 10px;
+    max-width: 35%;
+    border-radius: 50px;
+    text-align: center;
+    margin-top: -50%;
+}
+
+.search-chicken-dinner span {
+    margin-left: -10px;
+}
+
+.search-chicken-dinner:hover {
+    color: #C40101;
+}
+
+.img-content img {
+    border-radius: 50px;
+}
+
+.title-content {
+    flex: 1;
+}
+
+.title-content {
+    padding-top: 20px;
+    text-align: left;
+    width: 30%;
+    margin-left: -20px;
+    color: #C40101;
+    margin-right: 40px;
+}
+
+.title-content .title-main {
+    margin-top: 140px;
+    font-size: 50px;
+    margin-left: -10px;
+}
+
+.title-content .title-description {
+    font-size: 25px;
+    margin-left: -50px;
+    text-align: center;
+}
+
+.title-content .result-btn {
+    background: #C40101;
+    color: #E2FD31;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 0 7px;
+    margin-left: 110px;
 }

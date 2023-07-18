@@ -1,0 +1,52 @@
+* {
+      font-family: "Rubik";
+}
+
+#save {
+    height: 100%;
+    color: black;
+    background: #76F7FF;
+}
+
+.main-content {
+    display: flex;
+    height: 56em;
+    padding: 50px;
+}
+
+.text-content {
+    padding-top: 200px;
+    position: relative;
+    width: 50%;
+    color: #006E76;
+}
+
+.text-content .title-main {
+    width: 75%;
+    justify-content:center;
+    text-align: center;
+    font-size: 55px;
+}
+
+.text-content .title-main h1 {
+    font-size: 50px;
+}
+
+.text-content .title-main .title-desc {
+    font-size: 18px;
+    width: 60%;
+    justify-content: center;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.text-content .look-btn {
+    background: #006E76;
+    color: #76F7FF;
+    border: none;
+    border-radius: 30px;
+    padding: 0 7px;
+    margin-top: -60px;
+    font-weight: bold;
+}
+

@@ -4,15 +4,16 @@
 {% block css_additional %}
     <link rel="stylesheet" href="{% static 'main/css/main_page.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/search_section.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/third_section.css' %}">
 {% endblock %}
 
 {% block js_additional %}
     <script type="module" src="{% static 'main/js/main-page.js' %}"></script>
     <script type="module" src="{% static 'main/js/photoGroups.js' %}"></script>
-
 {% endblock %}
 
 {% block body %}
     {% include "./_includes/top_section.html" %}
     {% include "./_includes/search_section.html" %}
+    {% include "./_includes/third_section.html" %}
 {% endblock %}
