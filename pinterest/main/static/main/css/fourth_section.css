@@ -25,15 +25,76 @@
 }
 
 .background-image-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
     height: 43em;
 }
 
-.description {
-    margin: 70px;
+.inner-image {
+    position: absolute;
+    top: 240px;
+    left: 60px;
     width: 200px;
+    height: 200px;
+}
+
+.pean-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 2;
+    border-radius: 30px;
+}
+
+.description {
+    margin-top: 120px;
+    margin-left: 220px;
 }
 
 .description h1 {
-    width: 100px;
+    width: 420px;
+    color: #C01919;
+    font-size: 65px;
+    font-weight: 500;
+}
+
+.description p {
+    color: #C01919;
+    font-size: 20px;
+    width: 350px;
+}
+
+.description .part-description {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.circle_avatar {
+    position: absolute;
+}
+
+.watch-btn {
+    text-decoration: none;
+    background: #C01919;
+    color: #FF9494;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 40px;
+    margin-left: 110px;
+    margin-top: 30px;
+}
+
+.watch-btn:hover {
+    color: #FF9494;
+}
+
+.pean-image {
+    width: 200px;
+    height: 300px;
 }
