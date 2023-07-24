@@ -1,0 +1,34 @@
+.layout-content {
+    background-image: url("../images/registration_section/background_image.jpg");
+    height: 43em;
+    display: flex;
+    position: relative;
+    padding: 15%;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.desc-content {
+    position: relative;
+    width: 50%;
+    z-index: 2;
+    background-color: transparent;
+}
+
+.desc-content h1 {
+    color: white;;
+    font-size: 60px;
+}
+
+.form-content {
+    position: relative;
+    width: 50%;
+}

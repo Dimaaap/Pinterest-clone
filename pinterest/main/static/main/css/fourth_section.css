@@ -75,8 +75,29 @@
     margin-bottom: 30px;
 }
 
-.circle_avatar {
+.circle-avatar {
     position: absolute;
+    z-index: 999;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 440px;
+    left: 6%;
+    border: 2px solid white;
+}
+
+.avatar-description {
+    color: white;
+    top: 480px;
+    left: 22%;
+    border: none;
+}
+
+.avatar-title {
+    font-weight: 500;
+    display: inline-block;
+    width: 120%;
+    margin-bottom: -5px;
 }
 
 .watch-btn {
