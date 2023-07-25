@@ -1,13 +1,56 @@
 <section id="registration">
-    <div class="layout-content">
-        <div class="background-overlay">
+    <div class="background-overlay">
+        <div class="layout-content left-content">
             <div class="desc-content">
                 <h1 class="section-desc">Зареєструйтесь, щоб знаходити більше ідей</h1>
             </div>
         </div>
+    </div>
+    <div class="layout-content right-content">
         <div class="form-content">
             <form class="signin-form" method="post">
+                <h2 class="form-header">
+                    Ласкаво просимо у <br>Pinterest
+                </h2>
+                <p class="form-description">
+                    Знаходьте нові ідеї для <br>натхнення
+                </p>
                 {% csrf_token %}
+                {% for field in form %}
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                {% endfor %}
+                <a type="submit" class="continue-button">
+                    Продовжити
+                </a>
+                <h6>або</h6>
+                <a class="continue-with-btn" id="facebook">
+                    Продовжити як Користувач
+                </a>
+                <div class="space"></div>
+                <a class="continue-with-btn" id="google">
+                    Продовжити як Користувач
+                </a>
+                <p class="usage-terms">
+                    Продовжуючи, ви погоджуєтесь із
+                    положеннями основних документів Pinterest.
+                    Це <strong>
+                        <a href="#">Умови надавання послуг</a>
+                    </strong>
+                    і <strong>
+                        <a href="#">Політика конфіденційності</a>
+                    </strong>
+                    .А також підтверджуєте, що прочитали їх.
+                    <strong>
+                        <a href="№">Повідомлення</a>
+                    </strong>
+                </p>
+                <p class="login">
+                    Уже зареєструвались?
+                    <strong>
+                        <a href="#">Увійти</a>
+                    </strong>
+                </p>
             </form>
         </div>
     </div>

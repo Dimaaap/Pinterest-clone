@@ -1,9 +1,6 @@
-.layout-content {
-    background-image: url("../images/registration_section/background_image.jpg");
-    height: 43em;
-    display: flex;
+#registration {
     position: relative;
-    padding: 15%;
+    height: 43em;
 }
 
 .background-overlay {
@@ -12,23 +9,147 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url("../images/registration_section/background_image.jpg");
+}
+
+.background-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+}
+
+.left-content,
+.right-content {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.left-content {
+    position: absolute;
+    top: 0;
+    padding: 15%;
+    left: 0;
+}
+
+.right-content {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .desc-content {
-    position: relative;
-    width: 50%;
-    z-index: 2;
     background-color: transparent;
 }
 
 .desc-content h1 {
-    color: white;;
+    color: white;
     font-size: 60px;
 }
 
 .form-content {
-    position: relative;
-    width: 50%;
+    background-color: transparent;
+    height: 100%;
+}
+
+.form-content form {
+    height: 100%;
+    padding: 50px;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: -10%;
+    background: white;
+    height: 100%;
+}
+
+.form-content form h2 {
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.form-content form p {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.form-content form .form-control {
+    border-radius: 15px;
+    height: 45px;
+    width: 85%;
+    margin-left: 30px;
+}
+
+.form-content form label {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.continue-button {
+    text-decoration: none;
+    margin-left: 30px;
+    background: #C00707;
+    color: white;
+    border-radius: 15px;
+    padding: 7px;
+    margin-top: 10px;
+    width: 85%;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.continue-button:hover {
+    color: white;
+    background: #AE0707;
+}
+
+form h6 {
+    margin-left: 50%;
+    margin-top: 2%;
+}
+
+form .continue-with-btn {
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+#facebook {
+    color: white;
+    background: #34299A;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    width: 200%;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+br {
+    margin-bottom: 10px;
+}
+
+form .space {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+form #google {
+    border: 1px solid gray;
+    color: black;
+    margin-bottom: -100px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-weight: 500;
 }
