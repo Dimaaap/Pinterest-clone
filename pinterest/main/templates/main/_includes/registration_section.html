@@ -8,6 +8,12 @@
     </div>
     <div class="layout-content right-content">
         <div class="form-content">
+            <div class="first-section-link">
+                <a href="#top" class="link-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/130/130906.png "
+                         width="12" height="12" alt="" title="" class="img-small">
+                </a>
+            </div>
             <form class="signin-form" method="post">
                 <h2 class="form-header">
                     Ласкаво просимо у <br>Pinterest
@@ -19,10 +25,11 @@
                 {% for field in form %}
                     <label>{{ field.label }}</label>
                     {{ field }}
+                    {{ field.errors }}
                 {% endfor %}
-                <a type="submit" class="continue-button">
+                <button type="submit" class="continue-button">
                     Продовжити
-                </a>
+                </button>
                 <h6>або</h6>
                 <a class="continue-with-btn" id="facebook">
                     Продовжити як Користувач
@@ -31,26 +38,26 @@
                 <a class="continue-with-btn" id="google">
                     Продовжити як Користувач
                 </a>
-                <p class="usage-terms">
-                    Продовжуючи, ви погоджуєтесь із
-                    положеннями основних документів Pinterest.
-                    Це <strong>
-                        <a href="#">Умови надавання послуг</a>
-                    </strong>
-                    і <strong>
-                        <a href="#">Політика конфіденційності</a>
-                    </strong>
-                    .А також підтверджуєте, що прочитали їх.
-                    <strong>
-                        <a href="№">Повідомлення</a>
-                    </strong>
-                </p>
-                <p class="login">
-                    Уже зареєструвались?
-                    <strong>
-                        <a href="#">Увійти</a>
-                    </strong>
-                </p>
+                    <p class="usage-terms">
+                        Продовжуючи, ви погоджуєтесь із
+                        положеннями основних документів Pinterest.
+                        Це <strong>
+                            <a href="#">Умови надавання послуг</a>
+                        </strong>
+                        і <strong>
+                            <a href="#">Політика конфіденційності</a>
+                        </strong>
+                        .А також підтверджуєте, що прочитали їх.
+                        <strong>
+                            <a href="№">Повідомлення</a>
+                        </strong>
+                    </p>
+                    <p id="login">
+                        Уже зареєструвались?
+                        <strong>
+                            <a href="#">Увійти</a>
+                        </strong>
+                    </p>
             </form>
         </div>
     </div>

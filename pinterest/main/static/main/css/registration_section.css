@@ -44,6 +44,16 @@
     right: 0;
 }
 
+.first-section-link {
+    position: absolute;
+    top: 20px;
+    left: -150px;
+}
+
+.link-btn {
+    background: #9A1313
+}
+
 .desc-content {
     background-color: transparent;
 }
@@ -64,16 +74,22 @@
     border-radius: 40px;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-left: -10%;
+    width: 65%;
+    margin-left: 5%;
     background: white;
     height: 100%;
+    z-index: 2;
+    
 }
 
 .form-content form h2 {
     width: 100%;
     text-align: center;
     line-height: 1.4;
+}
+
+.form-description {
+    margin-bottom: -5px;
 }
 
 .form-content form p {
@@ -125,7 +141,7 @@ form .continue-with-btn {
 #facebook {
     color: white;
     background: #34299A;
-    padding: 10px 20px;
+    padding: 10px 40px;
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
@@ -147,9 +163,43 @@ form .space {
 
 form #google {
     border: 1px solid gray;
+    width: 200px;
     color: black;
     margin-bottom: -100px;
     border-radius: 15px;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    font-weight: 500;
+}
+
+.login,
+.usage-terms {
+    max-width: 90%;
+    font-size: 11px;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.usage-terms a {
+    text-decoration: none;
+    color: black;
+}
+
+#login {
+    margin-top: -10px;
+    margin-bottom: -30px;
+}
+
+#login a {
+    text-decoration: none;
+    color: black;
+}
+
+.errorlist {
+    list-style-type: none;
+    color: red;
+    font-size: 12px;
+    margin-bottom: -10px;
     font-weight: 500;
 }
