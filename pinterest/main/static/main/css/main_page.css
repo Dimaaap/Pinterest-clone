@@ -323,3 +323,11 @@ header {
 .style-garden {
     display: none;
 }
+
+footer {
+    position: relative;
+    height: 8%;
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: -15px;
+}

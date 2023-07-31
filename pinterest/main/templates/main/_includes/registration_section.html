@@ -14,7 +14,7 @@
                          width="12" height="12" alt="" title="" class="img-small">
                 </a>
             </div>
-            <form class="signin-form" method="post">
+            <form class="signin-form" method="post" id="registration-form">
                 <h2 class="form-header">
                     Ласкаво просимо у <br>Pinterest
                 </h2>
@@ -22,10 +22,13 @@
                     Знаходьте нові ідеї для <br>натхнення
                 </p>
                 {% csrf_token %}
+                <input type="hidden" value="first-form">
                 {% for field in form %}
                     <label>{{ field.label }}</label>
                     {{ field }}
-                    {{ field.errors }}
+                    {% if field.errors %}
+                        {{ field.errors }}
+                    {% endif %}
                 {% endfor %}
                 <button type="submit" class="continue-button">
                     Продовжити
@@ -55,10 +58,28 @@
                     <p id="login">
                         Уже зареєструвались?
                         <strong>
-                            <a href="#">Увійти</a>
+                            <a href="" id="showLoginForm">Увійти</a>
                         </strong>
                     </p>
             </form>
+            <div class="test-block">
+                <form class="login-form" id="login-form" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="second-form">
+                    <h2 class="form-header">
+                        Ласкаво просимо у <br>Pinterest
+                    </h2>
+                    {% for field in second_form %}
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            {{ field.errors }}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="" class="forgot-password">Забули пароль?</a>
+                    <a href="/" id="showRegistrationForm">Зареєструватись</a>
+                </form>
+            </div>
         </div>
     </div>
 </section>

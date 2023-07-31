@@ -25,6 +25,8 @@ class SigninForm(forms.Form):
         password = str(self.cleaned_data["password"])
         if len(password) < 6:
             raise forms.ValidationError("Надто легкий пароль.Він повинен містити 6 і більше символів")
+        if all([i.isdigit() for i in password]) or all([i.isalpha() for i in password]):
+            raise forms.ValidationError("Пароль має містити хоча б одну літеру і символ")
         return password
 
     def clean_email(self):
@@ -42,4 +44,13 @@ class SigninForm(forms.Form):
             raise forms.ValidationError("Здається ви ввели неправильне значення дати")
         return birthday
 
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(max_length=150, required=True, label="Адреса електронної пошти",
+                             widget=forms.EmailInput(attrs={"class": "form-control",
+                                                            "id": "email-input-login",
+                                                            "placeholder": "Email"}))
+    password = forms.CharField(max_length=100, required=True, label="Пароль",
+                               widget=forms.PasswordInput(attrs={"class": "form-control",
+                                                                 "placeholder": "Пароль"}))
 
