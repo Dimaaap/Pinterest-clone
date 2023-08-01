@@ -23,4 +23,3 @@ loginButton.addEventListener("click", function(event){
     event.preventDefault();
     showLoginForm();
 });
-console.log('adaddadasdsadasd')
