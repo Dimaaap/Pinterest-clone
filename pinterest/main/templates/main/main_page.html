@@ -11,9 +11,12 @@
 {% endblock %}
 
 {% block js_additional %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="module" src="{% static 'main/js/main-page.js' %}"></script>
     <script type="module" src="{% static 'main/js/photoGroups.js' %}"></script>
-    <script src="{% static  'main/js/registration_section.js'%}"></script>
+    <script type="module" src="{% static 'main/js/registration_section.js'%}"></script>
+    <script type="module" src="{% static 'main/js/registration_form_validation.js' %}"></script>
 {% endblock %}
 
 {% block body %}

@@ -22,12 +22,30 @@
                     Знаходьте нові ідеї для <br>натхнення
                 </p>
                 {% csrf_token %}
+                {% if messages %}
+                    <div class="messages">
+                        <!--{% for message in messages %}
+                            {% if message.tags == "error" %}
+                                <div class="error-message">
+                                    {{ message }}
+                                </div>
+                            {% else %}
+                                <div class="success-message">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}-->
+                        <div id="message-box"></div>
+                    </div>
+                {% endif %}
                 <input type="hidden" value="first-form">
                 {% for field in form %}
                     <label>{{ field.label }}</label>
                     {{ field }}
                     {% if field.errors %}
-                        {{ field.errors }}
+                        <div class="field-error">
+                            {{ field.error }}
+                        </div>
                     {% endif %}
                 {% endfor %}
                 <button type="submit" class="continue-button">
@@ -64,6 +82,7 @@
             </form>
             <div class="test-block">
                 <form class="login-form" id="login-form" method="post">
+                    <input type="hidden" value="second-form"/>
                     {% csrf_token %}
                     <input type="hidden" value="second-form">
                     <h2 class="form-header">

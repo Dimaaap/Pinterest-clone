@@ -1,12 +1,16 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import JsonResponse
 
 from .forms import SigninForm, LoginForm
 from .models import User
+from .services import *
 
 
 def main_page_view(request):
-    if request.method == "POST" and "first-form" in request.POST:
+    if request.method == "POST" and "birthday_field" in request.POST:
         form = SigninForm(request.POST)
         if form.is_valid():
             email, password, birthday_date = form.cleaned_data.values()
@@ -14,8 +18,11 @@ def main_page_view(request):
             new_user.save()
             return redirect(wall_page_view)
         else:
-            messages.error(request, "Registration was failed")
-    if request.method == "POST":
+            handle_message_error = handle_error_messages_service(form.errors)
+            response_data = {"result": "error", "message": handle_message_error}
+            return JsonResponse(response_data)
+            # return HttpResponse(handle_message_error, status=400)
+    elif request.method == "POST":
         handle_login_form_service(request)
     form = SigninForm()
     second_form = LoginForm()
@@ -24,7 +31,6 @@ def main_page_view(request):
 
 def wall_page_view(request):
     return render(request, "main/wall_page.html")
-
 
 
 def handle_login_form_service(request):
