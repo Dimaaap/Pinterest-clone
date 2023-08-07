@@ -27,33 +27,55 @@ loginButton.addEventListener("click", function(event){
 
 //Form validation section
 
+
+const handleErrors = (type, text) => {
+    registrationForm.innerHTML = `<div class="alert alert-${type}" role="alert">
+        ${text}
+    </div>`
+}
+
 const messageBox = document.getElementById("message-box");
 const csrf = document.getElementsByName("csrfmiddlewaretoken");
 const email = document.getElementById("email_input");
 const password = document.getElementById("password_input");
-const birthday = document.getElementById("birthday_field");
+const birthday = document.getElementById("birthday_input");
 const url = "";
-console.log("I`m here");
-
-registrationForm.addEventListener("submit", e=>{
-    console.log("Now, I`m here");
-    e.preventDefault();
-    const fd = new FormData();
-    fd.append("csrfmiddlewaretoken", csrf[0].value);
-    fd.append("email", email.value)
-    fd.append("password", password.value)
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: fd,
-        success: function(response){
-            console.log(response);
-        },
-        error: function(error){
-            console.log(error)
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
+$(document).ready(function(){
+    console.log("In document ready")
+    $("#registration-form").on("submit", (function(event) {
+        console.log("In registration form on submit")
+        event.preventDefault();
+        const fd = new FormData();
+        fd.append("csrfmiddlewaretoken", csrf[0].value);
+        fd.append("email", email.value);
+        fd.append("password", password.value);
+        fd.append("birthday", birthday.value);
+        $.ajax({
+            type: "POST",
+            url: "{% url 'main_page_view' %}",
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: (response) => {
+                console.log(`RESPONSE: ${response.result}`)
+                console.log("In success method")
+                if(response.result === "success"){
+                    console.log("No errors")
+                    window.location.href = "{% url 'wall_page_view' %}";
+                }
+                else if(response.result === "error"){
+                    console.log("Errors")
+                    const errorMessage = response.message;
+                    const errorContainer = $("#error-message");
+                    console.log(`Error text - ${errorMessage}`)
+                    errorContainer.text(errorMessage).show();
+                }
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        })
+    }))
 })
+

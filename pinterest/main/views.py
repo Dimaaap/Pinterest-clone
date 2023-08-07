@@ -16,12 +16,13 @@ def main_page_view(request):
             email, password, birthday_date = form.cleaned_data.values()
             new_user = User.objects.create_user(email=email, password=password, birthday=birthday_date)
             new_user.save()
-            return redirect(wall_page_view)
+            return JsonResponse({"result": "success"})
         else:
             handle_message_error = handle_error_messages_service(form.errors)
-            response_data = {"result": "error", "message": handle_message_error}
-            return JsonResponse(response_data)
+            # response_data = {"result": "error", "message": handle_message_error}
+            # return JsonResponse(response_data)
             # return HttpResponse(handle_message_error, status=400)
+            return JsonResponse({"result": "error", "message": handle_message_error})
     elif request.method == "POST":
         handle_login_form_service(request)
     form = SigninForm()

@@ -22,23 +22,8 @@
                     Знаходьте нові ідеї для <br>натхнення
                 </p>
                 {% csrf_token %}
-                {% if messages %}
-                    <div class="messages">
-                        <!--{% for message in messages %}
-                            {% if message.tags == "error" %}
-                                <div class="error-message">
-                                    {{ message }}
-                                </div>
-                            {% else %}
-                                <div class="success-message">
-                                    {{ message }}
-                                </div>
-                            {% endif %}
-                        {% endfor %}-->
-                        <div id="message-box"></div>
-                    </div>
-                {% endif %}
                 <input type="hidden" value="first-form">
+                <div id="error-message"></div>
                 {% for field in form %}
                     <label>{{ field.label }}</label>
                     {{ field }}
