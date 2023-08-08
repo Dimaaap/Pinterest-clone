@@ -39,33 +39,29 @@ const csrf = document.getElementsByName("csrfmiddlewaretoken");
 const email = document.getElementById("email_input");
 const password = document.getElementById("password_input");
 const birthday = document.getElementById("birthday_input");
-const url = "";
+const hiddenField = document.getElementById("hidden-field")
 $(document).ready(function(){
-    console.log("In document ready")
     $("#registration-form").on("submit", (function(event) {
-        console.log("In registration form on submit")
         event.preventDefault();
         const fd = new FormData();
+        fd.append("hidden", hiddenField.value)
         fd.append("csrfmiddlewaretoken", csrf[0].value);
         fd.append("email", email.value);
         fd.append("password", password.value);
-        fd.append("birthday", birthday.value);
+        fd.append("birthday_field", birthday.value);
         $.ajax({
             type: "POST",
-            url: "{% url 'main_page_view' %}",
+            url: "",
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: (response) => {
-                console.log(`RESPONSE: ${response.result}`)
-                console.log("In success method")
                 if(response.result === "success"){
-                    console.log("No errors")
-                    window.location.href = "{% url 'wall_page_view' %}";
+                    window.location.href = "http://127.0.0.1:8080/wall";
+                    console.log("Success response")
                 }
                 else if(response.result === "error"){
-                    console.log("Errors")
                     const errorMessage = response.message;
                     const errorContainer = $("#error-message");
                     console.log(`Error text - ${errorMessage}`)

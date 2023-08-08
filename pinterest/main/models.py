@@ -14,7 +14,7 @@ class User(AbstractBaseUser):
     )
     email = models.EmailField(max_length=155, unique=True)
     password = models.CharField(max_length=255)
-    birthday = models.DateField(auto_now_add=True)
+    birthday = models.DateField(auto_now_add=True, null=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)

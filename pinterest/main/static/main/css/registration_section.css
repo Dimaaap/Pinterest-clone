@@ -232,7 +232,7 @@ form #google {
     color: #776C6C6;
 }
 
-.error-message {
+#error-message {
     margin-left: 30px;
     color: red;
     margin-top: 10px;

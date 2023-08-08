@@ -18,8 +18,8 @@ class SigninForm(forms.Form):
                                                                  "autocomplete": "off"}))
     birthday_field = forms.DateField(required=True, label="Дата народження",
                                      widget=forms.DateInput(attrs={"class": "form-control birthday",
-                                                                   "id": "birthday_input",
-                                                                   "type": "date"}))
+                                                                   "type": "date",
+                                                                   "id": "birthday_input"}))
 
     def clean_password(self):
         password = str(self.cleaned_data["password"])
@@ -53,4 +53,3 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=100, required=True, label="Пароль",
                                widget=forms.PasswordInput(attrs={"class": "form-control",
                                                                  "placeholder": "Пароль"}))
-

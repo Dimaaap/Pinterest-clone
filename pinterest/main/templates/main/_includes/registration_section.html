@@ -22,16 +22,11 @@
                     Знаходьте нові ідеї для <br>натхнення
                 </p>
                 {% csrf_token %}
-                <input type="hidden" value="first-form">
+                <input type="hidden" value="first-form" id="hidden-field">
                 <div id="error-message"></div>
                 {% for field in form %}
                     <label>{{ field.label }}</label>
                     {{ field }}
-                    {% if field.errors %}
-                        <div class="field-error">
-                            {{ field.error }}
-                        </div>
-                    {% endif %}
                 {% endfor %}
                 <button type="submit" class="continue-button">
                     Продовжити
@@ -69,7 +64,6 @@
                 <form class="login-form" id="login-form" method="post">
                     <input type="hidden" value="second-form"/>
                     {% csrf_token %}
-                    <input type="hidden" value="second-form">
                     <h2 class="form-header">
                         Ласкаво просимо у <br>Pinterest
                     </h2>
@@ -80,8 +74,10 @@
                             {{ field.errors }}
                         {% endif %}
                     {% endfor %}
-                    <a href="" class="forgot-password">Забули пароль?</a>
-                    <a href="/" id="showRegistrationForm">Зареєструватись</a>
+                    <a href="" class="forgot-password" style="margin-left: 50px;">Забули пароль?</a>
+                    <a href="/" id="showRegistrationForm" style="text-decoration: none; color: gray; font-weight: 500;">
+                        Зареєструватись
+                    </a>
                 </form>
             </div>
         </div>
