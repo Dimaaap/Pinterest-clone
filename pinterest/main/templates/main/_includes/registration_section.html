@@ -67,6 +67,13 @@
                     <h2 class="form-header">
                         Ласкаво просимо у <br>Pinterest
                     </h2>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="message-error">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     {% for field in second_form %}
                         <label>{{ field.label }}</label>
                         {{ field }}
@@ -75,9 +82,36 @@
                         {% endif %}
                     {% endfor %}
                     <a href="" class="forgot-password" style="margin-left: 50px;">Забули пароль?</a>
-                    <a href="/" id="showRegistrationForm" style="text-decoration: none; color: gray; font-weight: 500;">
-                        Зареєструватись
+                    <button type="submit" class="continue-button">Увійти</button>
+                    <h6>або</h6>
+                    <a class="continue-with-btn" id="facebook-login">
+                        Продовжити як Користувач
                     </a>
+                    <br>
+                    <br>
+                    <a class="continue-with-btn" id="google-login">
+                        Продовжити як Користувач
+                    </a>
+                    <p class="usage-terms">
+                        Продовжуючи, ви погоджуєтесь із
+                        положеннями основних документів Pinterest.
+                        Це <strong>
+                            <a href="#">Умови надавання послуг</a>
+                        </strong>
+                        і <strong>
+                            <a href="#">Політика конфіденційності</a>
+                        </strong>
+                        .А також підтверджуєте, що прочитали їх.
+                        <strong>
+                            <a href="№">Повідомлення</a>
+                        </strong>
+                    </p>
+                    <a href="/" id="showRegistrationForm" class="registration-text">
+                        Ще не зареєструвались в Fineterest? Зареєструватись
+                    </a>
+                    <p class="organisation-member">
+                        Представник організації? <a href="#">Вам сюди</a>
+                    </p>
                 </form>
             </div>
         </div>

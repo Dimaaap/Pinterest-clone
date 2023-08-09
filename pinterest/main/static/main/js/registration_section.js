@@ -64,7 +64,6 @@ $(document).ready(function(){
                 else if(response.result === "error"){
                     const errorMessage = response.message;
                     const errorContainer = $("#error-message");
-                    console.log(`Error text - ${errorMessage}`)
                     errorContainer.text(errorMessage).show();
                 }
             },
@@ -74,4 +73,3 @@ $(document).ready(function(){
         })
     }))
 })
-

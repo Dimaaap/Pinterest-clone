@@ -1,3 +1,6 @@
 1) When user sent invalid data in registration form, the page with form reload and
 user have to scroll down back to form, to see an error message
-STATUS:                                         IN PROCESS
+STATUS:                                         FIXED
+2) When user sent invalid data in LOGIN FORM, the page with form reload and user have to
+scroll down back to form, to see an error message
+STATUS:                                         ON PROCESS
