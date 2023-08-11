@@ -81,7 +81,7 @@
                             {{ field.errors }}
                         {% endif %}
                     {% endfor %}
-                    <a href="" class="forgot-password" style="margin-left: 50px;">Забули пароль?</a>
+                    <a href="{% url 'reset-password' %}" class="forgot-password" style="margin-left: 50px;">Забули пароль?</a>
                     <button type="submit" class="continue-button">Увійти</button>
                     <h6>або</h6>
                     <a class="continue-with-btn" id="facebook-login">
