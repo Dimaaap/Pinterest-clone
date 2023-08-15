@@ -15,7 +15,7 @@ class FindUserForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data["email"]
         try:
-            User.onjects.get(email=email)
+            User.objects.get(email=email)
         except ObjectDoesNotExist:
             raise forms.ValidationError("Користувача із таким email не чув би")
         return email
