@@ -1,8 +1,12 @@
 import uuid
+from time import time
+
+import jwt
 
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.utils import timezone
+from django.conf import settings
 
 from .managers import CustomUserManager
 
@@ -25,3 +29,17 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+    def get_reset_password_token(self, expires_in=1440):
+        return jwt.encode({
+            "reset_password": self.pk, "exp": time() + expires_in
+        }, settings.SECRET_KEY, algorithm="HS256")
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            id = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])['reset_password']
+        except Exception as e:
+            print(e)
+            return
+        return User.objects.get(pk=id)

@@ -23,11 +23,11 @@ inputField.addEventListener("input", function(event){
 inputField.addEventListener("input", function(e){
     if (inputField.value.includes(".com") && inputField.value.length >= 6){
         sendMailButton.style.display = "block";
-        find.email.style.backgroundColor = "gray";
+        findEmailButton.style.backgroundColor = "gray";
     }
     else {
         sendMailButton.style.display = "none";
-        find.email.style.backgroundColor = "red";
+        findEmailButton.style.backgroundColor = "red";
     }
 })
 
@@ -52,3 +52,11 @@ cancelBtn.addEventListener("click", function(){
     searchIcon.style.display = "block";
     cancelIcon.style.display = "none";
 })
+
+//const resetPasswordSection = document.querySelector(".reset-password");
+//const confirmationBlock = document.querySelector(".sending-confirmation");
+//
+//sendMailButton.addEventListener("click", () => {
+//    resetPasswordSection.innerHTML = "";
+//    confirmationBlock.style.display = "block";
+//})
