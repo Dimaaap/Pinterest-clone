@@ -53,10 +53,35 @@ cancelBtn.addEventListener("click", function(){
     cancelIcon.style.display = "none";
 })
 
-//const resetPasswordSection = document.querySelector(".reset-password");
-//const confirmationBlock = document.querySelector(".sending-confirmation");
-//
-//sendMailButton.addEventListener("click", () => {
-//    resetPasswordSection.innerHTML = "";
-//    confirmationBlock.style.display = "block";
-//})
+const confirmationBlock = document.querySelector(".sending-confirmation");
+const formSection = document.querySelector(".reset-password")
+
+$(document).ready(function(){
+    $(".find-user-form").submit(function(event){
+    console.log("here")
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/password/reset",
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response){
+                if(response.status === "success"){
+                    confirmationBlock.style.display = "block";
+                    formSection.style.display = "none";
+                }
+            },
+            error: function(xhr) {
+                $("#message").text("Помилка при відправці запиту")
+            }
+
+        })
+    })
+})
+
+const repeatBtn = document.getElementById("repeat");
+repeatBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    confirmationBlock.style.display = "none";
+    formSection.style.display = "block";
+})

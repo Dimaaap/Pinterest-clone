@@ -24,6 +24,8 @@ INSTALLED_APPS = [
 
     'main',
     'password',
+
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -110,3 +112,11 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = config("EMAIL_PORT")
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+
+#CELERY
+
+CELERY_BROKEN_URL = "django://"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_RESULT_BACKEND = f"db+postgresql://{config('DB_USER')}:{config('DB_PASSWORD')}@" \
+                        f"{config('DB_HOST')}/{config('DB_NAME')}"
+

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 
 from .forms import FindUserForm, SetNewPasswordForm
 
@@ -22,10 +23,13 @@ def reset_password_view(request):
                 html_message = render_to_string("password/email.html", {"email": user_email, "token": token})
                 email = EmailMessage("Скидання паролю", html_message, settings.EMAIL_HOST_USER, [user_email])
                 email.content_subtype = "html"
+                email.fail_silently = False
                 email.send()
+                return JsonResponse({"status": "success"})
             except Exception as e:
                 print(e)
                 messages.error(request, "Виникла помилка при надсиланні листа на вашу адресу")
+                return JsonResponse({"status": "false"})
         else:
             messages.error(request, "Помилка надсилання форми")
     else:
