@@ -58,20 +58,22 @@ const formSection = document.querySelector(".reset-password")
 
 $(document).ready(function(){
     $(".find-user-form").submit(function(event){
-    console.log("here")
         event.preventDefault();
+        $("#loading-spinner").show()
         $.ajax({
             type: "POST",
             url: "/password/reset",
             data: $(this).serialize(),
             dataType: "json",
             success: function(response){
+                $("#loading-spinner").hide();
                 if(response.status === "success"){
                     confirmationBlock.style.display = "block";
                     formSection.style.display = "none";
                 }
             },
             error: function(xhr) {
+                $("#loading-spinner").hide();
                 $("#message").text("Помилка при відправці запиту")
             }
 

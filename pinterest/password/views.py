@@ -40,14 +40,14 @@ def reset_password_view(request):
 def create_new_password_view(request, user_email: str, user_token: str):
     current_user = USER_MODEL.objects.get(email=user_email)
     user = current_user.verify_reset_password_token(user_token)
-    print(current_user, user)
     if not user:
-        print(user)
         return redirect(reset_password_view)
     if request.method == "POST":
         form = SetNewPasswordForm(request.POST)
         if form.is_valid():
-            pass
+            password = form.cleaned_data["password"]
+            user.set_password(password)
+            user.save()
         else:
             return messages.error(request, "Упс...Схоже,щось пішло не так")
     else:

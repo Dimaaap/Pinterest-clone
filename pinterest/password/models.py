@@ -1,3 +1,9 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
-# Create your models here.
+USER_MODEL = get_user_model()
+
+
+class UserPassword(models.Model):
+    user = models.ManyToManyField(USER_MODEL)
+
