@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load inlinecss %}
+{% inlinecss "password/css/email.css" %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -9,9 +11,8 @@
     </head>
     <body>
         <h1>Ми отримали ваш запит</h1>
-        <p>Оберіть варіант нижче,щоб повернутись до облікового запису</p>
-        <a href="http://127.0.0.1:8080{% url 'create-new-password' user_email=email user_token=token %}" class="btn btn-reset-password" id="btn-reset-password"
-           style="background: #D00000; border: none; border-radius: 5px; text-decoration: none; color: white; padding: 10px 6px;">
+        <p>Оберіть варіант нижче, щоб повернутись до облікового запису</p>
+        <a href="http://127.0.0.1:8080{% url 'create-new-password' user_email=email user_token=token %}" class="btn btn-reset-password" id="btn-reset-password">
             Скинути пароль
         </a>
         <a href="#" class="btn btn-without-password" id="btn-enter-without-password">Увійти без пароля</a>
@@ -32,3 +33,4 @@
         </footer>
     </body>
 </html>
+{% endinlinecss %}

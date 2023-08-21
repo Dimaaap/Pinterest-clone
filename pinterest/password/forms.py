@@ -1,7 +1,10 @@
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import get_user_model
 
 from main.models import User
+
+USER_MODEL = get_user_model()
 
 
 class FindUserForm(forms.Form):
@@ -43,13 +46,12 @@ class SetNewPasswordForm(forms.Form):
     def clean_new_password(self):
         new_password = self.cleaned_data["new_password"]
         if all([i.isalpha() for i in new_password]) or all([i.isdigit() for i in new_password]):
-            raise forms.ValidationError("Надто прости пароль.Він має містити хоча б одну цифру(1-9) і один символ")
+            raise forms.ValidationError("Надто простий пароль.Він має містити хоча б одну цифру(1-9) і один символ")
         return new_password
 
-    def clean(self, *args, **kwargs):
-        cleaned_data = super().clean()
-        new_password = cleaned_data['new_password']
-        repeat_new_password = cleaned_data["repeat_new_password"]
-        if new_password != repeat_new_password:
-            raise forms.ValidationError("Паролі повинні бути однаковими")
-        return cleaned_data
+    def clean_repeat_new_password(self):
+        new_password = self.cleaned_data.get("new_password")
+        repeat_new_password = self.cleaned_data.get("repeat_new_password")
+        if new_password and repeat_new_password and new_password != repeat_new_password:
+            raise forms.ValidationError('Паролі не співпадають')
+        return repeat_new_password

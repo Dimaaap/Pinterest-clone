@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 from .forms import FindUserForm, SetNewPasswordForm
+from .services import *
 
 USER_MODEL = get_user_model()
 
@@ -38,19 +40,27 @@ def reset_password_view(request):
 
 
 def create_new_password_view(request, user_email: str, user_token: str):
-    current_user = USER_MODEL.objects.get(email=user_email)
+    try:
+        current_user = USER_MODEL.objects.get(email=user_email)
+    except ObjectDoesNotExist:
+        return messages.error(request, "Щось пішло не так")
     user = current_user.verify_reset_password_token(user_token)
     if not user:
         return redirect(reset_password_view)
     if request.method == "POST":
         form = SetNewPasswordForm(request.POST)
         if form.is_valid():
-            password = form.cleaned_data["password"]
-            user.set_password(password)
-            user.save()
+            password = form.cleaned_data["new_password"]
+            if not check_if_new_password_service(user, password):
+                user.set_password(password)
+                user.save()
+                return JsonResponse({"success": True})
+            else:
+                form.add_error("new_password", "Новий пароль не може співпадати із старим")
+                return JsonResponse({"success": False})
         else:
-            return messages.error(request, "Упс...Схоже,щось пішло не так")
+            messages.error(request, "Упс...Щось пішло не так")
     else:
         form = SetNewPasswordForm()
-    return render(request, "password/set_new_password.html", {"form": form})
+    return render(request, "password/set_new_password.html", {"form": form, "email": user_email, "token": user_token})
 

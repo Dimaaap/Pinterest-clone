@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'password',
 
     'celery',
+    'django_inlinecss'
 ]
 
 MIDDLEWARE = [
