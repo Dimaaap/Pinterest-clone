@@ -1,0 +1,11 @@
+<section class="category-section">
+    <div class="row">
+        {% for chapter in chapters %}
+        <div class="col-6 section-chapter" id="chapter_{{chapter.id}}">
+            <h2 class="chapter-title">{{ chapter.title }}</h2>
+            <p class="chapter-description">{{ chapter.description }}</p>
+            <a href="#" class="btn more-detail-btn">Детальніше</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>

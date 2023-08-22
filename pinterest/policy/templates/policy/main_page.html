@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/main_page.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Політики і керівництва
+        </h1>
+        <p class="section-desc">
+            Ми вважаємо, що у кожного повинна бути можливість знайти у Fineterest
+            своє натхнення.Ось наші правила, які викликають лише приємні враження
+        </p>
+    </section>
+    {% include "./_includes/category_section.html" %}
+{% endblock %}

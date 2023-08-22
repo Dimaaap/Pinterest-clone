@@ -1,0 +1,218 @@
+body {
+    font-family: "Rubik";
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #FFCECE;
+    height: 20%;
+}
+
+header ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+header ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    max-width: 10%;
+    cursor: pointer;
+    height: 100%;
+}
+
+header ul li a {
+    color: #C41F1F;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    color: #FF8315;
+}
+
+.main-page{
+    color: #C41F1F;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+.main-page .section-title {
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+.main-page .section-desc {
+    font-size: 1.2rem;
+    max-width: 60%;
+    margin-left: 10%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 8%;
+    margin-bottom: 10%;
+}
+
+
+.section-chapter {
+    padding: 10px;
+    color: #C41F1F;
+    height: 300px;
+}
+
+
+.section-chapter h2 {
+    font-weight: 400;
+    margin-left: 20%;
+    margin-top: 10%;
+    text-align: left;
+    justify-content: left;
+}
+
+.section-chapter p {
+    margin-left: 18%;
+    margin-top: 5%;
+    text-align: left;
+    font-size: 1.1rem;
+    justify-content: left;
+}
+
+.section-chapter a {
+    background: transparent;
+    border: 3px solid #6B1F68;
+    border-radius: 25px;
+    margin-left: 38%;
+    padding: 10px;
+    color: #6B1F68;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.section-chapter a:hover {
+    background-color: #6B1F68;
+    color: white;
+    font-weight: 500;
+}
+
+#chapter_1 {
+    background-color: #FFC897;
+}
+
+#chapter_2 {
+    background-color: #F3F30E;
+    margin-right: 0;
+}
+
+#chapter_2 p {
+    margin-left: 26%;
+    max-width: 50%;
+}
+
+#chapter_3 {
+    background: #7CFFEA;
+}
+
+#chapter_3 h2{
+    margin-left: 35%;
+}
+
+#chapter_3 p{
+    margin-left: 24%;
+}
+
+#chapter_4 {
+    background: #FF9E9E;
+}
+
+#chapter_4 h2 {
+    margin-left: 35%;
+}
+
+#chapter_4 p {
+    margin-left: 30%;
+}
+
+#chapter_4 a {
+    margin-left: 37%;
+}
+
+#chapter_5 {
+    background: #96D6F6;
+}
+
+#chapter_5 h2 {
+    margin-left: 36%;
+}
+
+#chapter_5 p {
+    margin-left: 25%;
+}
+
+#chapter_6 {
+    background: #AA99EC;
+}
+
+#chapter_6 h2{
+    margin-left: 36%;
+}
+
+#chapter_6 p {
+    margin-left: 23%;
+}
+
+#chapter_6 a {
+    margin-left: 40%;
+}
+
+#chapter_7 {
+    background: #5EE4BB;
+}
+
+#chapter_7 h2 {
+    margin-left: 29%;
+}
+
+#chapter_7 p {
+    margin-left: 20%;
+}
+
+#chapter_8 {
+    background: #D9CAE5;
+}
+
+#chapter_8 h2 {
+    margin-left: 31%;
+}
+
+#chapter_8 p {
+    margin-left: 21%;
+}
+
+#chapter_9 {
+    background: #FFC897;
+}
+
+#chapter_9 h2 {
+    margin-left: 13%;
+}
+
+#chapter_9 p {
+    margin-left: 25%;
+}
+
+#chapter_10 {
+    background: #F3F30E;
+}
+
+#chapter_10 p {
+    margin-left: 15%;
+}

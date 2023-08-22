@@ -6,5 +6,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('password', include("password.urls"))
+    path('password', include("password.urls")),
+    path("policy", include("policy.urls"))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

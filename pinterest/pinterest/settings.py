@@ -24,9 +24,9 @@ INSTALLED_APPS = [
 
     'main',
     'password',
+    "policy",
 
     'celery',
-    'django_inlinecss'
 ]
 
 MIDDLEWARE = [
