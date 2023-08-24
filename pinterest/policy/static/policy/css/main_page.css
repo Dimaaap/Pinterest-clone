@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Recursive:wght@300;400;500;600;700;800&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     font-family: "Rubik";
     margin: 0;
@@ -11,6 +13,8 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
     background: #FFCECE;
     height: 20%;
 }
@@ -215,4 +219,77 @@ header ul li a:hover {
 
 #chapter_10 p {
     margin-left: 15%;
+}
+
+.policy_footer{
+    background-color: #FFC897;
+    margin-top: 25%;
+    margin-bottom: -15px;
+    padding-left: 40px;
+}
+
+.policy_footer .site-logo {
+    font-family: "Lobster", cursive;
+    color: #0017AB;
+    font-size: 3rem;
+}
+
+.policy_footer form {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+    margin-right: 10%;
+}
+
+.policy_footer form label {
+    color: #0017AB;
+}
+
+.policy_footer .form-control {
+    max-width: 100%;
+    border: 2px solid #0017AB;
+    height: 50px;
+    border-radius: 15px;
+}
+
+.policy_footer form img {
+    position: absolute;
+    top: 389%;
+    left: 20%;
+    cursor: pointer;
+}
+
+.links-section {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.links-section h5 {
+    color: #0017AB;
+}
+
+.links-section ul {
+   list-style-type: none;
+   margin-left: -30px;
+}
+
+.links-section ul li a {
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.links-section ul li a:hover {
+    text-decoration: underline;
+    color: #0022F;
+}
+
+.about-links, .policy-links {
+    float: left;
+    margin-right: 15%;
+}
+
+.policy_footer .copyright {
+    color: #0017AB;
+    font-size: 0.9rem;
 }

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Recursive:wght@300;400;500;600;700;800&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Rubik";
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: #FFCECE;
+    height: 20%;
+}
+
+header ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+header ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    max-width: 10%;
+    cursor: pointer;
+    height: 100%;
+}
+
+header ul li a {
+    color: #C41F1F;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    color: #FF8315;
+}
+
+.main-page{
+    color: #C41F1F;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+.section-title {
+    font-size: 5rem;
+    font-weight: 400;
+    margin-bottom: 20%;
+}
+
+article {
+    max-width: 60%;
+}
+
+.page-title {
+    font-size: 2.7rem;
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+article .page-body {
+    font-size: 1.2rem;
+}

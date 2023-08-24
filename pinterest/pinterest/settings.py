@@ -121,3 +121,5 @@ CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_RESULT_BACKEND = f"db+postgresql://{config('DB_USER')}:{config('DB_PASSWORD')}@" \
                         f"{config('DB_HOST')}/{config('DB_NAME')}"
 
+
+INITIAL_LANGUAGE = "ukrainian"

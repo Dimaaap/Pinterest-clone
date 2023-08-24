@@ -1,4 +1,48 @@
 <footer class="policy_footer">
     <h1 class="site-logo">Fineterest</h1>
-    
+    <form class="select-langauge-form" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <label class="form-label">{{ field.label }}</label>
+            {{ field }}
+            <img src="   https://cdn-icons-png.flaticon.com/512/2985/2985150.png " width="20" height="20" alt="" title="" class="img-small">
+        {% endfor %}
+    </form>
+        <section class="links-section">
+            <div class="about-links">
+                <h5>Про нас</h5>
+                <ul class="links">
+                    <li class="links-item"><a href="#">Що таке Fineterest</a></li>
+                    <li class="links-item"><a href="#">Наша сторінка Fineterest</a></li>
+                    <li class="links-item"><a href="#">Блог для інженерів</a></li>
+                    <li class="links-item"><a href="#">Довідник з корпоративного стилю</a></li>
+                    <li class="links-item"><a href="#">Вакансії</a></li>
+                    <li class="links-item"><a href="#">Довідковий центр</a></li>
+                    <li class="links-item"><a href="#">Fineterest Labs</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="links-section">
+            <h5>Політики</h5>
+            <div class="policy-links">
+                <ul class="policy">
+                    <li class="links-item"><a href="#">Копірайт</a></li>
+                    <li class="links-item"><a href="#">Персоналізована реклама</a></li>
+                    <li class="links-item"><a href="#">Умови використання</a></li>
+                    <li class="links-item"><a href="#">Конфіденційність</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="links-section">
+            <h5>Детальніше...</h5>
+            <div class="detail-links">
+                <ul class="detail">
+                    <li class="links-item"><a href="#">Для організацій</a></li>
+                    <li class="links-item"><a href="#">Для розробників</a></li>
+                    <li class="links-item"><a href="#">Для преси</a></li>
+                    <li class="links-item"><a href="#">Для інвесторів</a></li>
+                </ul>
+            </div>
+        </section>
+    <p class="copyright">&#169;Fineterest 2023</p>
 </footer>
