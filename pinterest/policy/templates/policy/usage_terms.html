@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static 'policy/css/usage_terms.css' %}">
 {% endblock %}
 
+{% block js_additional %}
+    <script src="{% static 'policy/js/usage_terms.js' %}"></script>
+{% endblock %}
+
 {% block body %}
     {% include "./_includes/policy_header.html" %}
     <section class="main-page">
@@ -49,7 +53,7 @@
                     та <a href="#">Правила для продавців,</a>
                     у яких пояснюються додаткові політики,
                     що стосуються рекламних оголошень
-                    і продавців у Fineterest; і
+                    і продавців у Fineterest;
                 </li>
                 <li>
                     наша методика <a href="#">контролю за дотриманням
@@ -68,5 +72,8 @@
                 до Fineterest і припинити використовувати цей Сервіс.
             </p>
         </article>
+        <aside>
+            {% include "./_includes/sidebar.html" %}
+        </aside>
     </section>
 {% endblock %}

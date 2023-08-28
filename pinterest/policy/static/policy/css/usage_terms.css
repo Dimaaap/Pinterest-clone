@@ -46,6 +46,9 @@ header ul li a:hover {
 }
 
 .main-page{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 10px;
     color: #C41F1F;
     margin-top: 15%;
     margin-left: 20%;
@@ -67,6 +70,88 @@ article {
     margin-bottom: 5%;
 }
 
+.page-article {
+    width: 120%;
+    grid-column: 1;
+}
+
 article .page-body {
     font-size: 1.2rem;
+}
+
+.terms-ul li a {
+    color: #C41F1F;
+}
+
+.terms-ul li {
+    font-size: 1.2rem;
+}
+
+.terms-ul li a:hover {
+    color: #ECA500;
+}
+
+/* ASIDE PART */
+
+aside {
+    width: 100%;
+    grid-column: 2;
+    margin-right: 120px;
+}
+
+.sidebar h5 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.sidebar {
+    height: 500px;
+    overflow-y: scroll;
+    font-size: 1.3rem;
+    /*max-height: calc(100vh - 60px):
+    overflow-y: auto;
+    position: static;*/
+}
+
+.sidebar-container {
+    width: 300px;
+    padding: 10px;
+    position: relative;
+    top: 0;
+    transition: top 0.3s ease;
+}
+
+.sidebar p {
+    max-width: 90%;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #C41F1F;
+}
+
+.sidebar p a {
+    text-decoration: none;
+    color: #C41F1F;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+    counter-reset: item;
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-left: -20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #C41F1F;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #C41F1F;
+}
+
+.sidebar ul li a:hover,
+.sidebar p a:hover{
+    text-decoration: underline;
+    color: #FF8315;
 }

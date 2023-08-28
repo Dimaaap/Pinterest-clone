@@ -3,6 +3,7 @@ import datetime
 from django import forms
 
 from .models import User
+from .db_service import get_data_from_model
 
 
 class SigninForm(forms.Form):
@@ -32,7 +33,7 @@ class SigninForm(forms.Form):
     def clean_email(self):
         email = str(self.cleaned_data["email"])
         try:
-            User.objects.get(email=email)
+            get_data_from_model(User, "email", email)
         except User.DoesNotExist:
             return email
         raise forms.ValidationError("Користувач з таким email уже інсує на сайті")

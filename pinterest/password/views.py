@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from django.core.mail import EmailMessage
 from django.contrib import messages
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 
 from .forms import FindUserForm, SetNewPasswordForm
-from .services import *
+from .form_handler import *
+from .db_service import get_data_from_model
 
 USER_MODEL = get_user_model()
 
@@ -17,16 +14,8 @@ def reset_password_view(request):
     if request.method == "POST":
         form = FindUserForm(request.POST)
         if form.is_valid():
-            user_email = form.cleaned_data["email"]
             try:
-                current_user = USER_MODEL.objects.get(email=user_email)
-                token = current_user.get_reset_password_token()
-                request.session["token"], request.session["email"] = token, user_email
-                html_message = render_to_string("password/email.html", {"email": user_email, "token": token})
-                email = EmailMessage("Скидання паролю", html_message, settings.EMAIL_HOST_USER, [user_email])
-                email.content_subtype = "html"
-                email.fail_silently = False
-                email.send()
+                PasswordFormsHandler.find_user_form_handler(request, form)
                 return JsonResponse({"status": "success"})
             except Exception as e:
                 print(e)
@@ -41,7 +30,7 @@ def reset_password_view(request):
 
 def create_new_password_view(request, user_email: str, user_token: str):
     try:
-        current_user = USER_MODEL.objects.get(email=user_email)
+        current_user = get_data_from_model(USER_MODEL, "email", user_email)
     except ObjectDoesNotExist:
         return messages.error(request, "Щось пішло не так")
     user = current_user.verify_reset_password_token(user_token)
