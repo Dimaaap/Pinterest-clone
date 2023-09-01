@@ -22,3 +22,7 @@ def main_policy_view(request):
 
 def terms_of_usage_view(request):
     return render(request, "policy/usage_terms.html")
+
+
+def confidence_policy_view(request):
+    return render(request, "policy/confidence_policy.html")

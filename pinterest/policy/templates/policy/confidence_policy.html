@@ -1,0 +1,50 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/confidence_policy.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/confidence_policy.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Політика конфіденційності
+        </h1>
+        <div class="container">
+            <article class="page-article" id="first-article">
+                <h3 class="page-title" id="confidence">
+                    Положення про конфіденційність для користувачів із штату Каліфорнія
+                </h3>
+                <p class="page-body bold">
+                    Жителі Каліфорнії: ознайомитись з Положенням про
+                    конфіденційність і Повідомленням при зборі
+                    даних для користувачів із штата Каліфорнія можна
+                    <a href="#">тут</a>
+                </p>
+                <h3 class="page-body">
+                    Внесені зміни
+                </h3>
+                <p class="page-body">
+                    Ми докладаємо всіх зусиль, щоб зробити
+                    використання особистих даних прозорим,
+                    а ваші права та можливості вибору —
+                    зрозумілими.  Закони про конфіденційність
+                    продовжують розвиватися, і ми внесли
+                    зміни в цю політику на основі нових
+                    законів про конфіденційність у деяких
+                    штатах США.  Ми також додали нову інформацію
+                    для жителів ЄЕЗ і Великої Британії щодо
+                    контролера особистих даних.
+                </p>
+            </article>
+            <aside>
+                {% include "./_includes/confidence_policy/sidebar.html" %}
+            </aside>
+        </div>
+    </section>
+{% endblock %}

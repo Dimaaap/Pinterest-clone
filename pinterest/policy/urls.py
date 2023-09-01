@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     path("", main_policy_view, name="main_policy"),
-    path("/terms", terms_of_usage_view, name="usage_terms")
+    path("/terms", terms_of_usage_view, name="usage_terms"),
+    path("/confidence", confidence_policy_view, name="confidence_policy")
 ]

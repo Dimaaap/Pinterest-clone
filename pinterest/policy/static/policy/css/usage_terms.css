@@ -48,15 +48,10 @@ header ul li a:hover {
 .container{
     display: flex;
     grid-template-columns: 5fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 50px;
 }
 
 .main-page{
-    /*
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-gap: 10px;
-    */
     color: #C41F1F;
     margin-top: 15%;
     margin-left: 20%;
@@ -72,10 +67,10 @@ article {
     width: 70%;
 }
 
-
+/*
 article {
     width: 60%;
-}
+}*/
 
 .page-subtitle{
     font-weight: 400;
@@ -127,7 +122,6 @@ aside {
     margin-right: 120px;
     position: sticky;
     top: 0;
-
 }
 
 .sidebar h5 {
