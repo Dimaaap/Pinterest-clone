@@ -168,3 +168,65 @@ aside {
     text-decoration: underline;
     color: #FF8315;
 }
+
+.page-body a {
+    color: #C41F1F;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.page-body a:hover{
+    color: #FF8315;
+}
+
+.page-title {
+    font-size: 2.7rem;
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+.page-body-ul {
+    font-size: 1.2rem;
+}
+
+.page-body-ul a {
+    color: #C41F1F;
+}
+
+.page-body-ul a:hover {
+    color: #FF8315;
+}
+
+.accordion-wrapper {
+    padding: 0 20px;
+}
+
+.accordion {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.accordion-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 20px;
+}
+
+.accordion-content {
+    padding: 15px 20px;
+    border-bottom: 2px solid #C41F1F;
+    display: none;
+}
+
+.accordion.active .accordion-heading img{
+    color: #C41F1F;
+    transform: rotate(100deg);
+}
+
+.accordion.active .accordion-content{
+    display: block;
+}
