@@ -26,3 +26,7 @@ def terms_of_usage_view(request):
 
 def confidence_policy_view(request):
     return render(request, "policy/confidence_policy.html")
+
+
+def community_guidelines_view(request):
+    return render(request, "policy/community_guidelines.html")

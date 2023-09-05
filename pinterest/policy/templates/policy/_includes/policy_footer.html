@@ -2,7 +2,7 @@
     <h1 class="site-logo">Fineterest</h1>
     <form class="select-langauge-form" method="post">
         {% csrf_token %}
-        {% for field in form %}
+        {% for field in language_form %}
             <label class="form-label">{{ field.label }}</label>
             {{ field }}
             <img src="   https://cdn-icons-png.flaticon.com/512/2985/2985150.png " width="20" height="20" alt="" title="" class="img-small">
