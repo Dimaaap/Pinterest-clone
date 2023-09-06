@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block css_additional %}
-    <link rel="stylesheet" href="{% static 'policy/css/community_guideline.css' %}">
+    <link rel="stylesheet" href="{% static 'policy/css/community_guidelines.css' %}">
 {% endblock %}
 
 {% block js_additional %}
@@ -40,6 +40,14 @@
                     звіту про роботу служб</a>.
                 </p>
             </article>
+            <aside>
+                {% include "./_includes/sidebar.html" %}
+            </aside>
         </div>
+        {% include "./_includes/community_guidelines/content_safety.html" %}
+        {% include "./_includes/community_guidelines/adults_content.html" %}
+        {% include "./_includes/community_guidelines/expluatation.html" %}
+        {% include "./_includes/community_guidelines/enemy_actions.html" %}
     </section>
+    {% include "./_includes/policy_footer.html" %}
 {% endblock %}
