@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block js_additional %}
-    <script src="{% static 'policy/js/community_guideline.js' %}"></script>
+    <script src="{% static 'policy/js/community_guidelines.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -41,13 +41,29 @@
                 </p>
             </article>
             <aside>
-                {% include "./_includes/sidebar.html" %}
+                {% include "./_includes/community_guidelines/sidebar.html" %}
             </aside>
         </div>
         {% include "./_includes/community_guidelines/content_safety.html" %}
         {% include "./_includes/community_guidelines/adults_content.html" %}
         {% include "./_includes/community_guidelines/expluatation.html" %}
         {% include "./_includes/community_guidelines/enemy_actions.html" %}
+        {% include "./_includes/community_guidelines/lying.html" %}
+        {% include "./_includes/community_guidelines/desinformation.html" %}
+        {% include "./_includes/community_guidelines/climat_lying.html" %}
+        {% include "./_includes/community_guidelines/criticism.html" %}
+        {% include "./_includes/community_guidelines/children_safety.html" %}
+        {% include "./_includes/community_guidelines/personal_info.html" %}
+        {% include "./_includes/community_guidelines/dangerous_behaviour.html" %}
+        {% include "./_includes/community_guidelines/violence_and_threats.html" %}
+        {% include "./_includes/community_guidelines/brutal_actions.html" %}
+        {% include "./_includes/community_guidelines/dangerous_goods.html" %}
+        {% include "./_includes/community_guidelines/copyright.html" %}
+        {% include "./_includes/community_guidelines/safety.html" %}
+        {% include "./_includes/community_guidelines/spam.html" %}
+        {% include "./_includes/community_guidelines/pay_partner.html" %}
+        {% include "./_includes/community_guidelines/partners_law.html" %}
+        {% include "./_includes/community_guidelines/rules.html" %}
     </section>
     {% include "./_includes/policy_footer.html" %}
 {% endblock %}

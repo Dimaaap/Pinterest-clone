@@ -30,3 +30,7 @@ def confidence_policy_view(request):
 
 def community_guidelines_view(request):
     return render(request, "policy/community_guidelines.html")
+
+
+def merhcant_guidelines_view(request):
+    return render(request, "policy/merchant_guidelines.html")

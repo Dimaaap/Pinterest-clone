@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/merchant_guidelines.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/merchant_guidelines.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Правила для продавців
+        </h1>
+        <div class="container">
+            <article class="article" id="our-aim">
+                <h3 class="page-title">
+                    Наша мета
+                </h3>
+                <p class="page-body">
+                    Мета Pinterest — надихати кожного й
+                    давати людям можливість займатись
+                    улюбленою справою. Ми переконані, що
+                    якісні товари від перевірених продавців
+                    здатні допомогти людям робити те, що їм
+                    найбільше подобається.
+                </p>
+            </article>
+            <aside>
+                {% include "./_includes/community_guidelines/sidebar.html" %}
+            </aside>
+        </div>
+        {% include "./_includes/merchant_guidelines/overall_laws.html" %}
+        {% include "./_includes/merchant_guidelines/merchant_requirements.html" %}
+        {% include "./_includes/merchant_guidelines/goods_requirements.html" %}
+    </section>
+    {% include "./_includes/policy_footer.html" %}
+{% endblock %}
