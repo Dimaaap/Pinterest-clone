@@ -1,0 +1,50 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/advertising_guidelines.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/advertising+guidelines.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Правила розміщення реклами
+        </h1>
+        <div class="container">
+            <article class="article" id="our-aim">
+                <h3 class="page-title">
+                    Наша мета
+                </h3>
+                <p class="page-body">
+                    Мета Pinterest — надихати кожного й давати людям
+                    можливість займатись улюбленою справою.
+                    Ми віримо, що рекламні оголошення можуть
+                    відігравати важливу роль, допомагаючи
+                    користувачам зробити життя насиченішим.
+                    Саме тому нам хочеться, щоб такі
+                    оголошення були серед найкращих матеріалів
+                    у Pinterest. Дотримуючись цих правил,
+                    ви будете повністю готові поширювати
+                    чудові матеріали в Pinterest.
+                </p>
+            </article>
+            <aside>
+                {% include "./_includes/community_guidelines/sidebar.html" %}
+            </aside>
+        </div>
+        {% include "./_includes/advertising_guidelines/be_sincere.html" %}
+        {% include "./_includes/advertising_guidelines/respect_audience.html" %}
+        {% include "./_includes/advertising_guidelines/be_carefully.html" %}
+        {% include "./_includes/advertising_guidelines/well_think.html" %}
+        {% include "./_includes/advertising_guidelines/be_responsible.html" %}
+        {% include "./_includes/advertising_guidelines/material_rules.html" %}
+        {% include "./_includes/advertising_guidelines/prohibited_materials.html" %}
+        {% include "./_includes/advertising_guidelines/national_legislation.html" %}
+    </section>
+    {% include "./_includes/policy_footer.html" %}
+{% endblock %}

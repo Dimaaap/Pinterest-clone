@@ -32,5 +32,9 @@ def community_guidelines_view(request):
     return render(request, "policy/community_guidelines.html")
 
 
-def merhcant_guidelines_view(request):
+def merchant_guidelines_view(request):
     return render(request, "policy/merchant_guidelines.html")
+
+
+def advertising_guidelines_view(request):
+    return render(request, "policy/advertising_guidelines.html")
