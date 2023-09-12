@@ -1,7 +1,7 @@
 const sidebar = document.querySelector("aside");
 const contentContainer = document.querySelector(".main-page")
 let sidebarTop = 500;
-let contentHeight = contentContainer.clientHeight+720;
+let contentHeight = contentContainer.clientHeight+600;
 let sidebarHeight = sidebar.clientHeight;
 
 

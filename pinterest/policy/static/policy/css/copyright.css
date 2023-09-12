@@ -140,6 +140,10 @@ aside {
     position: static;*/
 }
 
+#bases {
+    margin-top: -160px;
+}
+
 .sidebar-container {
     width: 300px;
     padding: 10px;
@@ -293,4 +297,16 @@ aside {
 
 .bold {
     font-weight: 500;
+}
+
+.form-redirect-btn {
+    border-radius: 30px;
+    border: 2px solid #C41F1F;
+    background: white
+    color: #C41F1F;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 100px;
+
 }

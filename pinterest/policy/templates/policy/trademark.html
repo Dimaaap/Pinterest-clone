@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/trademark.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/trademark.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Торгова марка
+        </h1>
+        <div class="container">
+            <article class="article">
+                <p class="page-body">
+                    Pinterest поважає права на торгову марку інших і очікує, що користувачі платформи
+                    чинитимуть так само. Pinterest може вимкнути доступ до контенту, який вводить інших в оману
+                    або порушує права на торгову марку інших. Pinterest також може призупиняти або видаляти облікові
+                    записи користувачів, які публікують подібний контент. Крім того, Pinterest може передавати
+                    імена користувачів за необхідності.
+                </p>
+                <p class="page-body">
+                    Якщо ви стурбовані тим, що хтось використовує вашу торгову марку на Pinterest протиправно,
+                    надішліть нам скаргу про порушення прав на торгову марку за допомогою нашої
+                    <a href="#">зручної онлайн-форми</a> . Ми розглянемо скаргу й удамося до відповідних заходів.
+                </p>
+                <p class="page-body">
+                    Повідомити про порушення прав на торгову марку найзручніше саме за допомогою форми,
+                    але ви також можете надіслати нам листа на електронну адресу <a href="mailto:trademark@gmail.com">
+                    trademark@gmail.com.
+                    </a>
+                </p>
+                <p class="page-body">
+                    Якщо ваш контент видалено через скаргу про порушення прав на торгову марку,
+                    ви можете оскаржити її, надіславши листа на електронну адресу <a href="mailto:trademark@gmail.com">
+                    trademark@gmail.com</a>
+                    і пояснивши, чому ви не згодні зі скаргою. Укажіть номер скарги про порушення прав на
+                    торгову марку. Якщо ви хочете, щоб ми надіслали інформацію зі скарги про порушення
+                    прав на торгову марку, надішліть запит на електронну адресу <a href="mailto:trademark@gmail.com">
+                    trademark@gmail.com</a>
+                    і вкажіть номер скарги. Ми надішлемо вам інформацію
+                    (однак можемо видалити особисті контактні дані).
+                </p>
+                <p class="page-body">
+                    Це наша політика — за відповідних обставин і на наш розсуд — призупиняти облікові
+                    записи або видаляти користувачів, які неодноразово порушують права на торгову марку
+                    або неодноразово публікують контрафакт чи іншим чином порушують права на інтелектуальну
+                    власність.  Дії щодо таких користувачів також можуть включати тимчасове призупинення права
+                    на опублікування контенту тощо.
+                </p>
+            </article>
+            <aside>
+                {% include './_includes/advertising_guidelines/sidebar.html' %}
+            </aside>
+        </div>
+        {% include './_includes/trademark/complain_sending.html' %}
+        {% include './_includes/trademark/notification_appeal.html' %}
+        {% include './_includes/trademark/counter_contrafakt.html' %}
+    </section>
+    {% include "./_includes/policy_footer.html" %}
+{% endblock %}

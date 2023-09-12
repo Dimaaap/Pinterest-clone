@@ -1,0 +1,44 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/developers_guidelines.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/developers_guidelines.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Правила для розробників
+        </h1>
+        <div class="container">
+            <article class="article" id="our_aim">
+                <h3 class="page-title">
+                    Наша мета
+                </h3>
+                <p class="page-body">
+                    Мета Pinterest — надихати кожного й давати людям можливість займатись улюбленою справою.
+                    Розробники відіграють у цьому велику роль. Це вказівки щодо дій, які допускаються або
+                    заборонені під час розробки додатків чи сервісів для роботи з матеріалами Pinterest.
+                    Ми вимагаємо від розробників дотримуватися цих вказівок, а також інших наших положень
+                    і правил, зокрема <a href="#">Загальних положень та умов надання послуг щодо розробки та API</a> ,
+                    а також <a href="#">Правил спільноти</a> .
+                </p>
+            </article>
+            <aside>
+                {% include "./_includes/developers_guidelines/sidebar.html" %}
+            </aside>
+        </div>
+        {% include "./_includes/developers_guidelines/bases.html" %}
+        {% include "./_includes/developers_guidelines/solutions.html" %}
+        {% include "./_includes/developers_guidelines/prohibited_actions.html" %}
+        {% include "./_includes/developers_guidelines/content_publication.html" %}
+        {% include "./_includes/developers_guidelines/audience_engagement.html" %}
+        {% include "./_includes/developers_guidelines/applications_abuse.html" %}
+    </section>
+    {% include "./_includes/policy_footer.html" %}
+{% endblock %}

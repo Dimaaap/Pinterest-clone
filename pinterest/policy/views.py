@@ -38,3 +38,15 @@ def merchant_guidelines_view(request):
 
 def advertising_guidelines_view(request):
     return render(request, "policy/advertising_guidelines.html")
+
+
+def developers_guidelines_view(request):
+    return render(request, "policy/developers_guidelines.html")
+
+
+def copyright_view(request):
+    return render(request, "policy/copyright.html")
+
+
+def trademark_view(request):
+    return render(request, "policy/trademark.html")

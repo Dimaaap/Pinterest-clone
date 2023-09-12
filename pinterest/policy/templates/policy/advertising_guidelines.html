@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block js_additional %}
-    <script src="{% static 'policy/js/advertising+guidelines.js' %}"></script>
+    <script src="{% static 'policy/js/advertising_guidelines.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -34,7 +34,7 @@
                 </p>
             </article>
             <aside>
-                {% include "./_includes/community_guidelines/sidebar.html" %}
+                {% include "./_includes/advertising_guidelines/sidebar.html" %}
             </aside>
         </div>
         {% include "./_includes/advertising_guidelines/be_sincere.html" %}
@@ -45,6 +45,7 @@
         {% include "./_includes/advertising_guidelines/material_rules.html" %}
         {% include "./_includes/advertising_guidelines/prohibited_materials.html" %}
         {% include "./_includes/advertising_guidelines/national_legislation.html" %}
+        {% include "./_includes/advertising_guidelines/to_remember.html" %}
     </section>
     {% include "./_includes/policy_footer.html" %}
 {% endblock %}

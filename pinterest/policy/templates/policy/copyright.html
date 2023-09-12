@@ -1,0 +1,57 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+  <link rel="stylesheet" href="{% static 'policy/css/copyright.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+  <script src="{% static 'policy/js/copyright.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% include "./_includes/policy_header.html" %}
+  <section class="main-page">
+    <h1 class="section-title">
+      Авторські права
+    </h1>
+    <div class="container">
+      <article class="article">
+        <p class="page-body">
+          Платформа Pinterest поважає права інтелектуальної власності інших людей. Ми очікуємо,
+          що користувачі Pinterest також будуть їх поважати.
+        </p>
+        <p class="page-body">
+          Відповідно до Закону про авторське право в цифрову епоху (DMCA),
+          з яким ви можете ознайомитися на сайті Бюро авторського права США,
+          ми будемо швидко реагувати на скарги про порушення авторських прав на Pinterest,
+          які надіслали нашому призначеному агенту з питань авторських прав, зазначеному нижче.
+        </p>
+        <p class="page-body">
+          Якщо ви правовласник або маєте повноваження діяти від імені правовласника, ви можете повідомити
+          про можливі порушення авторських прав на Pinterest, заповнивши скаргу про порушення авторських
+          прав і надіславши її нашому призначеному агенту з питань авторського права.
+        </p>
+        <p class="page-body">
+          Отримавши вашу скаргу про порушення авторських прав, ми вживаємо відповідних заходів, зокрема
+          можемо заблокувати або видалити контент із Pinterest, щодо якого надійшла скарга.
+        </p>
+        <p class="page-body">
+          Якщо ми заблокуємо або видалимо контент у відповідь на скаргу про порушення авторських прав,
+          то можемо повідомити особу, яка зберегла його в Pinterest, щоб вона могла надіслати
+          зустрічне сповіщення. Крім того, за потреби ми можемо надіслати повну копію сповіщення іншим особам
+        </p>
+      </article>
+      <aside>
+        {% include "./_includes/copyright/sidebar.html" %}
+      </aside>
+    </div>
+    {% include "./_includes/copyright/complaint_sending.html" %}
+    {% include "./_includes/copyright/content_deleted.html" %}
+    {% include "./_includes/copyright/counter_notification.html" %}
+    {% include "./_includes/copyright/repeat_offender.html" %}
+    {% include "./_includes/copyright/warning_appeal.html" %}
+    {% include "./_includes/copyright/rights_confirmation.html" %}
+  </section>
+  {% include "./_includes/policy_footer.html" %}
+{% endblock %}
