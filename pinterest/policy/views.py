@@ -50,3 +50,11 @@ def copyright_view(request):
 
 def trademark_view(request):
     return render(request, "policy/trademark.html")
+
+
+def enforcement_view(request):
+    return render(request, "policy/enforcement.html")
+
+
+def transparency_view(request):
+    return render(request, "policy/transparency.html")

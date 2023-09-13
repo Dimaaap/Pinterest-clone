@@ -1,0 +1,45 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/enforcement.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/enforcement.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "./_includes/policy_header.html" %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Контроль за дотриманням правил і політик
+        </h1>
+        <div class="container">
+            <article class="article">
+                <p class="page-body">
+                    Мета Pinterest — надихати кожного й давати
+                    людям можливість займатись улюбленою справою. І саме цим
+                    ми керуємося під час розробки й впровадження наших політик.
+                </p>
+                <p class="page-body">
+                    На цій сторінці ви можете прочитати про
+                    порядок реалізації наших політик, зокрема
+                    будь-які обмеження, які ми можемо застосувати
+                    до вашого контенту або використання вами
+                    Pinterest. Ми також публікуємо регулярні
+                    <a href="#">звіти про роботу служб</a> ,
+                    які докладно описують напрямки й методи модерації.
+                </p>
+            </article>
+            <aside>
+                {% include './_includes/enforcement/sidebar.html' %}
+            </aside>
+        </div>
+        {% include './_includes/enforcement/rules_enforcement.html' %}
+        {% include './_includes/enforcement/advertising_enforcement.html' %}
+        {% include './_includes/enforcement/merchant_enforcement.html' %}
+        {% include './_includes/enforcement/control_procedure.html' %}
+    </section>
+    {% include "./_includes/policy_footer.html" %}
+{% endblock %}

@@ -234,6 +234,10 @@ aside {
     color: #0017AB;
 }
 
+#rules_enforcement {
+    margin-top: -250px;
+}
+
 .policy_footer .form-control {
     max-width: 100%;
     border: 2px solid #0017AB;
