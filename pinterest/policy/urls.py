@@ -13,5 +13,6 @@ urlpatterns = [
     path("/copyright", copyright_view, name="copyright"),
     path("/trademark", trademark_view, name="trademark"),
     path("/enforcement", enforcement_view, name="enforcement"),
-    path("/transparency", transparency_view, name="transparency")
+    path("/transparency", transparency_view, name="transparency"),
+    path("/transparency_report", transparency_report_view, name="transparency_report")
 ]

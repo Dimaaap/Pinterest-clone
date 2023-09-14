@@ -58,3 +58,7 @@ def enforcement_view(request):
 
 def transparency_view(request):
     return render(request, "policy/transparency.html")
+
+
+def transparency_report_view(request):
+    return render(request, "policy/transparency_report.html")
