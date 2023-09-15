@@ -364,3 +364,13 @@ table .second-cell {
 .italic {
     font-style: italic;
 }
+
+.goverment-table .row-title {
+    font-weight: 400;
+}
+
+.
+
+.goverment-table .sum-row {
+    font-weight: 500;
+}
