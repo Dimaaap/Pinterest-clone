@@ -62,3 +62,7 @@ def transparency_view(request):
 
 def transparency_report_view(request):
     return render(request, "policy/transparency_report.html")
+
+
+def notice_at_collection_view(request):
+    return render(request, "policy/notice_at_collection.html")

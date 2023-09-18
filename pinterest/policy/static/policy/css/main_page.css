@@ -15,7 +15,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    background: #FFCECE;
+    background: #fff6e7;
     height: 20%;
 }
 
@@ -71,6 +71,7 @@ header ul li a:hover {
     padding: 10px;
     color: #C41F1F;
     height: 300px;
+    background: #fff6e7;
 }
 
 

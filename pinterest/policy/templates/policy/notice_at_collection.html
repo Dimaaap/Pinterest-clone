@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'policy/css/notice_at_collection.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'policy/js/notice_at_collection.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include './_includes/policy_header.html' %}
+    <section class="main-page">
+        <h1 class="section-title">
+            Заява про конфіденційність і повідомлення щодо
+            збору даних у штаті Каліфорнія
+        </h1>
+        <div class="container">
+            <article class="article" id="main-article">
+                <p class="page-body">
+                    Відповідно до Закону штату Каліфорнія про конфіденційність споживачів (CCPA) ми повинні
+                    надати додаткову інформацію жителям Каліфорнії, як описано нижче.
+                    Ця сторінка доповнює нашу <a href="{% url 'confidence_policy' %}">
+                    Політику конфіденційності
+                </a> .
+                </p>
+                <p class="page-body">
+                    Нижче роз’яснюється інформація, наведена в нашій <a href="{% url 'confidence_policy' %}">
+                    Політиці конфіденційності,</a>
+                    з використанням категорій і визначень відповідно до CCPA.
+                </p>
+            </article>
+            <aside>
+                {% include './_includes/notice_at_collection/sidebar.html' %}
+            </aside>
+        </div>
+        {% include './_includes/notice_at_collection/categories_table.html' %}
+        {% include './_includes/notice_at_collection/your_rights.html' %}
+        {% include './_includes/notice_at_collection/show_information.html' %}
+    </section>
+    {% include './_includes/policy_footer.html' %}
+{% endblock %}

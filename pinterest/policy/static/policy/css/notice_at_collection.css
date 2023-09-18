@@ -15,7 +15,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    background: #fff6e7;
+    background: #ffff00;
     height: 20%;
 }
 
@@ -61,10 +61,12 @@ header ul li a:hover {
     font-size: 5rem;
     font-weight: 400;
     margin-bottom: 20%;
+    margin-left: -5%;
 }
 
 article {
-    width: 60%;
+    max-width: 60%;
+
 }
 
 /*
@@ -101,20 +103,6 @@ article {
 article .page-body {
     font-size: 1.2rem;
 }
-
-.terms-ul li a {
-    color: #C41F1F;
-}
-
-.terms-ul li {
-    font-size: 1.2rem;
-}
-
-.terms-ul li a:hover {
-    color: #ECA500;
-}
-
-/* ASIDE PART */
 
 aside {
     width: 50%;
@@ -183,32 +171,66 @@ aside {
     color: #FF8315;
 }
 
-.main-info-container{
-    background-color: #E6E6E6;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-
-.main-info-container h6 {
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-.main-info-container p {
-    font-size: 1.2rem;
-}
-
 .page-body a {
     color: #C41F1F;
+}
+
+.bold {
+    font-weight: 500;
 }
 
 .page-body a:hover{
     color: #FF8315;
 }
 
-.second-chapter {
-    display: block;
-    margin-top:
+.page-title {
+    font-size: 2.7rem;
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+.page-body-ul {
+    font-size: 1.2rem;
+}
+
+.page-body-ul a {
+    color: #C41F1F;
+}
+
+.page-body-ul a:hover {
+    color: #FF8315;
+}
+
+.accordion {
+    border-bottom: 2px solid #C41F1F;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.chapter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.explanation {
+    margin-top: 10px;
+    max-height: 0;
+    overflow: auto;
+    transition: max-height 0.9s ease;
+}
+
+.accordion.active .explanation {
+    max-height: 15000px;
+}
+
+.accordion.active img {
+    transform: rotate(180deg);
+}
+
+img {
+    transition: transform 0.5s ease-in;
 }
 
 /* FOOTER */
@@ -283,4 +305,62 @@ aside {
 .policy_footer .copyright {
     color: #0017AB;
     font-size: 0.9rem;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table thead {
+    background: #767676;
+    color: white;
+    font-weight: bold;
+}
+
+table thead th {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+table th, table td {
+    padding: 0.5rem;
+    word-wrap: break-word;
+    hyphens: auto;
+    vertical-align: top;
+    text-align: initial;
+}
+
+td {
+    display: table-cell;
+}
+
+table .row-title,
+table .third-cell {
+    background: #CDCDCD;
+    border-bottom: 5px solid white;
+    padding: 10px;
+}
+
+table .third-cell {
+    font-weight: 400;
+}
+
+table .second-cell {
+    background: #DFDDDD;
+    border-bottom: 5px solid white;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.goverment-table .row-title {
+    font-weight: 400;
+}
+
+
+.goverment-table .sum-row {
+    font-weight: 500;
 }
