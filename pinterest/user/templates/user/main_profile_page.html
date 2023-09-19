@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+  <link rel="stylesheet" href="{% static 'user/css/main_profile_page.css' %}">
+{% endblock %}
+
+{% block js_additional %}
+  <script src="{% static 'user/js/main_profile_page.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% include '../_includes/login_header.html' %}
+{% endblock %}

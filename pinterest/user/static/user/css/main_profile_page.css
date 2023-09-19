@@ -1,0 +1,15 @@
+* {
+    font-family: "Rubik";
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-brand {
+    color: red
+}
+
+.navbar-brand:hover {
+    color: red;
+}

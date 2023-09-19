@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'main',
     'password',
     "policy",
+    'user',
 
     'celery',
 ]
