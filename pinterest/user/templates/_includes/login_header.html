@@ -11,21 +11,54 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Створити</a>
+          <i class="fa-solid fa-caret-down create-arrow"></i>
         </li>
-        <form class="d-flex" role="search">
-          <img alt="Search interface symbol Catalin Fertu Lineal icon" loading="lazy" width="16" height="16"
-               decoding="async" data-nimg="1" class=""
-               src="https://cdn-icons-png.flaticon.com/512/54/54481.png?ga=GA1.1.1693000823.1695157800"
-               style="color: transparent;">
-          <input class="form-control me-2" type="search" placeholder="Пошук серед ваших пінів" aria-label="Search">
+        <form class="search-form">
+          <button>
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+          <input type="text" name="" placeholder="Пошук серед ваших пінів"/>
+          <button id="your-pins">
+            Ваші піни
+            <i class="fa-solid fa-caret-up fa-rotate-180"></i>
+          </button>
         </form>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" role="button">
-            Dropdown
-          </a>
+          <div class="tooltip-container">
+            <button id="bell-btn" class="tooltip-button">
+              <i class="fa-solid fa-bell"></i>
+            </button>
+            <div class="tooltip">Сповіщення</div>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <div class="tooltip-container">
+            <button id="chat-btn" class="tooltip-button">
+              <i class="fa-solid fa-message"></i>
+            </button>
+            <div class="tooltip">Повідомлення</div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="tooltip-container">
+            <button id="profile-btn" class="tooltip-button">
+              <img alt="File:Eo circle green letter-d.svg"
+                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                   decoding="async" width="20" height="20"
+                   srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+                   data-file-width="512"
+                   data-file-height="512">
+            </button>
+            <div class="tooltip">Профіль</div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="tooltip-container">
+            <button id="detail-btn" class="tooltip-button">
+              <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <div class="tooltip">Облікові записи й інші параметри</div>
+          </div>
         </li>
       </ul>
     </div>

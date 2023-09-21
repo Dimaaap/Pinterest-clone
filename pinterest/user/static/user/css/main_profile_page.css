@@ -2,8 +2,13 @@
     font-family: "Rubik";
 }
 
+body {
+    position: relative;
+}
+
 .navbar {
     width: 100%;
+    display: flex;
 }
 
 .navbar-brand {
@@ -21,18 +26,226 @@
     font-size: 0.8rem;
 }
 
-.d-flex {
+.search-form {
     width: 950px;
+    position: relative;
 }
 
-.d-flex input {
-    border-radius: 20px;
+.search-form input {
+    width: 90%;
+    height: 90%;
+    border-radius: 25px;
+    padding: 10px 15px;
+    background: #E5E5E5;
+    border: none;
+    outline: none;
+    padding-left: 40px;
     font-size: 0.8rem;
-    display: block;
+
 }
 
-.d-flex img {
+.search-form input:hover {
+    background: #D0D0D0;
+}
+
+.search-form button {
     position: absolute;
-    top: 0;
-    right: 30;
+    border: none;
+    margin-top: 3px;
+    margin-left: 7px;
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#your-pins {
+    position: absolute;
+    border: none;
+    background: background: #E5E5E5;
+    margin-left: -100px;
+    font-size: 0.8rem;
+    margin-top: 0px;
+    height: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.create-arrow {
+
+}
+
+#your-pins:hover {
+    background: #D0D0D0;
+}
+
+.tooltip-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+}
+
+#bell-btn {
+    margin-left: -80px;
+    margin-top: 3px;
+}
+
+#chat-btn {
+    margin-left: -40px;
+    margin-top: 0;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+#profile-btn {
+    margin-top: 2.5px;
+}
+
+#detail-btn {
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+#detail-btn:hover {
+    background-color: #D0D0D0;
+}
+
+#profile-btn:hover {
+    background-color: #D0D0D0;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: visible;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+#bell-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+#bell-btn:hover {
+    background-color: #D0D0D0;
+}
+
+#chat-btn:hover {
+    background-color: #D0D0D0;
+}
+
+.main-section {
+    justify-content: center;
+    text-align: center;
+}
+
+.main-profile-info {
+    margin-top: 1%;
+}
+
+.main-profile-info .user-login {
+    color: #B5B5B5;
+    margin-top: -5px;
+}
+
+.profile-p {
+    font-size: 0.9rem;
+}
+
+.subscribers-count {
+    margin-top: -10px;
+}
+
+.profile-btns {
+    margin-left: 60px;
+}
+
+.profile-btn {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    background: #D1D1D1;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+}
+
+.profile-btn:hover {
+    color: black;
+    background: #C6C6C6;
+}
+
+.filter-btn {
+    text-decoration: none;
+    color: black;
+    font-weight: semi-bold;
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px 15px;
+    border-radius: 7px;
+}
+
+.filter-btn:hover {
+    color: black;
+    background: #B9B9B9;
+}
+
+.filter-pins-btn .active:hover {
+    color: black;
+    background: white;
+}
+
+.filter-pins-btn {
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.filter-btn:last-child {
+    margin-left: 20px;
+}
+
+.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid black;
+    border-radius: 1.5px;
+}
+
+.order-by {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+    top: 100;
+    right: 100;
+    margin-top: 300px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.order-by:hover {
+    background-color: #B9B9B9;
+}
+
+.add-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+    margin-left: 1350px;
+    padding: 5px;
+}
+
+.add-btn:hover {
+    background-color: #B9B9B9;
 }
