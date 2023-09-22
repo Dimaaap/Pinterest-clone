@@ -37,6 +37,7 @@ body {
     border-radius: 25px;
     padding: 10px 15px;
     background: #E5E5E5;
+    margin-left: 15px;
     border: none;
     outline: none;
     padding-left: 40px;
@@ -46,13 +47,14 @@ body {
 
 .search-form input:hover {
     background: #D0D0D0;
+    border: 2px solid #36E4FF;
 }
 
 .search-form button {
     position: absolute;
     border: none;
     margin-top: 3px;
-    margin-left: 7px;
+    margin-left: 20px;
     cursor: default;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -71,7 +73,9 @@ body {
 }
 
 .create-arrow {
-
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 77px;
 }
 
 #your-pins:hover {
@@ -244,8 +248,100 @@ body {
     border-radius: 50px;
     margin-left: 1350px;
     padding: 5px;
+    z-index: 1;
 }
 
 .add-btn:hover {
     background-color: #B9B9B9;
+}
+
+.dropdown-content {
+    display: none;
+    list-style-type: none;
+    padding: 0 5px;
+    width: 170px;
+    margin: 0;
+    margin-left: -20px;
+    margin-top: 10px;
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 5px black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 108%;
+    margin-left: -5px;
+    padding: 5px;
+}
+
+.dropdown-content li:hover {
+    background: #B9B9B9;
+}
+
+.tooltip-container .dropdown .dropdown-content small{
+    color: #AEAEAE;
+    font-size: 0.9rem;
+}
+
+/*.tooltip-container .dropdown .user-info {
+    display: flex;
+    align-items: flex-start;
+}*/
+
+.tooltip-container .dropdown .user-avatar {
+    margin-right: 10px;
+}
+
+/*.user-info-without-avatar {
+    flex-grow: 1;
+}*/
+
+/*.account-type,
+.user-login,
+.user-username {
+    display: block;
+    margin-bottom: 10px;
+}*/
+
+.tooltip-container .dropdown .dropdown-content .user-info {
+    max-width: 10px;
+}
+
+.dropdown .dropdown-content .user-login{
+    margin-left: -75px;
+}
+
+.dropdown .dropdown-content .user-info {
+    display: flex;
+}
+
+.dropdown .dropdown-content .user-info-without-avatar {
+    display: flex;
+}
+
+#account-settings {
+    z-index: 999;
+    margin-left: -150px;
+    width: 270px;
+}
+
+.user-username {
+    width: 100px;
+}
+
+.account-type {
+    margin-top: 5px;
+    margin-right: -100px;
+}
+
+.user-login {
+    margin-top: 10px;
+    margin-right: 50px;
 }

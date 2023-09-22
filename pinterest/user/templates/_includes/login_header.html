@@ -10,8 +10,18 @@
           <a class="nav-link active" aria-current="page" href="#">Головна</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Створити</a>
-          <i class="fa-solid fa-caret-down create-arrow"></i>
+          <div class="dropdown">
+            <a class="nav-link dropdown-btn" href="#">Створити</a>
+            <i class="fa-solid fa-caret-down create-arrow"></i>
+            <ul class="dropdown-content">
+              <li>
+                Створити пін-ідею
+              </li>
+              <li>
+                Створити пін
+              </li>
+            </ul>
+          </div>
         </li>
         <form class="search-form">
           <button>
@@ -54,9 +64,81 @@
         </li>
         <li class="nav-item">
           <div class="tooltip-container">
-            <button id="detail-btn" class="tooltip-button">
-              <i class="fa-solid fa-caret-down"></i>
-            </button>
+            <div class="dropdown">
+              <button id="detail-btn" class="tooltip-button dropdown-btn">
+                <i class="fa-solid fa-caret-down"></i>
+              </button>
+              <span class="dropdown-content" id="account-settings">
+                <small>Зараз:</small>
+                <br>
+                <span class="user-info">
+                  <span class="user-avatar">
+                    <img alt="File:Eo circle green letter-d.svg"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                     decoding="async" width="35" height="35"
+                     srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+                     data-file-width="512"
+                     data-file-height="512">
+                  </span>
+                  <div>
+                    <div class="user-info-without-avatar">
+                      <div class="user-username">
+                      <!--<span class="user-username">-->
+                        <h6>dima proc</h6>
+                      </div>
+                     <!-- </span> -->
+                      <br>
+                      <div class="account-type">
+                        <small>Особистий</small>
+                      </div>
+                      <div class="user-login">
+                        <small>@procdima49</small>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+                <small>Ваші облікові записи</small>
+                <ul>
+                  <li>
+                    Додати обліковий запис
+                  </li>
+                  <li>
+                    Перейти на корпоративний обліковий...
+                  </li>
+                </ul>
+                <small>Інші параметри</small>
+                <ul>
+                  <li>
+                    Налаштування
+                  </li>
+                  <li>
+                    Налаштувати стрічку
+                  </li>
+                  <li>
+                    Установіть додаток Windows
+                  </li>
+                  <li>
+                    Ваші права на конфіденційність
+                  </li>
+                  <li>
+                    Отримати довідку
+                  </li>
+                  <li>
+                    Переглянути умови надання послуг
+                  </li>
+                  <li>
+                    Переглянути політику конфіденційності
+                  </li>
+                  <li>
+                    Стати бета-тестером
+                  </li>
+                  <li>
+                    Вихід
+                  </li>
+                </ul>
+              </span>
+            </div>
             <div class="tooltip">Облікові записи й інші параметри</div>
           </div>
         </li>
