@@ -267,10 +267,7 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 0.5px 0.5px 5px black;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    z-index: 999;
 }
 
 .dropdown-content li {
@@ -287,28 +284,13 @@ body {
 
 .tooltip-container .dropdown .dropdown-content small{
     color: #AEAEAE;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-left: 10px;
 }
-
-/*.tooltip-container .dropdown .user-info {
-    display: flex;
-    align-items: flex-start;
-}*/
 
 .tooltip-container .dropdown .user-avatar {
     margin-right: 10px;
 }
-
-/*.user-info-without-avatar {
-    flex-grow: 1;
-}*/
-
-/*.account-type,
-.user-login,
-.user-username {
-    display: block;
-    margin-bottom: 10px;
-}*/
 
 .tooltip-container .dropdown .dropdown-content .user-info {
     max-width: 10px;
@@ -320,10 +302,38 @@ body {
 
 .dropdown .dropdown-content .user-info {
     display: flex;
+    width: 100px;
 }
 
 .dropdown .dropdown-content .user-info-without-avatar {
     display: flex;
+    margin-left: -10px;
+}
+
+
+.tooltip-container .dropdown .dropdown-content ul {
+    list-style-type: none;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: -20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li i {
+    margin-left: 10px;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li:hover {
+    background: #B9B9B9;
+    border: 2px solid #36E4FF;
+    border-radius: 10px;
 }
 
 #account-settings {
@@ -334,14 +344,24 @@ body {
 
 .user-username {
     width: 100px;
+    margin-left: 10px;
 }
 
 .account-type {
-    margin-top: 5px;
-    margin-right: -100px;
+    margin-top: 20px;
+    margin-right: -25px;
+    width: 100px;
+    height: 30px;
+    margin-left: -110px;
+    font-size: 0.5rem;
 }
 
 .user-login {
-    margin-top: 10px;
-    margin-right: 50px;
+    margin-top: 35px;
+}
+
+
+.rest-content-section {
+    margin-top: 50px;
+    z-index: 1;
 }

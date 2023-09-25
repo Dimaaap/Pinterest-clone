@@ -62,7 +62,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pinterest.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -75,7 +74,6 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "main.User"
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -116,12 +114,11 @@ EMAIL_PORT = config("EMAIL_PORT")
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
-#CELERY
+# CELERY
 
 CELERY_BROKEN_URL = "django://"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_RESULT_BACKEND = f"db+postgresql://{config('DB_USER')}:{config('DB_PASSWORD')}@" \
                         f"{config('DB_HOST')}/{config('DB_NAME')}"
-
 
 INITIAL_LANGUAGE = "ukrainian"

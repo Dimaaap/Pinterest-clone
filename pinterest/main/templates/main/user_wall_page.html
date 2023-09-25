@@ -1,0 +1,18 @@
+{% extends './layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'user/css/main_profile_page.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'user/js/main_profile_page.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include './_includes/login_header.html' %}
+    <section class="rest-content-section">
+        <h1>This will be user photos</h1>
+    </section>
+{% endblock %}
