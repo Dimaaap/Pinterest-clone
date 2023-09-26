@@ -20,12 +20,6 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    profileDetailDropdown.addEventListener("click", function(e) {
-        if(e.target.tagName === "LI") {
-            profileDetailBtn.textContent = e.target.textContent;
-            profileDetailDropdown.style.display = "none";
-        }
-    })
 
     window.addEventListener("click", function(e){
         if(!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {

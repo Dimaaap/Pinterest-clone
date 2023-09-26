@@ -336,6 +336,16 @@ body {
     border-radius: 10px;
 }
 
+.tooltip-container .dropdown .dropdown-content ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.tooltip-container .dropdown .dropdown-content a {
+    text-decoration: none;
+    color: black;
+}
+
 #account-settings {
     z-index: 999;
     margin-left: -150px;

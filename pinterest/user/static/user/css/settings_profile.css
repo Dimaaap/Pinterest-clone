@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    padding-left: 0;
+}
+
+.sidebar {
+    width: 25%;
+    height: 100%;
+}
+
+.sidebar ul li {
+    padding: 10px 10px 0 0;
+}
+
+.sidebar ul li a {
+   text-decoration: none;
+   color: #4A4A4A;
+   font-weight: 500;
+   font-size: 0.9rem;
+}
+
+.main-content {
+    flex: 1;
+    padding-left: 80px;
+}
+
+.main-content .info {
+    width: 40%;
+}
+
+.main-content .info p {
+    font-size: 0.8rem;
+    color: gray;
+}

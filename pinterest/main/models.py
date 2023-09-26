@@ -20,6 +20,7 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=155, default="")
     password = models.CharField(max_length=255)
     birthday = models.DateField(auto_now_add=True, null=False)
+    avatar = models.ImageField(null=True, blank=True, upload_to="avatars/")
     is_personal = models.BooleanField(default=True)
     is_commercial = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -34,7 +35,7 @@ class User(AbstractBaseUser):
         return self.email
 
     def set_username_automatically(self):
-        self.username = f"@{str(self.email).split()[0]}"
+        self.username = f"@{str(self.email).split('@')[0]}"
 
     def check_personal_and_commercial_different(self):
         if self.is_commercial and self.is_personal:

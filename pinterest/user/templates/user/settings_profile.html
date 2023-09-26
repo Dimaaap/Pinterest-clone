@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'user/css/main_profile_page.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/settings_profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'user/js/main_profile_page.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    {% include '../_includes/login_header.html' %}
+    <div class="container">
+        {% include '../_includes/sidebar.html' %}
+        <div class="main-content">
+            <div class="info">
+                <h5>
+                    Редагування профілю
+                </h5>
+                <p>
+                    Подбайте про конфіденційність своїх особистих даних.
+                    Інформація, яку ви додаєте сюди, відображається для всіх
+                    користувачів, що можуть переглядати ваш профіль
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

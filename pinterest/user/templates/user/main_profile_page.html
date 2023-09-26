@@ -18,16 +18,24 @@
   <section class="main-section">
     <div class="main-profile-info">
       <div class="user-profile-avatar">
-        <img alt=""
-             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
-             decoding="async" width="100" height="100"
-             srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
-             data-file-width="512"
-             data-file-height="512"
-             class="user-avatar">
+        {% if not avatar %}
+          <img alt=""
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+               decoding="async" width="100" height="100"
+               srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+               data-file-width="512"
+               data-file-height="512"
+               class="user-avatar">
+        {% else %}
+          <img alt="user avatar"
+               src="{{ avatar.url }}"
+               width="100"
+               height="100"
+          />
+        {% endif %}
       </div>
       <h3 class="username">
-        dima proc
+        {{ login }}
       </h3>
       <p class="user-login profile-p">
         @procdima49
@@ -37,7 +45,7 @@
       </p>
       <div class="profile-btns">
         <a href="#" class="popup-btn profile-btn">Поділитись</a>
-        <a href="#" class="profile-btn">Редагувати профіль</a>
+        <a href="{% url 'settings-profile' %}" class="profile-btn">Редагувати профіль</a>
       </div>
       <div class="filter-pins-btn">
         <a href="#" class="filter-btn">Створені</a>

@@ -30,7 +30,10 @@ def main_page_view(request):
 
 
 def user_wall_page_view(request):
-    return render(request, "main/user_wall_page.html")
+    if not request.user.is_authenticated:
+        return redirect("/")
+    context = {"username": request.user.username}
+    return render(request, "main/user_wall_page.html", context)
 
 
 def handle_login_form(request):
@@ -38,12 +41,12 @@ def handle_login_form(request):
     if login_form.is_valid():
         user = MainFormsHandler.login_form_handler(request, login_form)
         if user:
-            return redirect(main_page_view)
+            return redirect('/user-wall')
         else:
             return messages.error(request, "Неправильний логін або пароль")
     else:
         messages.error(request, "Неправильний логін або пароль")
-    return redirect(main_page_view)
+    return redirect('/user-wall')
 
 
 def logout_view(request):

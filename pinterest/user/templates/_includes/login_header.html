@@ -73,30 +73,42 @@
                 <br>
                 <span class="user-info">
                   <span class="user-avatar">
-                    <img alt="File:Eo circle green letter-d.svg"
-                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
-                     decoding="async" width="60" height="60"
-                     srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
-                     data-file-width="512"
-                     data-file-height="512">
+                    {% if not avatar %}
+                      <img alt="File:Eo circle green letter-d.svg"
+                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                       decoding="async" width="60" height="60"
+                       srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+                       data-file-width="512"
+                       data-file-height="512">
+                    {% else %}
+                      <img
+                        src="{{ avatar.url }}" width="60" height="60"
+                      />
+                    {% endif %}
                   </span>
                   <div>
-                    <div class="user-info-without-avatar">
-                      <div class="user-username">
-                      <!--<span class="user-username">-->
-                        <h6>dima proc</h6>
-                      </div>
-                     <!-- </span> -->
-                      <br>
-                      <div class="account-type">
-                        <small>Особистий</small>
-                      </div>
-                      <br>
-                      <div class="user-login">
-                        <small>@procdima49</small>
+                    <a href="{% url 'profile_page' username %}">
+                      <div class="user-info-without-avatar">
+                        <div class="user-username">
+                        <!--<span class="user-username">-->
+                          <h6>{{ login }}</h6>
+                        </div>
+                       <!-- </span> -->
                         <br>
+                        <div class="account-type">
+                          {% if account_type %}
+                            <small>Особистий</small>
+                          {% else %}
+                            <small>Корпоративний</small>
+                          {% endif %}
+                        </div>
+                        <br>
+                        <div class="user-login">
+                          <small>{{ username }}</small>
+                          <br>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </span>
                 <small>Ваші облікові записи</small>
@@ -139,7 +151,9 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   </li>
                   <li>
-                    Вихід
+                    <a href="{% url 'logout' %}" id="logout-href">
+                      Вихід
+                    </a>
                   </li>
                 </ul>
               </span>

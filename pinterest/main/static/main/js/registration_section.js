@@ -2,7 +2,6 @@ const registrationForm = document.querySelector("#registration-form");
 const loginForm = document.querySelector(".test-block");
 const loginButton = document.getElementById("showLoginForm");
 const registrationButton = document.getElementById("showRegistrationForm");
-console.log('dadsadsadsada')
 
 function showRegistrationForm(){
     registrationForm.style.display = "block";
@@ -10,20 +9,28 @@ function showRegistrationForm(){
 }
 
 function showLoginForm(){
+    console.log("Showing login form for user");
     registrationForm.style.display = "none";
     loginForm.style.display = "block";
-    console.log("This function work");
 }
 
 window.addEventListener("load", showRegistrationForm);
 loginButton.addEventListener("click", function(event){
+    console.log("Click button to show login form");
     event.preventDefault();
     showRegistrationForm();
 })
+
 loginButton.addEventListener("click", function(event){
     event.preventDefault();
     showLoginForm();
 });
+
+function redirectToUserWall() {
+    console.log("I`m in this method");
+    window.location.replace("http://127.0.0.1:8080/user-wall");
+
+}
 
 //Form validation section
 
@@ -40,8 +47,11 @@ const email = document.getElementById("email_input");
 const password = document.getElementById("password_input");
 const birthday = document.getElementById("birthday_input");
 const hiddenField = document.getElementById("hidden-field")
+
+
 $(document).ready(function(){
     $("#registration-form").on("submit", (function(event) {
+        console.log("dadasda");
         event.preventDefault();
         const fd = new FormData();
         fd.append("hidden", hiddenField.value)
@@ -58,7 +68,7 @@ $(document).ready(function(){
             cache: false,
             success: (response) => {
                 if(response.result === "success"){
-                    window.location.href = "http://127.0.0.1:8080/wall";
+                    redirectToUserWall();
                     console.log("Success response")
                 }
                 else if(response.result === "error"){
