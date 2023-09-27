@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 
+#from .forms import SetUserAvatarForm
+
 USER_MODEL = get_user_model()
 
 
@@ -20,7 +22,9 @@ def profile_page_view(request, username):
 
 
 def settings_profile_page_view(request):
-    context = {"username": request.session.get("username")}
+    avatar = request.user.avatar
+    context = {"username": request.session.get("username"),
+               "avatar": avatar}
     return render(request, "user/settings_profile.html", context)
 
 
