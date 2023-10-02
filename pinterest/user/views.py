@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 
-#from .forms import SetUserAvatarForm
+from .forms import SetUserAvatarForm
 
 USER_MODEL = get_user_model()
 
 
+@login_required
 def profile_page_view(request, username):
-    if not request.user.is_authenticated:
-        return redirect("/")
     try:
         user = USER_MODEL.objects.get(username=f"@{username}")
     except ObjectDoesNotExist:
@@ -21,12 +21,21 @@ def profile_page_view(request, username):
     return render(request, "user/main_profile_page.html", context)
 
 
+@login_required
 def settings_profile_page_view(request):
     avatar = request.user.avatar
+    if request.method == "POST":
+        print(request.POST)
+        form = SetUserAvatarForm(request.POST)
+        if form.is_valid():
+            pass
+    else:
+        form = SetUserAvatarForm()
     context = {"username": request.session.get("username"),
-               "avatar": avatar}
+               "avatar": avatar, "form": form}
     return render(request, "user/settings_profile.html", context)
 
 
+@login_required
 def add_account_page_view(request):
     return render(request, "user/add_account_page.html")

@@ -66,23 +66,29 @@ small {
     cursor: pointer;
 }
 
-/*.main-container#blur.active{
-    filter: blur(15px);
-    cursor: not-allowed;
-    z-index: 9999;
-}*/
-
-/*.main-container#blur.active li,
-.main-container#blur.active a,
-.main-container#blur.active button,
-.main-container#blur.active input {
-    cursor: not-allowed;
-}*/
-
 .change-avatar:hover {
     background: #D8D8D8;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+#popup form label {
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 500;
+    background: #C1BFBF;
+    border: none;
+    border-radius: 10px;
+}
+
+#popup form label:hover {
+    background: #B9B7B7;
+    color: white;
+}
+
+#popup form label,
 .change-confirm {
     border: none;
     border-radius: 15px;
@@ -90,33 +96,42 @@ small {
     color: white;
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 5px;
+    padding: 10px 5px;
+    cursor: pointer
+}
+
+#popup form label:hover,
+.change-confirm:hover {
+    background: #D02A35;
 }
 
 #popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#popup > div {
     width: 40%;
-    border: none;
+    position: relative;
+    background: white;
+    top: 40%;
+    left: 30%;
     border-radius: 15px;
     text-align: center;
     justify-content: center;
-    height: 100px;
-    vertical-align: center;
-    padding-top: 15px;
-    background: white;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
-    visibility: hidden;
-    opacity: 0;
+    padding: 10px 20px;
     transition: 0.5s;
-    cursor: default;
 }
 
-/*#popup.active {
-    visibility: visible;
-    opacity: 1;
-    transition: 0.5s;
+[disabled],
+.errorlist{
+    display: none;
 }
-*/

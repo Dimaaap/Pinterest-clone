@@ -98,6 +98,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/'
 STATIC_URL = '/static/'
 # MEDIA FILES
 MEDIA_URL = '/media/'
