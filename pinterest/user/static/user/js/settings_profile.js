@@ -23,6 +23,11 @@ const modalClose = (event) => {
     }
 }
 
+const modalCloseWithoutClick = () => {
+    popup.style.visibility = 'hidden';
+    popup.style.opacity = 0;
+}
+
 openPopupBtn.addEventListener("click", modalOpen);
 popup.addEventListener("click", modalClose);
 
@@ -36,3 +41,26 @@ fileInput.addEventListener("change", function() {
     }
 })
 
+
+$(document).ready(function() {
+    let currentUrl = window.location.href;
+    $("#upload-form").on('submit', function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            url: currentUrl,
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: data => {
+                $('#default-image').attr("src", data.new_image_url);
+                $('#user-image-small').attr("src", data.new_image_url);
+                modalCloseWithoutClick();
+            },
+            error: data => {
+                console.log("Помилка завантаження")
+            }
+        });
+    });
+});

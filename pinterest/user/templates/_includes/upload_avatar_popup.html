@@ -1,0 +1,12 @@
+<div id="popup">
+    <div id="popup-content">
+        <h3 class="popup__title">Змінити зображення</h3>
+        <div class="popup__container">
+            <form method="POST" class="upload-avatar-form" enctype="multipart/form-data" id="upload-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="change-confirm" id="confirm" disabled>Підтвердити</button>
+            </form>
+        </div>
+    </div>
+</div>

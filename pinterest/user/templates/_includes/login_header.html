@@ -52,12 +52,15 @@
         <li class="nav-item">
           <div class="tooltip-container">
             <button id="profile-btn" class="tooltip-button">
-              <img alt="File:Eo circle green letter-d.svg"
-                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
-                   decoding="async" width="20" height="20"
-                   srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
-                   data-file-width="512"
-                   data-file-height="512">
+                <img alt="The user avatar small"
+                     src="{% if avatar %}{{ avatar.url }}{% else %}https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624{% endif %}"
+                     decoding="async" width="20" height="20"
+                     data-file-width="512"
+                     data-file-height="512"
+                     style="border-radius: 50%;"
+                     id="user-image-small"
+                     class="active-user-img"
+                />
             </button>
             <div class="tooltip">Профіль</div>
           </div>
@@ -81,9 +84,7 @@
                        data-file-width="512"
                        data-file-height="512">
                     {% else %}
-                      <img
-                        src="{{ avatar.url }}" width="60" height="60"
-                      />
+                      <img src="{{ avatar.url }}" width="60" height="60">
                     {% endif %}
                   </span>
                   <div>

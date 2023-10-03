@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.http import JsonResponse
 
 from .forms import SetUserAvatarForm
+from .validators import image_validator
 
 USER_MODEL = get_user_model()
 
@@ -25,12 +28,18 @@ def profile_page_view(request, username):
 def settings_profile_page_view(request):
     avatar = request.user.avatar
     if request.method == "POST":
-        print(request.POST)
-        form = SetUserAvatarForm(request.POST)
+        form = SetUserAvatarForm(request.POST, request.FILES)
         if form.is_valid():
-            pass
-    else:
-        form = SetUserAvatarForm()
+            new_avatar = request.FILES['avatar']
+            is_valid = image_validator(new_avatar)
+            if isinstance(is_valid, str):
+                return messages.error(request, is_valid)
+            else:
+                current_user = USER_MODEL.objects.get(email=request.user.email)
+                current_user.avatar = new_avatar
+                current_user.save()
+                return JsonResponse({"new_image_url": current_user.avatar.url})
+    form = SetUserAvatarForm()
     context = {"username": request.session.get("username"),
                "avatar": avatar, "form": form}
     return render(request, "user/settings_profile.html", context)

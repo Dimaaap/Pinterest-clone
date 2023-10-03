@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block js_additional %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="{% static 'user/js/main_profile_page.js' %}"></script>
 <script src="{% static 'user/js/settings_profile.js' %}"></script>
 {% endblock %}
@@ -30,34 +31,19 @@
             </div>
             <small>Фото</small>
             <div class="user-avatar-section">
-                {% if not avatar %}
-                <img alt=""
-                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                <img alt="The user avatar"
+                     src="{% if avatar %}{{ avatar.url }}{% else %}https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624{% endif %}"
                      decoding="async" width="80" height="80"
-                     srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
                      data-file-width="512"
                      data-file-height="512"
-                     class="user-avatar">
-                {% else %}
-                <img alt=""
-                     src="{{ avatar.url }}"
-                     width="100" height="100"
-                     class="user-avatar"
+                     class="user-avatar" id="default-image"
+                     style="border-radius: 50%;"
                 />
-                {% endif %}
                 <button class="change-avatar" id="showModal">Змінити</button>
             </div>
-            <div id="popup">
-                <div id="popup-content">
-                    <h3 class="popup__title">Змінити зображення</h3>
-                    <div class="popup__container">
-                        <form method="POST" class="upload-avatar-form" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit" class="change-confirm" id="confirm" disabled>Підтвердити</button>
-                        </form>
-                    </div>
-                </div>
+            {% include '../_includes/upload_avatar_popup.html' %}
+            <div class="user-additional-info">
+                It`ll be additional info about user
             </div>
         </div>
     </div>
