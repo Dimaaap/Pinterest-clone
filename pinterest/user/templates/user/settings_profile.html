@@ -43,7 +43,102 @@
             </div>
             {% include '../_includes/upload_avatar_popup.html' %}
             <div class="user-additional-info">
-                It`ll be additional info about user
+                <form method="post" class="additional-info-form">
+                    {% csrf_token %}
+                    <input type="hidden" value="second-form" id="hidden-field">
+                    <div class="row">
+                        {% for field in second_form %}
+                            {% if forloop.counter <= 2 %}
+                                <div class="column">
+                                    <label>{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% for field in second_form %}
+                        {% if forloop.counter > 2 %}
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <small>
+                        www.pinterest.com/procdima49
+                    </small>
+                    <div class="row-buttons">
+                        <button class="form-button" id="reset">Скинути</button>
+                        <button type="submit" class="form-button" id="save">Зберегти</button>
+                        <span class="help-container" id="help-popup">
+                            <span class="circle-button-modal">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                        Відвідати довідковий центр
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" id="last-item">
+                                            Створити віджет
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <span class="modal-footer">
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <a href="#">Про нас</a>
+                                        </div>
+                                        <div class="table-cell">
+                                            <a href="#">Новини</a>
+                                        </div>
+                                        <div class="table-cell">
+                                            <a href="#">Для організацій</a>
+                                        </div>
+                                        <div class="table-cell">
+                                            <a href="#">Вакансії</a>
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <a href="#">Розробники</a>
+                                        </div>
+                                        <div class="table-cell" id="copyright-cell">
+                                            <a href="#" id="copyright">Авторські права</a>
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-ceil">
+                                            <a href="#">
+                                                Політика конфіденційності
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <div class="table-row">
+                                        <div class="table-ceil">
+                                            <a href="#">
+                                                Персоналізовані оголошення
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <div class="table-row">
+                                        <div class="table-ceil">
+                                            <a href="#">
+                                                Ваші права на конфіденційність
+                                            </a>
+                                        </div>
+                                         <div class="table-ceil">
+                                            <a href="#">
+                                                Умови
+                                            </a>
+                                        </div>
+                                    </div>
+                                </span>
+                            </span>
+                            <button class="circle-button" id="help-button">?</button>
+                        </span>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

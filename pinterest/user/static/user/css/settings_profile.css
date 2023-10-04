@@ -33,7 +33,6 @@
 
 .main-content .info {
     width: 40%;
-    cursor: pointer;
 }
 
 .main-content .info p,
@@ -142,3 +141,186 @@ input[type="file"] {
 .errorlist{
     display: none;
 }
+
+/* SET ADDITIONAL INFO FORM */
+
+.form-control,
+.form-textarea {
+    border: 1px solid #DEDBDC;
+    border-radius: 15px;
+    padding: 7px 10px;
+    outline: none;
+    font-size: 0.8rem;
+    width: 45%;
+}
+
+.form-textarea {
+    height: 90%;
+    font-size: 0.7rem;
+}
+
+.shorter {
+    width: 20%;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.user-additional-info {
+    margin-top: 20px;
+    position: relative;
+}
+
+.user-additional-info input {
+    font-size: 0.7rem;
+}
+
+.user-additional-info .row {
+    margin-bottom: 10px;
+}
+
+.user-additional-info .column:nth-child(1) input,
+.user-additional-info .column:nth-child(2) input {
+    width: calc(50% - 6px);
+}
+
+.user-additional-info .column:nth-child(2) {
+    margin-left: -135px;
+}
+
+.user-additional-info .column {
+    display: inline-block;
+    width: 40%;
+}
+
+.user-additional-info label {
+    display: block;
+    font-size: 0.8rem;
+    color: #686767;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.row-buttons {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-left: 200px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.row-buttons .form-button {
+    border: none;
+    border-radius: 10px;
+    background: #DBD9D9;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #878686;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.help-container{
+    float: right;
+}
+
+.circle-button-modal {
+    float: left;
+    margin-right: 5px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    padding: 10px 5px;
+    margin-top: -200px;
+    border-radius: 7px;
+    display: none;
+    opacity: 0;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-footer .table-row {
+    display: table;
+    width: 90%;
+}
+
+.modal-footer #copyright-cell {
+    margin-left: -40px;
+    width: 60%;
+}
+
+.modal-footer #copyright {
+    margin-left: -40px;
+}
+
+.modal-footer a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+}
+
+.modal-footer a:hover {
+    border-bottom: 1px solid gray;
+}
+
+.modal-footer .table-row .table-cell {
+    display: table-cell;
+    padding-right: 10px;
+}
+
+
+.circle-button-modal ul {
+    padding: 0 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DCDADA;
+}
+
+.circle-button-modal ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.circle-button-modal ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.circle-button-modal ul li:hover {
+    background: #D1CFCF;
+}
+
+.circle-button-modal ul li i {
+    margin-left: 100px;
+}
+
+.circle-button-modal ul #last-item i {
+    margin-left: 178px;
+}
+
+.row-buttons .circle-button {
+    float: right;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: -10px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+}
+
+.row-buttons .circle-button:hover {
+    background: #DBD9D9;
+}
+

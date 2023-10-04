@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 
-from .forms import SetUserAvatarForm
+from .forms import SetUserAvatarForm, UpdateUserInformationForm
 from .validators import image_validator
 
 USER_MODEL = get_user_model()
@@ -27,6 +27,7 @@ def profile_page_view(request, username):
 @login_required
 def settings_profile_page_view(request):
     avatar = request.user.avatar
+    print(request.POST)
     if request.method == "POST":
         form = SetUserAvatarForm(request.POST, request.FILES)
         if form.is_valid():
@@ -40,8 +41,10 @@ def settings_profile_page_view(request):
                 current_user.save()
                 return JsonResponse({"new_image_url": current_user.avatar.url})
     form = SetUserAvatarForm()
+    second_form = UpdateUserInformationForm()
     context = {"username": request.session.get("username"),
-               "avatar": avatar, "form": form}
+               "avatar": avatar, "form": form,
+               "second_form": second_form}
     return render(request, "user/settings_profile.html", context)
 
 

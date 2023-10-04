@@ -9,6 +9,8 @@ const uploadImageForm = document.querySelector(".upload-avatar-form")
 const fileInput = document.querySelector('input[type="file"]')
 const submitButton = document.getElementById("confirm")
 const formLabel = document.querySelector(".upload-avatar-form label")
+const helpButton = document.getElementById("help-button");
+const helpPopup = document.getElementById("help-popup");
 
 const modalOpen = () => {
     popup.style.visibility = "visible";
@@ -64,3 +66,27 @@ $(document).ready(function() {
         });
     });
 });
+
+
+const modal_close = false;
+
+const openHelpPopup = () => {
+    console.log("In open popup function")
+    helpPopup.style.display = "block";
+    helpPopup.style.opacity = 1;
+}
+
+const closeHelpPopup = (event) => {
+    console.log("In close popup function")
+    helpPopup.style.display = "none";
+    helpPopup.style.opacity = 0;
+}
+
+helpButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    if(modal_close){
+        closeHelpPopup();
+    } else {
+        openHelpPopup(event);
+    }
+})

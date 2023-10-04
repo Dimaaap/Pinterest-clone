@@ -15,16 +15,23 @@ class SetUserAvatarForm(forms.ModelForm):
 
 class UpdateUserInformationForm(forms.Form):
     first_name = forms.CharField(label="Ім'я",
-                                 widget=forms.TextInput(attrs={"class": "form-control"}))
+                                 required=False,
+                                 widget=forms.TextInput(attrs={"class": "form-control shorter"}))
     last_name = forms.CharField(label="Прізвище",
-                                widget=forms.TextInput(attrs={"class": "form-control"}))
+                                required=False,
+                                widget=forms.TextInput(attrs={"class": "form-control shorter",
+                                                              "id": "last-name"}))
     profile_description = forms.CharField(label="Про вас",
+                                          required=False,
                                           widget=forms.Textarea(attrs={"class": "form-textarea",
-                                                                       "placeholder": "Розкажіть свою історію"}))
+                                                                       "placeholder": "Розкажіть свою історію",
+                                                                       'cols': 40, "rows": 4}))
     site_link = forms.URLField(label="Сайт",
+                               required=False,
                                widget=forms.URLInput(attrs={"class": "form-control",
                                                             "placeholder":
                                                                 "Додайте посилання, щоб збільшити трафік сайту"}))
     username = forms.CharField(label="Ім'я користувача",
+                               required=False,
                                widget=forms.TextInput(attrs={"class": "form-control"}))
 
