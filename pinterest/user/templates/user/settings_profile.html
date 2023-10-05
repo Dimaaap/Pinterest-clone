@@ -43,9 +43,9 @@
             </div>
             {% include '../_includes/upload_avatar_popup.html' %}
             <div class="user-additional-info">
-                <form method="post" class="additional-info-form">
+                <form method="post" class="additional-info-form" action="">
                     {% csrf_token %}
-                    <input type="hidden" value="second-form" id="hidden-field">
+                    <input type="hidden" value="second-form" name="hidden-field">
                     <div class="row">
                         {% for field in second_form %}
                             {% if forloop.counter <= 2 %}
@@ -68,8 +68,8 @@
                     <div class="row-buttons">
                         <button class="form-button" id="reset">Скинути</button>
                         <button type="submit" class="form-button" id="save">Зберегти</button>
-                        <span class="help-container" id="help-popup">
-                            <span class="circle-button-modal">
+                        <span class="help-container">
+                            <span class="circle-button-modal" id="help-popup">
                                 <ul>
                                     <li>
                                         <a href="#">
@@ -135,10 +135,10 @@
                                     </div>
                                 </span>
                             </span>
-                            <button class="circle-button" id="help-button">?</button>
                         </span>
                     </div>
                 </form>
+                <button class="circle-button" id="help-button">?</button>
             </div>
         </div>
     </div>

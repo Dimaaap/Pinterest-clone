@@ -11,6 +11,8 @@ const submitButton = document.getElementById("confirm")
 const formLabel = document.querySelector(".upload-avatar-form label")
 const helpButton = document.getElementById("help-button");
 const helpPopup = document.getElementById("help-popup");
+const additionalInfoForm = document.querySelector(".additional-info-form");
+const additionalSubmitButton = document.querySelector("#save");
 
 const modalOpen = () => {
     popup.style.visibility = "visible";
@@ -68,25 +70,32 @@ $(document).ready(function() {
 });
 
 
-const modal_close = false;
+let isClose = false;
 
 const openHelpPopup = () => {
-    console.log("In open popup function")
-    helpPopup.style.display = "block";
-    helpPopup.style.opacity = 1;
+    helpPopup.style.visibility = "visible";
+    isClose = true;
 }
 
 const closeHelpPopup = (event) => {
-    console.log("In close popup function")
-    helpPopup.style.display = "none";
-    helpPopup.style.opacity = 0;
+    helpPopup.style.visibility = "hidden";
+    isClose = false;
 }
 
 helpButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    if(modal_close){
+    if(isClose){
         closeHelpPopup();
     } else {
         openHelpPopup(event);
     }
 })
+
+
+additionalInfoForm.addEventListener("input", () => {
+    const hasInput = Array.from(additionalInfoForm.elements).some((element) => {
+        return element.type !== "button" && element.type !== "submit" && element.value !== "";
+    });
+    additionalSubmitButton.disabled = !hasInput;
+    additionalSubmitButton.style.background = hasInput ? "red": "gray";
+
+});
