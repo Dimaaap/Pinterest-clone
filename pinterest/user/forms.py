@@ -15,19 +15,22 @@ class SetUserAvatarForm(forms.ModelForm):
 
 class UpdateUserInformationForm(forms.Form):
     first_name = forms.CharField(label="Ім'я",
-                                 widget=forms.TextInput(attrs={"class": "form-control shorter"}))
+                                 widget=forms.TextInput(attrs={"class": "form-control shorter",
+                                                               "id": "first-name"}))
     last_name = forms.CharField(label="Прізвище",
                                 widget=forms.TextInput(attrs={"class": "form-control shorter",
                                                               "id": "last-name"}))
-    profile_description = forms.CharField(label="Про вас",
-                                          widget=forms.Textarea(attrs={"class": "form-textarea",
-                                                                       "placeholder": "Розкажіть свою історію",
-                                                                       'cols': 40, "rows": 4}))
-    site_link = forms.URLField(label="Сайт",
-                               widget=forms.URLInput(attrs={"class": "form-control",
-                                                            "placeholder":
-                                                                "Додайте посилання, щоб збільшити трафік сайту"}))
+    bio = forms.CharField(label="Про вас",
+                          widget=forms.Textarea(attrs={"class": "form-textarea",
+                                                       "placeholder": "Розкажіть свою історію",
+                                                       "id": "desc",
+                                                       'cols': 40, "rows": 4}))
+    personal_site = forms.URLField(label="Сайт",
+                                   widget=forms.URLInput(attrs={"class": "form-control",
+                                                                "placeholder":
+                                                                    "Додайте посилання, щоб збільшити трафік сайту",
+                                                                "id": "site-link"}))
     username = forms.CharField(label="Ім'я користувача",
                                required=True,
-                               widget=forms.TextInput(attrs={"class": "form-control"}))
-
+                               widget=forms.TextInput(attrs={"class": "form-control",
+                                                             "id": "username"}))

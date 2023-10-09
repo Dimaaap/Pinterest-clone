@@ -201,6 +201,7 @@ input[type="file"] {
 }
 
 .row-buttons {
+    cursor: pointer;
     margin-top: 40px;
     margin-bottom: 10px;
     padding-left: 200px;
@@ -301,6 +302,31 @@ input[type="file"] {
     margin-left: 100px;
 }
 
+#reset{
+    color: #666565;
+    cursor: pointer;
+}
+
+#save{
+    background: #A4000B;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#reset:disabled{
+    cursor: not-allowed;
+    display: inline-block;
+    color: #868383;
+}
+
+#save:disabled {
+    cursor: not-allowed;
+    display: inline-block;
+    background: #DBD9D9;
+    color: #666565;
+}
+
 .circle-button-modal ul #last-item i {
     margin-left: 178px;
 }
@@ -315,11 +341,38 @@ input[type="file"] {
     margin-top: -55px;
     background: white;
     -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
     -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
 }
 
 .circle-button:hover {
     background: #DBD9D9;
+}
+
+.messages {
+    width: 30%;
+}
+
+.messages .success,
+.messages .error {
+    margin-left: -35px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.messages .success {
+    background: #0B5F22;
+    border: 1px solid #0B7026;
+}
+
+.messages .error {
+    background: #A4000B;
+    border: 1px solid #6E040B;
 }
 

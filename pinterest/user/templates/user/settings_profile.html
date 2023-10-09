@@ -29,6 +29,13 @@
                     користувачів, що можуть переглядати ваш профіль
                 </p>
             </div>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <small>Фото</small>
             <div class="user-avatar-section">
                 <img alt="The user avatar"
@@ -43,101 +50,7 @@
             </div>
             {% include '../_includes/upload_avatar_popup.html' %}
             <div class="user-additional-info">
-                <form method="post" class="additional-info-form" action="">
-                    {% csrf_token %}
-                    <input type="hidden" value="second-form" name="hidden-field">
-                    <div class="row">
-                        {% for field in second_form %}
-                            {% if forloop.counter <= 2 %}
-                                <div class="column">
-                                    <label>{{ field.label }}</label>
-                                    {{ field }}
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    {% for field in second_form %}
-                        {% if forloop.counter > 2 %}
-                            <label>{{ field.label }}</label>
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <small>
-                        www.pinterest.com/procdima49
-                    </small>
-                    <div class="row-buttons">
-                        <button class="form-button" id="reset">Скинути</button>
-                        <button type="submit" class="form-button" id="save">Зберегти</button>
-                        <span class="help-container">
-                            <span class="circle-button-modal" id="help-popup">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                        Відвідати довідковий центр
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" id="last-item">
-                                            Створити віджет
-                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <span class="modal-footer">
-                                    <div class="table-row">
-                                        <div class="table-cell">
-                                            <a href="#">Про нас</a>
-                                        </div>
-                                        <div class="table-cell">
-                                            <a href="#">Новини</a>
-                                        </div>
-                                        <div class="table-cell">
-                                            <a href="#">Для організацій</a>
-                                        </div>
-                                        <div class="table-cell">
-                                            <a href="#">Вакансії</a>
-                                        </div>
-                                    </div>
-                                    <div class="table-row">
-                                        <div class="table-cell">
-                                            <a href="#">Розробники</a>
-                                        </div>
-                                        <div class="table-cell" id="copyright-cell">
-                                            <a href="#" id="copyright">Авторські права</a>
-                                        </div>
-                                    </div>
-                                    <div class="table-row">
-                                        <div class="table-ceil">
-                                            <a href="#">
-                                                Політика конфіденційності
-                                            </a>
-                                        </div>
-                                    </div>
-                                     <div class="table-row">
-                                        <div class="table-ceil">
-                                            <a href="#">
-                                                Персоналізовані оголошення
-                                            </a>
-                                        </div>
-                                    </div>
-                                     <div class="table-row">
-                                        <div class="table-ceil">
-                                            <a href="#">
-                                                Ваші права на конфіденційність
-                                            </a>
-                                        </div>
-                                         <div class="table-ceil">
-                                            <a href="#">
-                                                Умови
-                                            </a>
-                                        </div>
-                                    </div>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                </form>
+                {% include "../_includes/update_additional_info_form.html" %}
                 <button class="circle-button" id="help-button">?</button>
             </div>
         </div>

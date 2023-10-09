@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model
-from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from django.http import JsonResponse
 
-from .forms import SetUserAvatarForm, UpdateUserInformationForm
+from .forms import SetUserAvatarForm
 from .validators import image_validator
+from .service import *
 from .models import UserAdditionalInfo
 
 USER_MODEL = get_user_model()
@@ -14,15 +12,26 @@ USER_MODEL = get_user_model()
 
 @login_required
 def profile_page_view(request, username):
-    try:
-        user = USER_MODEL.objects.get(username=f"@{username}")
-    except ObjectDoesNotExist:
-        return redirect('/user-wall')
+    user = get_data_from_model(USER_MODEL, "username", f"@{username}")
+    user_info = get_data_from_model(UserAdditionalInfo, "pk", request.user.id)
+    field_values = check_is_field_input(user_info)
+    if not user:
+        return redirect("/user-wall")
     account_type = request.user.is_personal
     request.session["username"] = username
     context = {"username": username, "login": request.user.email,
                "account_type": account_type, "avatar": request.user.avatar}
     return render(request, "user/main_profile_page.html", context)
+
+
+def check_is_field_input(user_info):
+    field_value_dict = {}
+    for field_name, field_value in user_info.__dict__.items():
+        if not (field_name.startswith("_") or callable(field_value)) and field_value:
+            field_value_dict[field_name] = field_value
+    return field_value_dict
+
+
 
 
 @login_required
@@ -36,33 +45,20 @@ def settings_profile_page_view(request):
             if isinstance(is_valid, str):
                 return messages.error(request, is_valid)
             else:
-                current_user = USER_MODEL.objects.get(email=request.user.email)
+                current_user = get_data_from_model(USER_MODEL, "email", request.user.email)
                 current_user.avatar = new_avatar
                 current_user.save()
             return JsonResponse({"new_image_url": current_user.avatar.url})
     elif request.method == "POST" and "username" in request.POST:
         upload_user_info_form_handler(request)
     form = SetUserAvatarForm()
-    second_form = UpdateUserInformationForm(initial={'username': request.user.username})
+    user_data = get_data_from_model(UserAdditionalInfo, "id", request.user.id)
+    if user_data:
+        second_form = get_form_initial_values(request, user_data)
     context = {"username": request.session.get("username"),
                "avatar": avatar, "form": form,
                "second_form": second_form}
     return render(request, "user/settings_profile.html", context)
-
-
-def upload_user_info_form_handler(request):
-    form = UpdateUserInformationForm(request.POST)
-    if form.is_valid():
-        first_name, last_name, bio, personal_site, username = form.cleaned_data.values()
-        obj, created = UserAdditionalInfo.objects.update_or_create(
-            id=request.user.id,
-            defaults={"id": request.user.id, "first_name": first_name, "last_name": last_name,
-                      "bio": bio, "personal_site": personal_site}
-        )
-        USER_MODEL.objects.filter(pk=request.user.id).update(username=username)
-        return messages.success(request, "Дані успішно оновлено")
-    else:
-        return messages.error(request, "Упс...здається виникла якась помилка")
 
 
 @login_required

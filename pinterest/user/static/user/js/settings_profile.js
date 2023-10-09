@@ -13,6 +13,7 @@ const helpButton = document.getElementById("help-button");
 const helpPopup = document.getElementById("help-popup");
 const additionalInfoForm = document.querySelector(".additional-info-form");
 const additionalSubmitButton = document.querySelector("#save");
+const resetButton = document.getElementById("reset");
 
 const modalOpen = () => {
     popup.style.visibility = "visible";
@@ -91,11 +92,66 @@ helpButton.addEventListener("click", (event) => {
 })
 
 
-additionalInfoForm.addEventListener("input", () => {
-    const hasInput = Array.from(additionalInfoForm.elements).some((element) => {
-        return element.type !== "button" && element.type !== "submit" && element.value !== "";
-    });
-    additionalSubmitButton.disabled = !hasInput;
-    additionalSubmitButton.style.background = hasInput ? "red": "gray";
+document.addEventListener("DOMContentLoaded", () => {
+    const initialFormValues = {}
+    const formElements = additionalInfoForm.elements;
+    resetButton.disabled = true;
+    additionalSubmitButton.disabled = true;
 
+    for(let i = 0; i < formElements.length; i++) {
+        const element = formElements[i]
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            initialFormValues[element.id] = element.value
+        }
+    }
+
+    resetButton.addEventListener("click", () => {
+        for(let i = 0; i < formElements.length; i++) {
+            const element = formElements[i];
+            if(element.tagName === "INPUT" || element.tagName === "TEXTAREA"){
+                element.value = initialFormValues[element.id]
+            }
+        }
+        resetButton.disabled = true;
+        additionalSubmitButton.disabled = true;
+    });
+
+    /*const enableSubmitButton = () => {
+        additionalSubmitButton.disabled = false;
+        additionalSubmitButton.style.backgroundColor = "red";
+    }
+
+    const disableSubmitButton = () => {
+        additionalSubmitButton.disabled = true;
+        additionalSubmitButton.style.background = ""
+    }*/
+
+    for(let i = 0; i < formElements.length; i++){
+    const element = formElements[i];
+    if(element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+        element.addEventListener("input", () => {
+            checkFormData();
+        });
+    }
+}
+
+    const checkFormData = () => {
+        let hasData = false;
+        for(let i = 0; i < formElements.length; i++){
+            const element = formElements[i];
+            if((element.tagName === "INPUT" || element.tagName === "TEXTAREA") &&
+            element.value !== initialFormValues[element.id]){
+                hasData = true;
+                break;
+            }
+        }
+        resetButton.disabled = !hasData;
+        if(hasData){
+            additionalSubmitButton.disabled = false;
+        } else {
+            additionalSubmitButton.disabled = true;
+            additionalSubmitButton.style.backgroundColor = "";
+        }
+    }
+    checkFormData();
 });

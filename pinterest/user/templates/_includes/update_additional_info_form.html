@@ -1,0 +1,28 @@
+<form method="post" class="additional-info-form" action="">
+    {% csrf_token %}
+    <input type="hidden" value="second-form" name="hidden-field">
+    <div class="row">
+        {% for field in second_form %}
+            {% if forloop.counter <= 2 %}
+                <div class="column">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% for field in second_form %}
+        {% if forloop.counter > 2 %}
+            <label>{{ field.label }}</label>
+            {{ field }}
+        {% endif %}
+    {% endfor %}
+    <small>
+        www.pinterest.com/procdima49
+    </small>
+    <div class="row-buttons">
+        <button class="form-button" id="reset" disabled>Скинути</button>
+        <button type="submit" class="form-button" id="save">Зберегти</button>
+        {% include "../_includes/help_footer.html" %}
+    </div>
+</form>
