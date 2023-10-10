@@ -2,6 +2,11 @@ from django import forms
 from django.contrib.auth import get_user_model
 
 USER_MODEL = get_user_model()
+GENDER_CHOICE = [
+    (1, "Чоловіча"),
+    (2, "Жіноча"),
+    (3, "Інша стать")
+]
 
 
 class SetUserAvatarForm(forms.ModelForm):
@@ -34,3 +39,36 @@ class UpdateUserInformationForm(forms.Form):
                                required=True,
                                widget=forms.TextInput(attrs={"class": "form-control",
                                                              "id": "username"}))
+
+    def clean_first_name(self):
+        first_name = self.first_name
+        if not first_name:
+            raise forms.ValidationError("Профіль повинен мати ім'я")
+        return first_name
+
+    def clean_last_name(self):
+        last_name = self.last_name
+        if not last_name:
+            raise forms.ValidationError("Профіль повинен мати ім'я")
+        return last_name
+
+
+class UserAccountDataForm(forms.Form):
+    email = forms.EmailField(label="Електронна пошта - Приватно", widget=forms.EmailInput(attrs={
+        "class": "form-control",
+        "id": "email-field"
+    }))
+    password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={
+        "class": "form-control",
+        "id": "password-field"
+    }))
+    birth_day = forms.DateField(label="Дата народження", widget=forms.DateInput(attrs={
+        "class": "form-control",
+        "id": "date-field"
+    }))
+    gender = forms.ChoiceField(label="Стать", choices=GENDER_CHOICE, widget=forms.RadioSelect(attrs={
+        "class": "radio-select form-control",
+        "id": "gender-select-field"
+    }))
+
+

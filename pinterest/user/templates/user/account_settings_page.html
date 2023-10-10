@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'user/css/account_settings_page.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/main_profile_page.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'user/js/main_profile_page.js' %}"></script>
+    <script src="{% static 'user/js/account_settings_page.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main-container">
+        {% include '../_includes/login_header.html' %}
+        <div class="container">
+            {% include '../_includes/sidebar.html' %}
+            <div class="main-content" id="main-content">
+                <div class="info">
+                    <h5>
+                        Керування обліковими записами
+                    </h5>
+                    <p>
+                        Ви можете змінити персональні дані
+                        або тип облікового запису
+                    </p>
+                </div>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <h6>Ваш обліковий запис</h6>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

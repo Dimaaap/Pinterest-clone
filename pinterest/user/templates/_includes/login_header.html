@@ -76,25 +76,31 @@
                 <br>
                 <span class="user-info">
                   <span class="user-avatar">
-                    {% if not avatar %}
-                      <img alt="File:Eo circle green letter-d.svg"
-                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
-                       decoding="async" width="60" height="60"
-                       srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
-                       data-file-width="512"
-                       data-file-height="512">
-                    {% else %}
-                      <img src="{{ avatar.url }}" width="60" height="60">
-                    {% endif %}
+                    <a href="{% url 'profile_page' username %}">
+                      {% if not avatar %}
+                        <img alt="File:Eo circle green letter-d.svg"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                         decoding="async" width="60" height="60"
+                         srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+                         data-file-width="512"
+                         data-file-height="512"
+                        class="user-avatar">
+                      {% else %}
+                        <img src="{{ avatar.url }}" width="60" height="60"
+                        class="user-avatar">
+                      {% endif %}
+                    </a>
                   </span>
                   <div>
                     <a href="{% url 'profile_page' username %}">
                       <div class="user-info-without-avatar">
                         <div class="user-username">
-                        <!--<span class="user-username">-->
-                          <h6>{{ login }}</h6>
+                          {% if full_name %}
+                            <h6>{{ full_name }}</h6>
+                          {% else %}
+                            <h6>{{ username }}</h6>
+                          {% endif %}
                         </div>
-                       <!-- </span> -->
                         <br>
                         <div class="account-type">
                           {% if account_type %}

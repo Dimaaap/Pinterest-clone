@@ -162,6 +162,7 @@ body {
 .main-profile-info .user-login {
     color: #B5B5B5;
     margin-top: -5px;
+    font-size: 0.8rem;
 }
 
 .profile-p {
@@ -368,10 +369,36 @@ body {
 
 .user-login {
     margin-top: 35px;
+    margin-bottom: -5px;
 }
 
 
 .rest-content-section {
     margin-top: 50px;
     z-index: 1;
+}
+
+
+.user-bio {
+    margin-top: -12px;
+}
+
+.user-site {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: -60px;
+}
+
+.user-site:hover {
+    text-decoration: underline;
+}
+
+.user-site a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.user-avatar {
+    border-radius: 50%;
 }

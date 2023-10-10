@@ -65,3 +65,19 @@ def upload_user_info_form_handler(request):
         return messages.success(request, SuccessMessages.update_data_in_model.value)
     else:
         return messages.error(request, ErrorMessages.error_update_data_in_model.value)
+
+
+def form_user_full_name(field_values: dict, username: str):
+    if "first_name" in field_values and "last_name" in field_values:
+        full_name = f'{field_values["first_name"]} {field_values["last_name"]}'
+    else:
+        full_name = username
+    return full_name
+
+
+def check_is_field_input(user_info):
+    field_value_dict = {}
+    for field_name, field_value in user_info.__dict__.items():
+        if not (field_name.startswith("_") or callable(field_value)) and field_value:
+            field_value_dict[field_name] = field_value
+    return field_value_dict
