@@ -35,7 +35,34 @@
                     </ul>
                 {% endif %}
                 <h6>Ваш обліковий запис</h6>
-
+                    <form method="post" class="personal-data-form">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            {% if forloop.counter == 2 %}
+                                <a class="change-password-btn change-btn">Змінити</a>
+                                <div class="change-type-account-info">
+                                    <h6>
+                                        Перетворіть звичайний обліковий запис на
+                                        корпоративний
+                                    </h6>
+                                    <p>
+                                        З корпоративним обліковим записом ви
+                                        матимете доступ до таких інструментів,
+                                        як реклама й аналітика, щоб розвивати
+                                        свій бізнес у Pinterest
+                                    </p>
+                                    <a class="change-account-type-btn change-btn">
+                                        Змінити тип
+                                    </a>
+                                    <h6 id="upper-text">
+                                        Персональні дані
+                                    </h6>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </form>
             </div>
         </div>
     </div>

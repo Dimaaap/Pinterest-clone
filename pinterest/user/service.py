@@ -81,3 +81,6 @@ def check_is_field_input(user_info):
         if not (field_name.startswith("_") or callable(field_value)) and field_value:
             field_value_dict[field_name] = field_value
     return field_value_dict
+
+
+

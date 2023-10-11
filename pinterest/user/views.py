@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
-from .forms import SetUserAvatarForm, UserAccountEmailForm
+from .forms import SetUserAvatarForm, UserAccountDataForm
 from .validators import image_validator
 from .service import *
 from .models import UserAdditionalInfo
@@ -58,7 +58,13 @@ def settings_profile_page_view(request):
 
 @login_required
 def account_settings_page_view(request):
-    context = {"username": request.user.username}
+    if request.method == "POST":
+        form = UserAccountDataForm(request.POST)
+        if form.is_valid():
+            pass
+    else:
+        form = UserAccountDataForm()
+    context = {"username": request.user.username, "form": form}
     return render(request, "user/account_settings_page.html", context)
 
 

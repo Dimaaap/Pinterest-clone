@@ -1,12 +1,19 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
+from .parse_data import get_list_all_countries
+from policy.parse_languages import get_country_list
+
+LANGUAGES_LIST = get_country_list()
+
 USER_MODEL = get_user_model()
 GENDER_CHOICE = [
     (1, "Чоловіча"),
     (2, "Жіноча"),
     (3, "Інша стать")
 ]
+
+COUNTRIES_LIST = get_list_all_countries()
 
 
 class SetUserAvatarForm(forms.ModelForm):
@@ -64,11 +71,19 @@ class UserAccountDataForm(forms.Form):
     }))
     birth_day = forms.DateField(label="Дата народження", widget=forms.DateInput(attrs={
         "class": "form-control",
-        "id": "date-field"
+        "id": "date-field",
+        "type": "date",
     }))
     gender = forms.ChoiceField(label="Стать", choices=GENDER_CHOICE, widget=forms.RadioSelect(attrs={
         "class": "radio-select form-control",
         "id": "gender-select-field"
     }))
-
+    country_or_region = forms.ChoiceField(choices=COUNTRIES_LIST, initial="Ukraine", widget=forms.Select(attrs={
+        "class": "select form-control",
+        "id": "select-region"
+    }))
+    language = forms.ChoiceField(choices=LANGUAGES_LIST, widget=forms.Select(attrs={
+        "class": "select form-control",
+        "id": "select-language"
+    }))
 

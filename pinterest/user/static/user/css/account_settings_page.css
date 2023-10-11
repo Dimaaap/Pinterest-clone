@@ -137,3 +137,86 @@
 .main-container small {
     color: #ABA8A8;
 }
+
+.main-content h6 {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.personal-data-form {
+    width: 40%;
+}
+
+.personal-data-form label {
+    font-size: 0.6rem;
+}
+
+.personal-data-form .form-control {
+    border-radius: 10px;
+    width: 70%;
+}
+
+.personal-data-form .change-password-btn,
+.personal-data-form .change-btn{
+    background: #EBE8E8;
+    padding:5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-left: 184px;
+    margin-top: -33px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.7rem;
+    font-weight: 500;
+    position: absolute;
+    left: 100;
+}
+
+.personal-data-form .change-password-btn:hover,
+.personal-data-form .change-btn:hover {
+    background: #D2CFCF;
+}
+
+.personal-data-form .change-account-type-btn {
+    margin-top: -80px;
+}
+
+.personal-data-form #password-field {
+    width: 50%;
+}
+
+.personal-data-form .change-type-account-info {
+    width: 50%;
+    text-align: left;
+    font-size: 0.6rem;
+}
+
+.personal-data-form .change-type-account-info h6{
+    font-size: 0.7rem;
+}
+
+#upper-text {
+    font-size: 0.8rem;
+}
+
+.personal-data-form #gender-select-field {
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.personal-data-form #gender-select-field label {
+    margin-right: 10px;
+}
+
+.personal-data-form #gender-select-field input {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.personal-data-form .radio-select {
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+}
+
