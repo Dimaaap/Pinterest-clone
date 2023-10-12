@@ -75,15 +75,17 @@ class UserAccountDataForm(forms.Form):
         "type": "date",
     }))
     gender = forms.ChoiceField(label="Стать", choices=GENDER_CHOICE, widget=forms.RadioSelect(attrs={
-        "class": "radio-select form-control",
+        "class": "radio-select",
         "id": "gender-select-field"
     }))
-    country_or_region = forms.ChoiceField(choices=COUNTRIES_LIST, initial="Ukraine", widget=forms.Select(attrs={
-        "class": "select form-control",
-        "id": "select-region"
-    }))
-    language = forms.ChoiceField(choices=LANGUAGES_LIST, widget=forms.Select(attrs={
+    country_or_region = forms.ChoiceField(label="Країна або регіон", choices=COUNTRIES_LIST,
+                                          initial="Ukraine",
+                                          widget=forms.Select(attrs={
+                                              "class": "select form-control",
+                                              "id": "select-region"
+                                          }
+                                          ))
+    language = forms.ChoiceField(label="Мова", choices=LANGUAGES_LIST, widget=forms.Select(attrs={
         "class": "select form-control",
         "id": "select-language"
     }))
-

@@ -116,16 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         additionalSubmitButton.disabled = true;
     });
 
-    /*const enableSubmitButton = () => {
-        additionalSubmitButton.disabled = false;
-        additionalSubmitButton.style.backgroundColor = "red";
-    }
-
-    const disableSubmitButton = () => {
-        additionalSubmitButton.disabled = true;
-        additionalSubmitButton.style.background = ""
-    }*/
-
     for(let i = 0; i < formElements.length; i++){
     const element = formElements[i];
     if(element.tagName === "INPUT" || element.tagName === "TEXTAREA") {

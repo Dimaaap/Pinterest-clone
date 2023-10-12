@@ -145,15 +145,23 @@
 
 .personal-data-form {
     width: 40%;
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .personal-data-form label {
     font-size: 0.6rem;
+    margin-top: 10px;
 }
 
 .personal-data-form .form-control {
     border-radius: 10px;
     width: 70%;
+    font-size: 0.8rem;
+}
+
+.personal-data-form .form-control:hover {
+    border: 1px solid #818080;
 }
 
 .personal-data-form .change-password-btn,
@@ -170,6 +178,7 @@
     font-weight: 500;
     position: absolute;
     left: 100;
+    cursor: pointer;
 }
 
 .personal-data-form .change-password-btn:hover,
@@ -179,6 +188,7 @@
 
 .personal-data-form .change-account-type-btn {
     margin-top: -80px;
+    cursor: pointer;
 }
 
 .personal-data-form #password-field {
@@ -207,16 +217,200 @@
 
 .personal-data-form #gender-select-field label {
     margin-right: 10px;
-}
-
-.personal-data-form #gender-select-field input {
-    margin-top: 20px;
     margin-left: 5px;
+    display: flex;
 }
 
-.personal-data-form .radio-select {
-    border-radius: 50px;
-    width: 20px;
-    height: 20px;
+.personal-data-form .radio-select div {
+    display: flex;
+    align-items: center;
+}
+
+.personal-data-form i {
+    display: block;
+    position: absolute;
+    margin-left: 230px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.account-deactivation {
+    font-size: 0.7rem;
+    margin-top: 7%;
+    width: 50%;
+}
+
+.account-deactivation h5 {
+    font-size: 0.9rem;
+    width: 110%;
+}
+
+.account-deactivation h6 {
+    font-size: 0.8rem;
+}
+
+.account-deactivation .account-deactive {
+    margin-top: -70px;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 10px 5px;
+    width: 60%;
+}
+
+.account-deactivation .account-delete {
+    margin-top: -70px;
+    padding: 10px 7px;
+    font-size: 0.7rem;
+}
+
+.row-buttons {
+    cursor: pointer;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-left: 200px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 200%;
+}
+
+.row-buttons .form-button {
+    border: none;
+    border-radius: 10px;
+    background: #DBD9D9;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #878686;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.help-container{
+    float: right;
+}
+
+.circle-button-modal {
+    float: left;
+    margin-right: 50px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    padding: 10px 5px;
+    margin-top: -200px;
+    border-radius: 7px;
+    visibility: hidden;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-footer .table-row {
+    display: table;
+    width: 90%;
+}
+
+.modal-footer #copyright-cell {
+    margin-left: -40px;
+    width: 60%;
+}
+
+.modal-footer #copyright {
+    margin-left: -40px;
+}
+
+.modal-footer a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+}
+
+.modal-footer a:hover {
+    border-bottom: 1px solid gray;
+}
+
+.modal-footer .table-row .table-cell {
+    display: table-cell;
+    padding-right: 10px;
+}
+
+
+.circle-button-modal ul {
+    padding: 0 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DCDADA;
+}
+
+.circle-button-modal ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.circle-button-modal ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.circle-button-modal ul li:hover {
+    background: #D1CFCF;
+}
+
+.circle-button-modal ul li i {
+    margin-left: 100px;
+}
+
+#reset{
+    color: #666565;
+    cursor: pointer;
+}
+
+#save{
+    background: #A4000B;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#reset:disabled{
+    cursor: not-allowed;
+    display: inline-block;
+    color: #868383;
+}
+
+#save:disabled {
+    cursor: not-allowed;
+    display: inline-block;
+    background: #DBD9D9;
+    color: #666565;
+}
+
+.circle-button-modal ul #last-item i {
+    margin-left: 178px;
+}
+
+.circle-button {
+    float: right;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: -70px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+}
+
+.circle-button:hover {
+    background: #DBD9D9;
 }
 

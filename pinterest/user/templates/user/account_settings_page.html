@@ -39,6 +39,11 @@
                         {% csrf_token %}
                         {% for field in form %}
                             <label>{{ field.label }}</label>
+                            {% if forloop.counter == 5 %}
+                                <i class="fa-solid fa-arrow-down" id="first-arrow"></i>
+                            {% elif forloop.counter == 6 %}
+                                <i class="fa-solid fa-arrow-down" id="second-arrow"></i>
+                            {% endif %}
                             {{ field }}
                             {% if forloop.counter == 2 %}
                                 <a class="change-password-btn change-btn">Змінити</a>
@@ -62,7 +67,33 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        <div class="account-deactivation">
+                            <h5>Деактивація та видалення</h5>
+                            <h6>Деактивувати обліковий запис</h6>
+                            <p class="description">
+                                Тимчасово приховайте свій профіль,піни й дошки
+                            </p>
+                            <a href="#" class="account-deactive change-btn">
+                                Деактивувати обліковий запис
+                            </a>
+                            <h5>
+                                Видалення даних і облікового запису
+                            </h5>
+                            <p class="description">
+                                Остаточно видаліть свої дані й усе, що пов'язано з вашим обліковим
+                                записом
+                            </p>
+                            <a href="#" class="account-delete change-btn">
+                                Видалити обліковий запис
+                            </a>
+                        </div>
+                        <div class="row-buttons">
+                            <button class="form-button" id="reset" disabled>Скинути</button>
+                            <button type="submit" class="form-button" id="save" disabled>Зберегти</button>
+                            {% include "../_includes/help_footer.html" %}
+                        </div>
                     </form>
+                    <button class="circle-button" id="help-button">?</button>
             </div>
         </div>
     </div>
