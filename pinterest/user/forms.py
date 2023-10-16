@@ -65,27 +65,28 @@ class UserAccountDataForm(forms.Form):
         "class": "form-control",
         "id": "email-field"
     }))
-    password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={
+    password = forms.CharField(label="Пароль", required=False, widget=forms.PasswordInput(attrs={
         "class": "form-control",
         "id": "password-field"
     }))
-    birth_day = forms.DateField(label="Дата народження", widget=forms.DateInput(attrs={
+    birth_day = forms.DateField(label="Дата народження", required=False, widget=forms.DateInput(attrs={
         "class": "form-control",
         "id": "date-field",
         "type": "date",
     }))
-    gender = forms.ChoiceField(label="Стать", choices=GENDER_CHOICE, widget=forms.RadioSelect(attrs={
+    gender = forms.ChoiceField(label="Стать", required=False, choices=GENDER_CHOICE, widget=forms.RadioSelect(attrs={
         "class": "radio-select",
         "id": "gender-select-field"
     }))
     country_or_region = forms.ChoiceField(label="Країна або регіон", choices=COUNTRIES_LIST,
+                                          required=False,
                                           initial="Ukraine",
                                           widget=forms.Select(attrs={
                                               "class": "select form-control",
                                               "id": "select-region"
                                           }
                                           ))
-    language = forms.ChoiceField(label="Мова", choices=LANGUAGES_LIST, widget=forms.Select(attrs={
+    language = forms.ChoiceField(label="Мова", required=False, choices=LANGUAGES_LIST, widget=forms.Select(attrs={
         "class": "select form-control",
         "id": "select-language"
     }))

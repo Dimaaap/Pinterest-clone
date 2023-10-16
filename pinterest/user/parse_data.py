@@ -6,7 +6,7 @@ def get_list_all_countries():
     counter = 1
     for i in pycountry.countries:
         try:
-            countries_list.append((counter, i.name))
+            countries_list.append((i.name, i.name))
             counter += 1
         except AttributeError:
             continue
