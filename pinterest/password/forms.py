@@ -1,10 +1,7 @@
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth import get_user_model
 
 from main.models import User
-
-USER_MODEL = get_user_model()
 
 
 class FindUserForm(forms.Form):

@@ -1,16 +1,12 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 
-USER_MODEL = get_user_model()
-GENDER_CHOICE = [
-    ("Male", "Male"),
-    ("Female", "Female"),
-    ("Other", "Other")
-]
+from .data_storage import DataStorage
+
+data_storage = DataStorage()
 
 
 class UserAdditionalInfo(models.Model):
-    user_id = models.ForeignKey(USER_MODEL, on_delete=models.SET_NULL, null=True),
+    user_id = models.ForeignKey(data_storage.USER_MODEL, on_delete=models.SET_NULL, null=True),
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100, null=True)
     bio = models.TextField(blank=True, null=True)
@@ -21,9 +17,9 @@ class UserAdditionalInfo(models.Model):
 
 
 class UserPersonalData(models.Model):
-    user_id = models.ForeignKey(USER_MODEL, on_delete=models.SET_NULL, null=True)
+    user_id = models.ForeignKey(data_storage.USER_MODEL, on_delete=models.SET_NULL, null=True)
     birth_date = models.DateField(null=True, default=None)
-    gender = models.CharField(max_length=20, choices=GENDER_CHOICE, null=True, default=None)
+    gender = models.CharField(max_length=20, choices=data_storage.GENDER_CHOICE, null=True, default=None)
     country_or_region = models.CharField(max_length=50, null=True, default=None)
     language = models.CharField(max_length=100, null=True, default=None)
 

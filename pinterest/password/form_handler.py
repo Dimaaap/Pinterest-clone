@@ -1,9 +1,8 @@
-from django.contrib.auth import get_user_model
-
 from .services import send_email_service, check_if_new_password_service, set_user_new_password_service
 from .db_service import get_data_from_model
+from .data_storage import DataStorage
 
-USER_MODEL = get_user_model()
+data_storage = DataStorage()
 
 
 class PasswordFormsHandler:
@@ -11,7 +10,7 @@ class PasswordFormsHandler:
     @staticmethod
     def find_user_form_handler(request, form):
         user_email = form.cleaned_data["email"]
-        current_user = get_data_from_model(USER_MODEL, "email", user_email)
+        current_user = get_data_from_model(data_storage.USER_MODEL, "email", user_email)
         token = current_user.get_reset_password_token()
         request.session["token"], request.session["email"] = token, user_email
         send_email_service(user_email, token)

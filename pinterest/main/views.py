@@ -7,7 +7,6 @@ from django.contrib.auth import logout
 from .forms import SigninForm, LoginForm
 from .services import *
 from .form_handler import MainFormsHandler
-from user.views import profile_page_view
 
 
 def main_page_view(request):

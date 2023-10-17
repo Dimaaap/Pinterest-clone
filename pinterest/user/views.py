@@ -6,13 +6,14 @@ from .forms import SetUserAvatarForm, UserAccountDataForm
 from .validators import image_validator
 from .service import *
 from .models import UserAdditionalInfo, UserPersonalData
+from .data_storage import DataStorage
 
-USER_MODEL = get_user_model()
+data_storage = DataStorage()
 
 
 @login_required
 def profile_page_view(request, username):
-    user = get_data_from_model(USER_MODEL, "username", f"@{username}")
+    user = get_data_from_model(data_storage.USER_MODEL, "username", f"@{username}")
     user_info = get_data_from_model(UserAdditionalInfo, "pk", request.user.id)
     field_values = check_is_field_input(user_info)
     full_name = form_user_full_name(field_values, username)
@@ -39,7 +40,7 @@ def settings_profile_page_view(request):
             if isinstance(is_valid, str):
                 return messages.error(request, is_valid)
             else:
-                current_user = get_data_from_model(USER_MODEL, "email", request.user.email)
+                current_user = get_data_from_model(data_storage.USER_MODEL, "email", request.user.email)
                 current_user.avatar = new_avatar
                 current_user.save()
             return JsonResponse({"new_image_url": current_user.avatar.url})
@@ -61,7 +62,7 @@ def account_settings_page_view(request):
     if request.method == "POST":
         form = UserAccountDataForm(request.POST)
         if form.is_valid():
-            user = USER_MODEL.objects.get(id=request.user.id)
+            user = data_storage.USER_MODEL.objects.get(id=request.user.id)
             birth_day = form.cleaned_data["birth_day"]
             country_or_region = form.cleaned_data["country_or_region"]
             language = form.cleaned_data["language"]
@@ -75,7 +76,7 @@ def account_settings_page_view(request):
             })
     else:
         form = UserAccountDataForm()
-    user_data = get_data_from_model(USER_MODEL, "id", request.user.id)
+    user_data = get_data_from_model(data_storage.USER_MODEL, "id", request.user.id)
     try:
         user = UserPersonalData.objects.get(id=request.user.id)
         default_country_or_region = user.country_or_region if user.country_or_region != "Aruba" else "Aruba"

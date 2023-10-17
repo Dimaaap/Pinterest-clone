@@ -1,14 +1,16 @@
 from PIL import Image
-from .exceptions import ImageFormatException, ImageSizeException
 
-MAX_IMAGE_SIZE = 10 * 1024 * 1024  # 10 MB
+from .exceptions import ImageFormatException, ImageSizeException
+from .data_storage import DataStorage
+
+data_storage = DataStorage()
 
 
 def validate_image_format(image_file):
     if image_file:
         try:
             img = Image.open(image_file)
-            allowed_formats = {"JPEG", "JPG", "PNG", "GIF"}
+            allowed_formats = data_storage.ALLOWED_FILE_FORMATS
             if img.format not in allowed_formats:
                 raise ImageFormatException()
         except Exception as e:
@@ -18,7 +20,7 @@ def validate_image_format(image_file):
 
 def validate_image_size(image_file):
     if image_file:
-        if image_file.size > MAX_IMAGE_SIZE:
+        if image_file.size > data_storage.MAX_IMAGE_SIZE:
             raise ImageSizeException()
     return image_file
 
@@ -32,5 +34,3 @@ def image_validator(image_file):
     except ImageSizeException:
         return "Зображення має надто великий об'єм. Максимальний розмір файлу - 10 МБ"
     return True
-
-

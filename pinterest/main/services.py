@@ -1,6 +1,3 @@
-
-
-
 ###########################################################
 # Тимчасове рішення проблеми із тим,що повідомлення про помилку не відображаються у формі
 # Суть рішення в тому,що у текст повідомлення методу messages.error передається
@@ -10,4 +7,3 @@
 def handle_error_messages_service(form_errors: dict):
     first_error_message = list(form_errors.values())[0]
     return ''.join(first_error_message)
-

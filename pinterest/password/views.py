@@ -6,8 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from .forms import FindUserForm, SetNewPasswordForm
 from .form_handler import *
 from .db_service import get_data_from_model
+from .data_storage import DataStorage
 
-USER_MODEL = get_user_model()
+data_storage = DataStorage()
 
 
 def reset_password_view(request):
@@ -30,7 +31,7 @@ def reset_password_view(request):
 
 def create_new_password_view(request, user_email: str, user_token: str):
     try:
-        current_user = get_data_from_model(USER_MODEL, "email", user_email)
+        current_user = get_data_from_model(data_storage.USER_MODEL, "email", user_email)
     except ObjectDoesNotExist:
         return messages.error(request, "Щось пішло не так")
     user = current_user.verify_reset_password_token(user_token)
