@@ -1,25 +1,30 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 
 from .forms import SetUserAvatarForm, UserAccountDataForm
 from .validators import image_validator
-from .service import *
 from .models import UserAdditionalInfo, UserPersonalData
 from .data_storage import DataStorage
+from .services.db_services import DBService
+from .services.helpers import Helper
+from .services.form_handlers import FormHandler
+from .services.view_handlers import *
 
 data_storage = DataStorage()
+db_service = DBService()
+helper = Helper()
+form_handler = FormHandler()
 
 
 @login_required
 def profile_page_view(request, username):
-    user = get_data_from_model(data_storage.USER_MODEL, "username", f"@{username}")
-    user_info = get_data_from_model(UserAdditionalInfo, "pk", request.user.id)
-    field_values = check_is_field_input(user_info)
-    full_name = form_user_full_name(field_values, username)
-    request.session["full_name"] = full_name
-    if not user:
-        return redirect("/user-wall")
+    full_name, field_values = ViewHandler(username,
+                                          request).profile_page_view_handler()
+    if not (full_name or field_values):
+        return redirect('/user-wall')
     account_type = request.user.is_personal
     request.session["username"] = username
     context = {"username": username, "login": request.user.email,
@@ -40,16 +45,19 @@ def settings_profile_page_view(request):
             if isinstance(is_valid, str):
                 return messages.error(request, is_valid)
             else:
-                current_user = get_data_from_model(data_storage.USER_MODEL, "email", request.user.email)
+                current_user = db_service.get_data_from_model(data_storage.USER_MODEL, "email", request.user.email)
                 current_user.avatar = new_avatar
                 current_user.save()
-            return JsonResponse({"new_image_url": current_user.avatar.url})
+        return JsonResponse({"new_image_url": current_user.avatar.url})
     elif request.method == "POST" and "username" in request.POST:
-        upload_user_info_form_handler(request)
+        form_handler.upload_user_info_form_handler(request)
     form = SetUserAvatarForm()
-    user_data = get_data_from_model(UserAdditionalInfo, "id", request.user.id)
+    user_data = db_service.get_data_from_model(UserAdditionalInfo, "id", request.user.id)
     if user_data:
-        second_form = get_form_initial_values(request, user_data)
+        initial_dict = {"username": request.user.username, "first_name": user_data.first_name,
+                        "last_name": user_data.last_name, "bio": user_data.bio,
+                        "personal_site": user_data.personal_site}
+        second_form = helper.get_form_initial_values(form, initial_dict)
     context = {"username": request.session.get("username"),
                "avatar": avatar, "form": form,
                "second_form": second_form,
@@ -76,7 +84,7 @@ def account_settings_page_view(request):
             })
     else:
         form = UserAccountDataForm()
-    user_data = get_data_from_model(data_storage.USER_MODEL, "id", request.user.id)
+    user_data = db_service.get_data_from_model(data_storage.USER_MODEL, "id", request.user.id)
     try:
         user = UserPersonalData.objects.get(id=request.user.id)
         default_country_or_region = user.country_or_region if user.country_or_region != "Aruba" else "Aruba"
