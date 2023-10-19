@@ -1,5 +1,7 @@
 from django import forms
 
+from ..forms import SetUserAvatarForm
+
 
 class Helper:
 
@@ -14,7 +16,7 @@ class Helper:
         Повертає ту ж форму з уже встановленими значеннями
         за замовчуванням
         """
-        second_form = form(intial=initial_dict)
+        second_form = SetUserAvatarForm(initial=initial_dict)
         return second_form
 
     @staticmethod

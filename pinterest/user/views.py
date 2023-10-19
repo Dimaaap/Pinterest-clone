@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 
-from .forms import SetUserAvatarForm, UserAccountDataForm
+from .forms import SetUserAvatarForm, UserAccountDataForm, UpdateUserInformationForm
 from .validators import image_validator
 from .models import UserAdditionalInfo, UserPersonalData
 from .data_storage import DataStorage
@@ -25,43 +25,19 @@ def profile_page_view(request, username):
                                           request).profile_page_view_handler()
     if not (full_name or field_values):
         return redirect('/user-wall')
-    account_type = request.user.is_personal
-    request.session["username"] = username
-    context = {"username": username, "login": request.user.email,
-               "account_type": account_type, "avatar": request.user.avatar,
-               "full_name": full_name}
+    context = ViewHandler(username, request).profile_page_view_get_context()
     context.update(field_values)
     return render(request, "user/main_profile_page.html", context)
 
 
 @login_required
 def settings_profile_page_view(request):
-    avatar = request.user.avatar
     if request.method == "POST" and "username" not in request.POST:
-        form = SetUserAvatarForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_avatar = request.FILES['avatar']
-            is_valid = image_validator(new_avatar)
-            if isinstance(is_valid, str):
-                return messages.error(request, is_valid)
-            else:
-                current_user = db_service.get_data_from_model(data_storage.USER_MODEL, "email", request.user.email)
-                current_user.avatar = new_avatar
-                current_user.save()
+        current_user = ViewHandler(request.user.username, request).settings_profile_page_view()
         return JsonResponse({"new_image_url": current_user.avatar.url})
     elif request.method == "POST" and "username" in request.POST:
         form_handler.upload_user_info_form_handler(request)
-    form = SetUserAvatarForm()
-    user_data = db_service.get_data_from_model(UserAdditionalInfo, "id", request.user.id)
-    if user_data:
-        initial_dict = {"username": request.user.username, "first_name": user_data.first_name,
-                        "last_name": user_data.last_name, "bio": user_data.bio,
-                        "personal_site": user_data.personal_site}
-        second_form = helper.get_form_initial_values(form, initial_dict)
-    context = {"username": request.session.get("username"),
-               "avatar": avatar, "form": form,
-               "second_form": second_form,
-               "full_name": request.session.get("full_name")}
+    context = ViewHandler(request.user.username, request).settings_profile_page_view_get_context()
     return render(request, "user/settings_profile.html", context)
 
 
@@ -75,7 +51,6 @@ def account_settings_page_view(request):
             country_or_region = form.cleaned_data["country_or_region"]
             language = form.cleaned_data["language"]
             gender = form.cleaned_data["gender"]
-            print(gender)
             UserPersonalData.objects.update_or_create(id=user.id, defaults={
                 "birth_date": birth_day,
                 "country_or_region": country_or_region,
