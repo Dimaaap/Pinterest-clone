@@ -4,7 +4,7 @@ from django.contrib import messages
 from ..data_storage import *
 from ..services.db_services import *
 from ..services.helpers import *
-from ..models import UserAdditionalInfo
+from ..models import UserAdditionalInfo, UserPersonalData
 from ..forms import SetUserAvatarForm, \
     UpdateUserInformationForm, UserAccountDataForm
 from ..validators import image_validator
@@ -78,7 +78,21 @@ class ViewHandler:
         return context
 
     def account_settings_page_view(self):
-        if self.request.method == "POST":
-            form = UserAccountDataForm(self.request.POST)
-            if form.is_valid():
-                pass
+        user_data = self.db_service.get_data_from_model(self.data_storage.USER_MODEL,
+                                                        "id", self.request.user.id)
+        try:
+            user = self.db_service.get_data_from_model(UserPersonalData, "id",
+                                                       self.request.user.id)
+            default_country_or_region = user.country_or_region if user.country_or_region != "Ukraine" else "Ukraine"
+            default_language = user.language if user.language != "Ukrainian" else "Ukrainian"
+            default_gender = user.gender if user.gender else None
+            default_birthday = user.birth_date if user.birth_date else None
+        except ObjectDoesNotExist:
+            (default_country_or_region, default_language, default_gender, default_birthday) = ("Ukraine", "Ukrainian",
+                                                                                               None, None)
+        initial_dict = {"email": user_data, "country_or_region": default_country_or_region,
+                        "language": default_language, "gender": default_gender,
+                        "birth_day": default_birthday
+                        }
+        second_form = self.helper.get_form_initial_values(UserAccountDataForm, initial_dict)
+        return second_form

@@ -8,9 +8,9 @@ class FindUserForm(forms.Form):
     email = forms.EmailField(required=True,
                              widget=forms.EmailInput(
                                  attrs={
-                                        "placeholder": "Пошук",
-                                        "class": "find-input"
-                                        }))
+                                     "placeholder": "Пошук",
+                                     "class": "find-input"
+                                 }))
 
     def clean_email(self):
         email = self.cleaned_data["email"]
@@ -22,7 +22,6 @@ class FindUserForm(forms.Form):
 
 
 class SetNewPasswordForm(forms.Form):
-
     new_password = forms.CharField(required=True,
                                    min_length=6,
                                    label="Новий пароль",
@@ -52,3 +51,10 @@ class SetNewPasswordForm(forms.Form):
         if new_password and repeat_new_password and new_password != repeat_new_password:
             raise forms.ValidationError('Паролі не співпадають')
         return repeat_new_password
+
+
+class UpdatePasswordFromAccountSettings(SetNewPasswordForm):
+    old_password = forms.CharField(max_length=55, label="Старий пароль - Забули?",
+                                   widget=forms.PasswordInput(attrs={
+                                       "class": "form-input"
+                                   }))

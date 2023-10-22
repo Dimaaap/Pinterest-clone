@@ -76,7 +76,8 @@ class UserAccountDataForm(forms.Form):
                                               "id": "select-region"
                                           }
                                           ))
-    language = forms.ChoiceField(label="Мова", required=False, choices=data_storage.COUNTRIES_LIST,
+    language = forms.ChoiceField(label="Мова", required=False, choices=data_storage.LANGUAGES_LIST,
+                                 initial="Ukrainian",
                                  widget=forms.Select(attrs={
                                      "class": "select form-control",
                                      "id": "select-language"

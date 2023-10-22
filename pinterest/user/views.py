@@ -1,15 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib import messages
 
-from .forms import SetUserAvatarForm, UserAccountDataForm, UpdateUserInformationForm
-from .validators import image_validator
-from .models import UserAdditionalInfo, UserPersonalData
-from .data_storage import DataStorage
-from .services.db_services import DBService
-from .services.helpers import Helper
 from .services.form_handlers import FormHandler
 from .services.view_handlers import *
 
@@ -46,37 +38,10 @@ def account_settings_page_view(request):
     if request.method == "POST":
         form = UserAccountDataForm(request.POST)
         if form.is_valid():
-            user = data_storage.USER_MODEL.objects.get(id=request.user.id)
-            birth_day = form.cleaned_data["birth_day"]
-            country_or_region = form.cleaned_data["country_or_region"]
-            language = form.cleaned_data["language"]
-            gender = form.cleaned_data["gender"]
-            UserPersonalData.objects.update_or_create(id=user.id, defaults={
-                "birth_date": birth_day,
-                "country_or_region": country_or_region,
-                "gender": gender,
-                "language": language
-            })
+            form_handler.user_account_data_form_handler(request, form)
     else:
         form = UserAccountDataForm()
-    user_data = db_service.get_data_from_model(data_storage.USER_MODEL, "id", request.user.id)
-    try:
-        user = UserPersonalData.objects.get(id=request.user.id)
-        default_country_or_region = user.country_or_region if user.country_or_region != "Aruba" else "Aruba"
-        default_language = user.language if user.language != "arabic" else "arabic"
-        default_gender = user.gender if user.gender else None
-        default_birthday = user.birth_date if user.birth_date else None
-        print(default_birthday)
-    except ObjectDoesNotExist:
-        default_country_or_region = "Aruba"
-        default_language = "arabic"
-        default_gender = None
-        default_birthday = None
-    print(default_birthday)
-    form = UserAccountDataForm(initial={"email": user_data, "country_or_region": default_country_or_region,
-                                        "language": default_language,
-                                        "gender": default_gender,
-                                        "birth_day": default_birthday})
+    form = ViewHandler(request.user.username, request).account_settings_page_view()
     context = {"username": request.user.username, "form": form}
     return render(request, "user/account_settings_page.html", context)
 

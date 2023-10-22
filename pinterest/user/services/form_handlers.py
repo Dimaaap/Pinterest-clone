@@ -29,15 +29,15 @@ class FormHandler:
             return messages.error(request, ErrorMessages.error_update_data_in_model.value)
 
     @staticmethod
-    def user_account_data_form_handler(request):
-        form = UserAccountDataForm(request.POST)
+    def user_account_data_form_handler(request, form):
         user = db_service.get_data_from_model(data_storage.USER_MODEL, "id", request.user.id)
         birth_day = form.cleaned_data["birth_day"]
         country_or_region = form.cleaned_data["country_or_region"]
         language = form.cleaned_data["language"]
         gender = form.cleaned_data["gender"]
-        field_values = {"id": user.id, "birth_day": birth_day,
+        field_values = {"id": user.id, "birth_date": birth_day,
                         "country_or_region": country_or_region,
                         "language": language,
                         "gender": gender}
-        db_service.create_or_update_data_in_model(UserPersonalData, field_values)
+        db_service.create_or_update_data_in_model(UserPersonalData, **field_values)
+

@@ -34,8 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for(let i = 0; i < formElements.length; i++) {
         const element = formElements[i]
-        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT"
-        || element.tagName === "RADIO") {
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT") {
+            if(element.type === "radio"){
+                 initialFormValues[element.id] = element.checked;
+            } else {
+                initialFormValues[element.id] = element.value;
+            }
             initialFormValues[element.id] = element.value;
             element.addEventListener("input", () => {
                 checkFormData();
@@ -46,13 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
     resetButton.addEventListener("click", () => {
         for(let i = 0; i < formElements.length; i++) {
             const element = formElements[i];
-            if(element.tagName === "INPUT" || element.tagName === "TEXTAREA"){
-                element.value = initialFormValues[element.id]
-            } else if (element.tagName === "SELECT"){
-                element.value = initialFormValues[element.id]
-            } else if (element.tagName === "RADIO"){
-                console.log(element.value)
-                element.value = initialFormValues[element.id]
+            if(element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT"){
+                if(element.type === "radio"){
+                    element.checked = initialFormValues[element.id];
+                } else {
+                    element.value = initialFormValues[element.id]
+                }
             }
         }
         resetButton.disabled = true;
@@ -72,10 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let hasData = false;
         for(let i = 0; i < formElements.length; i++){
             const element = formElements[i];
-            if((element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT") &&
-            element.value !== initialFormValues[element.id]){
-                hasData = true;
-                break;
+            if(element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT") {
+                if(element.type === "radio"){
+                    if(element.checked !== initialFormValues[element.id]){
+                        hasData = true;
+                        break;
+                    }
+                } else if ( element.value !== initialFormValues[element.id]){
+                    hasData = true;
+                    break;
+                }
             }
         }
         resetButton.disabled = !hasData;

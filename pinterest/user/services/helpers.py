@@ -16,7 +16,7 @@ class Helper:
         Повертає ту ж форму з уже встановленими значеннями
         за замовчуванням
         """
-        second_form = SetUserAvatarForm(initial=initial_dict)
+        second_form = form(initial=initial_dict)
         return second_form
 
     @staticmethod

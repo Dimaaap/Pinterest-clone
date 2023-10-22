@@ -9,7 +9,12 @@
         {% endif %}
         {{ field }}
         {% if forloop.counter == 2 %}
-            <a class="change-password-btn change-btn">Змінити</a>
+            <div class="change-modal">
+                <a class="change-password-btn change-btn">Змінити</a>
+                <div class="modal-content">
+                    <h4 class="modal-header">Зміна паролю</h4>
+                </div>
+            </div>
             <div class="change-type-account-info">
             <h6>
                 Перетворіть звичайний обліковий запис на
