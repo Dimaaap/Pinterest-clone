@@ -4,6 +4,7 @@ from django.http import JsonResponse
 
 from .services.form_handlers import FormHandler
 from .services.view_handlers import *
+from password.forms import UpdatePasswordFromAccountSettings
 
 data_storage = DataStorage()
 db_service = DBService()
@@ -35,14 +36,19 @@ def settings_profile_page_view(request):
 
 @login_required
 def account_settings_page_view(request):
-    if request.method == "POST":
+    if request.method == "POST" and "old_password" not in request.POST:
         form = UserAccountDataForm(request.POST)
         if form.is_valid():
             form_handler.user_account_data_form_handler(request, form)
+    elif request.method == "POST" and "old_password" in request.POST:
+        form = ViewHandler(request.user.username, request).account_settings_page_view()
+        modal_form = UpdatePasswordFromAccountSettings(request.POST)
+        if modal_form.is_valid():
+            form_handler.change_password_modal_form_handler(request, modal_form)
     else:
         form = UserAccountDataForm()
-    form = ViewHandler(request.user.username, request).account_settings_page_view()
-    context = {"username": request.user.username, "form": form}
+    modal_form = UpdatePasswordFromAccountSettings()
+    context = {"username": request.user.username, "form": form, "modal_form": modal_form}
     return render(request, "user/account_settings_page.html", context)
 
 

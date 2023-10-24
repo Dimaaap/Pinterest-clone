@@ -9,12 +9,7 @@
         {% endif %}
         {{ field }}
         {% if forloop.counter == 2 %}
-            <div class="change-modal">
-                <a class="change-password-btn change-btn">Змінити</a>
-                <div class="modal-content">
-                    <h4 class="modal-header">Зміна паролю</h4>
-                </div>
-            </div>
+            <a class="change-password-btn change-btn" id="open-change-btn">Змінити</a>
             <div class="change-type-account-info">
             <h6>
                 Перетворіть звичайний обліковий запис на
@@ -57,7 +52,7 @@
     </div>
     <div class="row-buttons">
         <button class="form-button" id="reset" disabled>Скинути</button>
-        <button type="submit" class="form-button" id="save" disabled>Зберегти</button>
+        <button type="submit" class="form-button" id="save">Зберегти</button>
         {% include "../_includes/help_footer.html" %}
     </div>
 </form>

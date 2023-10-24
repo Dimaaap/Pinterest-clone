@@ -1,6 +1,9 @@
 from django import forms
+from django.contrib.auth.hashers import check_password
+from django.contrib import messages
 
 from ..forms import SetUserAvatarForm
+from ..messages_store import *
 
 
 class Helper:
@@ -64,3 +67,47 @@ class Helper:
                     callable(field_value)) and field_value:
                 field_value_dict[field_name] = field_value
         return field_value_dict
+
+    @staticmethod
+    def check_is_user_passwords_equal(request, input_password: str, user_password: str):
+        """
+        Статичний метод, який перевіряє, чи значення паролю, яке ввів користувач збігається зі значенням паролю,
+        яке розміщене в базі даних
+        Приймає input_password - значення паролю, яке увів користувач
+        user_password - пароль користувача в БД
+        """
+        if check_password(input_password, user_password):
+            return True
+        return messages.error(request, "Неправильно введений пароль")
+
+    @staticmethod
+    def check_are_new_passwords_equal(request, new_password: str, repeat_new_password: str):
+        """
+        Метод, який приймає введене значення нового паролю користувача і повторне значення паролю користувача
+        і перевіряє, чи вони рівні, якщо рівні - повертає True, інакше - повідомлення про помилку
+        new_password - Значення поля "Новий пароль" у формі зміни паролю
+        repeat_new_password - Значення поля "Повторіть пароль" у формі зміни паролю
+        """
+        if new_password == repeat_new_password:
+            return True
+        return messages.error(request, "Значення паролів не співпадають")
+
+    @staticmethod
+    def check_is_password_valid(request, password: str):
+        if len(password) < 8:
+            return messages.error(request, "Пароль повинен бути в дожину не менше 8 символів")
+        if all([i.isdigit() for i in password]) or all([i.isalpha() for i in password]):
+            return messages.error(request, "Пароль повинен містити хоча б одну цифру і англійську літеру")
+        return True
+
+    def is_valid_form(self, request, input_password: str, user_password: str, new_password: str,
+                      repeat_new_password: str):
+        validation_methods_set = {self.check_is_user_passwords_equal(request, input_password, user_password),
+                                  self.check_are_new_passwords_equal(request, new_password, repeat_new_password),
+                                  self.check_is_password_valid(request, new_password)
+                                  }
+        valid_form = True
+        for i in validation_methods_set:
+            if not isinstance(i, bool):
+                return i
+        return valid_form

@@ -10,6 +10,7 @@
 {% block js_additional %}
     <script src="{% static 'user/js/main_profile_page.js' %}"></script>
     <script src="{% static 'user/js/account_settings_page.js' %}"></script>
+    <script src="{% static 'user/js/change-password-modal-window.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -35,6 +36,7 @@
                     </ul>
                 {% endif %}
                 <h6>Ваш обліковий запис</h6>
+                {% include "../_includes/change_password_modal.html" %}
                 {% include "../_includes/profile_settings_form.html" %}
                 <button class="circle-button" id="help-button">?</button>
             </div>

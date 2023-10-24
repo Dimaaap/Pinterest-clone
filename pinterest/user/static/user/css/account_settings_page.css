@@ -433,3 +433,80 @@
     background: #DBD9D9;
 }
 
+.change-password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: none;
+}
+
+.change-password-modal > div {
+    width: 25%;
+    position: relative;
+    background: white;
+    top: 35%;
+    left: 40%;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 20px;
+    transition: 0.5s;
+}
+
+.change-password-modal form {
+    width: 100%;
+}
+
+.change-password-modal form input {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #9E9C9C;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+    font-family: "Rubik";
+    font-size: 0.9rem;
+    padding: 15px;
+}
+
+.change-password-modal form label {
+    cursor: pointer;
+    font-size: 0.6rem;
+    margin-bottom: 7px;
+    font-weight: 500;
+    color: #9E9C9C;
+    float: left;
+}
+
+.change-password-modal form .buttons-rows {
+    margin-left: 90px;
+    margin-top: 7px;
+}
+
+.change-password-modal form .buttons-rows .modal-btn {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 450;
+    background: #EBE5E6;
+    border-radius: 10px;
+    padding: 7px 10px;
+    border: none;
+    max-height: 35px;
+}
+
+.change-password-modal form .buttons-rows .modal-btn:hover {
+    background: #DADADA;
+}
+
+.change-password-modal form .buttons-rows button {
+    background: red;
+}
+

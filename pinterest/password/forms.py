@@ -53,8 +53,21 @@ class SetNewPasswordForm(forms.Form):
         return repeat_new_password
 
 
-class UpdatePasswordFromAccountSettings(SetNewPasswordForm):
+class UpdatePasswordFromAccountSettings(forms.Form):
     old_password = forms.CharField(max_length=55, label="Старий пароль - Забули?",
                                    widget=forms.PasswordInput(attrs={
                                        "class": "form-input"
                                    }))
+
+    new_password = forms.CharField(max_length=55, label="Новий пароль",
+                                   widget=forms.PasswordInput(attrs={
+                                       "class": "form-input"
+                                   }))
+
+    new_password_repeat = forms.CharField(max_length=55, label="Введіть пароль повторно",
+                                          widget=forms.PasswordInput(attrs={
+                                              "class": "form-input"
+                                          }))
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data['old_password']

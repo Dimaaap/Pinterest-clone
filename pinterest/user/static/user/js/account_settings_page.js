@@ -27,16 +27,22 @@ helpButton.addEventListener("click", (event) => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    const initialFormValues = {}
     const formElements = form.elements;
     resetButton.disabled = true;
     additionalSubmitButton.disabled = true;
+    let initialGenderValue;
+    let initialFormValues = {};
 
     for(let i = 0; i < formElements.length; i++) {
         const element = formElements[i]
         if (element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT") {
             if(element.type === "radio"){
-                 initialFormValues[element.id] = element.checked;
+                const checkedRadio = form.querySelector(`input[name="${element.name}"]:checked`)
+                if (checkedRadio){
+                    initialFormValues[element.id] = checkedRadio.value;
+                } else {
+                    initialFormValues[element.id] = "1";
+                }
             } else {
                 initialFormValues[element.id] = element.value;
             }
@@ -52,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const element = formElements[i];
             if(element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT"){
                 if(element.type === "radio"){
-                    element.checked = initialFormValues[element.id];
+                    const checkedRadio = form.querySelector(`input[name="${element.name}"]:checked`);
+                    if(checkedRadio){
+                        checkedRadio.checked = true;
+                    }
                 } else {
                     element.value = initialFormValues[element.id]
                 }

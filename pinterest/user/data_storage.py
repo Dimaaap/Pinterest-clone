@@ -13,7 +13,7 @@ class DataStorage:
     GENDER_CHOICE = [
         (1, "Чоловіча"),
         (2, "Жіноча"),
-        (1, "Інша стать")
+        (3, "Інша стать")
     ]
     COUNTRIES_LIST = get_list_all_countries()
     MAX_IMAGE_SIZE = 10 * 1024 * 1024  # 10 MB
