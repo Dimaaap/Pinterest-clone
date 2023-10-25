@@ -8,9 +8,11 @@
 {% endblock %}
 
 {% block js_additional %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{% static 'user/js/main_profile_page.js' %}"></script>
-    <script src="{% static 'user/js/account_settings_page.js' %}"></script>
-    <script src="{% static 'user/js/change-password-modal-window.js' %}"></script>
+    <script type="module" src="{% static 'user/js/account_settings_page.js' %}"></script>
+    <script type="module" src="{% static 'user/js/change-password-modal-window.js' %}"></script>
+    <script type="module" src="{% static 'user/js/get-error-message.js' %}"></script>
 {% endblock %}
 
 {% block body %}

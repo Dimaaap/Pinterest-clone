@@ -1,6 +1,9 @@
-openModalBtn = document.getElementById("open-change-btn");
-closeModalBtn = document.getElementById("cancel");
-modalWindow = document.getElementById("change-modal");
+const openModalBtn = document.getElementById("open-change-btn");
+const closeModalBtn = document.getElementById("cancel");
+const modalWindow = document.getElementById("change-modal");
+const newPasswordModalField = document.getElementById("id_new_password");
+const passwordField = document.getElementById("password-field");
+
 
 let close = false;
 
@@ -8,6 +11,7 @@ let close = false;
 const openPasswordPopup = () => {
     modalWindow.style.display = "block";
     close = true;
+    newPasswordModalField.value = passwordField.value;
 }
 
 

@@ -90,9 +90,10 @@ class ViewHandler:
         except ObjectDoesNotExist:
             (default_country_or_region, default_language, default_gender, default_birthday) = ("Ukraine", "Ukrainian",
                                                                                                None, None)
-        initial_dict = {"email": user_data, "country_or_region": default_country_or_region,
+        initial_dict = {"email": user_data.email, "country_or_region": default_country_or_region,
                         "language": default_language, "gender": default_gender,
                         "birth_day": default_birthday
                         }
+        print(initial_dict)
         second_form = self.helper.get_form_initial_values(UserAccountDataForm, initial_dict)
         return second_form

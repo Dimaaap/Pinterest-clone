@@ -46,7 +46,7 @@ def account_settings_page_view(request):
         if modal_form.is_valid():
             form_handler.change_password_modal_form_handler(request, modal_form)
     else:
-        form = UserAccountDataForm()
+        form = ViewHandler(request.user.username, request).account_settings_page_view()
     modal_form = UpdatePasswordFromAccountSettings()
     context = {"username": request.user.username, "form": form, "modal_form": modal_form}
     return render(request, "user/account_settings_page.html", context)

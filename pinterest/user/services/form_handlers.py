@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import JsonResponse
 
 from ..models import UserAdditionalInfo, UserPersonalData
 from ..services.db_services import DBService
@@ -36,7 +37,7 @@ class FormHandler:
         language = form.cleaned_data["language"]
         gender = form.cleaned_data["gender"]
         password = form.cleaned_data["password"]
-        request["password"] = password
+        request.session["password"] = password
         field_values = {"id": user.id, "birth_date": birth_day,
                         "country_or_region": country_or_region,
                         "language": language,
@@ -50,7 +51,13 @@ class FormHandler:
                                                            form.cleaned_data["new_password"],
                                                            form.cleaned_data["new_password_repeat"])
         user_model_password = user.password
-        if helper.is_valid_form(request, old_password, user_model_password, new_password, new_password_repeat):
+        form_valid = helper.is_valid_form(request, old_password, user_model_password,
+                                          new_password, new_password_repeat)
+        if isinstance(form_valid, bool):
             user.set_password(new_password)
             user.save()
+            return JsonResponse({"success": "Пароль успішно змінено"})
+        else:
+            message = form_valid[0]
+            return JsonResponse({"errors": message})
 
