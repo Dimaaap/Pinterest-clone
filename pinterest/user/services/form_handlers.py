@@ -56,8 +56,10 @@ class FormHandler:
         if isinstance(form_valid, bool):
             user.set_password(new_password)
             user.save()
-            return JsonResponse({"success": "Пароль успішно змінено"})
+            return True
+            #return JsonResponse({"success": "Пароль успішно змінено"})
         else:
             message = form_valid[0]
-            return JsonResponse({"errors": message})
+            #return JsonResponse({"errors": message})
+            return message
 

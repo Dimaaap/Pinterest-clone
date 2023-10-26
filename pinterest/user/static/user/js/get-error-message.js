@@ -1,77 +1,48 @@
 console.log("In this page")
 
+$(document).ready(function(){
+    const currentUrl = window.location.href;
 
-/*$(document).ready(function(){
-    console.log("I`m here")
-    let currentUrl = window.location.href;
-
-    $("#change-modal").submit(function(event){
+    $("#change-modal").submit(function(event) {
         event.preventDefault();
         let formData = $(this).serialize();
         let csrfToken = $('input[name=csrfmiddlewaretoken]').val();
-        console.log(csrfToken)
         formData += `&csrfmiddlewaretoken=${csrfToken}`;
-        console.log(formData);
+
+        console.log("before the AJAX request")
 
         $.ajax({
             type: "POST",
             url: currentUrl,
             data: formData,
             dataType: "json",
-            success: function(data) {
-                //if(data.errors){
-                //    let errorMessages = $("#error-messages");
-                //    errorMessages.empty();
-                //    $.each(data.errors, function(field, error){
-                //        errorMessages.append(`<p> ${error} </p>`);
-                //        print("here")
-                //    });
-                console.log('sdasdsadsa')
-                errorMessages.append("<p>Пароль успішно змінено</p>")
+            processData: false,
+            contentType: "application/json",
+            headers: {
+                "X-CSRFToken": csrfToken
             },
-            error: function(data) {
-               if(data.errors){
-                    let errorMessages = $("#error-messages");
-                    errorMessages.empty();
-                    $.each(data.errors, function(field, error){
-                        errorMessages.append(`<p> ${error} </p>`);
-                        print("here")
-                    });
-                }
-            })
-        })
-    })
-})*/
-
-$(document).ready(function() {
-    console.log("I`m here");
-    const currentUrl = window.location.href;
-
-    $("#change-modal").submit(function(event){
-        event.preventDefault();
-        let formData = $(this).serialize();
-        let csrfToken = $('input[name=csrfmiddlewaretoken]').val()
-        formData += `&csrfmiddlewaretoken=${csrfToken}`;
-
-        console.log('asdasdsad')
-        $.ajax({
-            type: "POST",
-            url: currentUrl,
-            data: formData,
-            dataType: 'json',
             success: function(data){
-                console.log("dadasda")
-                errorMessages.append("<p>Пароль успішно змінено</p>")
-            },
-            error: function(data){
-                console.log(data.errors)
-                if(data.errors){
+                console.log("in success")
+                if("errors" in data){
                     let errorMessages = $("#error-messages");
-                    $.each(data.errors, function(field, error){
-                        errorMessages.append(`<p> ${error} </p>`);
-                        print("here")
-                    })
+                    console.log(errorMessages)
+                    errorMessages.empty();
+
+                    for(let error in data.errors){
+                        console.log(error)
+                        errorMessages.append("<p>" + error + "</p>");
+                    }
+                } else if("success" in data){
+                    console.log("All success")
+                    errorMessages.append("<p>Пароль успішно змінено</p>")
                 }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr)
+                console.log(status)
+                console.log("ERROR!")
+                console.log(error);
+                console.warn(xhr.responseText)
             }
         })
     })
