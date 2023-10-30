@@ -1,0 +1,512 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    padding-left: 0;
+}
+
+.sidebar {
+    width: 25%;
+    height: 100%;
+}
+
+.sidebar ul li {
+    padding: 10px 10px 0 0;
+}
+
+.sidebar ul li a {
+   text-decoration: none;
+   color: #4A4A4A;
+   font-weight: 500;
+   font-size: 0.9rem;
+}
+
+.main-content {
+    flex: 1;
+    padding-left: 80px;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+}
+
+.navbar-brand {
+    color: red;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.navbar-brand:hover {
+    color: red;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.search-form {
+    width: 950px;
+    position: relative;
+}
+
+.search-form input {
+    width: 90%;
+    height: 90%;
+    border-radius: 25px;
+    padding: 10px 15px;
+    background: #E5E5E5;
+    margin-left: 15px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    font-size: 0.8rem;
+
+}
+
+.search-form input:hover {
+    background: #D0D0D0;
+    border: 2px solid #36E4FF;
+}
+
+.search-form button {
+    position: absolute;
+    border: none;
+    margin-top: 10px;
+    margin-left: 50px;
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#your-pins {
+    position: absolute;
+    border: none;
+    background: background: #E5E5E5;
+    margin-left: -100px;
+    font-size: 0.8rem;
+    margin-top: 0px;
+    height: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.create-arrow {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 77px;
+}
+
+#your-pins:hover {
+    background: #D0D0D0;
+}
+
+.tooltip-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+}
+
+#bell-btn {
+    margin-left: -70px !important;
+    margin-top: 5px !important;
+}
+
+#detail-btn {
+    margin-left: 15px !important;
+}
+
+#chat-btn {
+    margin-left: -35px !important;
+    margin-top: 0;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.main-container {
+    font-size: 0.9rem;
+}
+
+.main-container small {
+    color: #ABA8A8;
+}
+
+.main-content h6 {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.personal-data-form {
+    width: 40%;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.personal-data-form label {
+    font-size: 0.6rem;
+    margin-top: 10px;
+}
+
+.personal-data-form .form-control {
+    border-radius: 10px;
+    width: 70%;
+    font-size: 0.8rem;
+}
+
+.personal-data-form .form-control:hover {
+    border: 1px solid #818080;
+}
+
+.personal-data-form .change-password-btn,
+.personal-data-form .change-btn{
+    background: #EBE8E8;
+    padding:5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-left: 184px;
+    margin-top: -30px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.7rem;
+    font-weight: 500;
+    position: absolute;
+    left: 100;
+    cursor: pointer;
+}
+
+.personal-data-form .change-password-btn:hover,
+.personal-data-form .change-btn:hover {
+    background: #D2CFCF;
+}
+
+.personal-data-form .change-account-type-btn {
+    margin-top: -80px;
+    cursor: pointer;
+}
+
+.personal-data-form #password-field {
+    width: 50%;
+}
+
+.personal-data-form .change-type-account-info {
+    width: 50%;
+    text-align: left;
+    font-size: 0.6rem;
+}
+
+.personal-data-form .change-type-account-info h6{
+    font-size: 0.7rem;
+}
+
+#upper-text {
+    font-size: 0.8rem;
+}
+
+.personal-data-form #gender-select-field {
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.personal-data-form #gender-select-field label {
+    margin-right: 10px;
+    margin-left: 5px;
+    display: flex;
+}
+
+.personal-data-form .radio-select div {
+    display: flex;
+    align-items: center;
+}
+
+.personal-data-form i {
+    display: block;
+    position: absolute;
+    margin-left: 230px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.account-deactivation {
+    font-size: 0.7rem;
+    margin-top: 7%;
+    width: 50%;
+}
+
+.account-deactivation h5 {
+    font-size: 0.9rem;
+    width: 110%;
+}
+
+.account-deactivation h6 {
+    font-size: 0.8rem;
+}
+
+.account-deactivation .account-deactive {
+    margin-top: -70px;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 10px 5px;
+    width: 60%;
+}
+
+.account-deactivation .account-delete {
+    margin-top: -70px;
+    padding: 10px 7px;
+    font-size: 0.7rem;
+}
+
+.row-buttons {
+    cursor: pointer;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-left: 200px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 200%;
+}
+
+.row-buttons .form-button {
+    border: none;
+    border-radius: 10px;
+    background: #DBD9D9;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #878686;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.help-container{
+    float: right;
+}
+
+.circle-button-modal {
+    float: left;
+    margin-right: 30px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 7px -2px rgba(0,0,0,0.69);
+    padding: 10px 5px;
+    margin-top: -180px;
+    border-radius: 7px;
+    visibility: hidden;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.modal-footer .table-row {
+    display: table;
+    width: 90%;
+}
+
+.modal-footer #copyright-cell {
+    padding-left: 15px;
+    width: 60%;
+}
+
+.modal-footer #copyright{
+    margin-left: -40px;
+}
+
+.modal-footer a {
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+}
+
+.modal-footer a:hover {
+    border-bottom: 1px solid gray;
+}
+
+.modal-footer .table-row .table-cell {
+    display: table-cell;
+    padding-right: 10px;
+}
+
+.modal-footer .table-row .table-ceil a {
+    width: 200%;
+    justify-content: left;
+}
+
+
+.circle-button-modal {
+    margin-right: -100px;
+}
+
+.circle-button-modal ul {
+    padding: 0 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DCDADA;
+}
+
+.circle-button-modal ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.circle-button-modal ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.circle-button-modal ul li:hover {
+    background: #D1CFCF;
+}
+
+.circle-button-modal ul li i {
+    margin-left: 220px;
+}
+
+.circle-button-modal ul li i:last-child {
+    margin-top: -18px;
+}
+
+.circle-button-modal ul li #last-child {
+    position: absolute;
+    right: -113%;
+}
+
+#reset{
+    color: #666565;
+    cursor: pointer;
+}
+
+#save{
+    background: #A4000B;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#reset:disabled{
+    cursor: not-allowed;
+    display: inline-block;
+    color: #868383;
+}
+
+#save:disabled {
+    cursor: not-allowed;
+    display: inline-block;
+    background: #DBD9D9;
+    color: #666565;
+}
+
+.circle-button-modal ul #last-item i {
+    margin-left: 178px;
+}
+
+.circle-button {
+    float: right;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: -70px;
+    background: white;
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.69);
+}
+
+.circle-button:hover {
+    background: #DBD9D9;
+}
+
+.change-password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: none;
+}
+
+.change-password-modal > div {
+    width: 25%;
+    position: relative;
+    background: white;
+    top: 35%;
+    left: 40%;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 20px;
+    transition: 0.5s;
+}
+
+.change-password-modal form {
+    width: 100%;
+}
+
+.change-password-modal form input {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #9E9C9C;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+    font-family: "Rubik";
+    font-size: 0.9rem;
+    padding: 15px;
+}
+
+.change-password-modal form label {
+    cursor: pointer;
+    font-size: 0.6rem;
+    margin-bottom: 7px;
+    font-weight: 500;
+    color: #9E9C9C;
+    float: left;
+}
+
+.change-password-modal form .buttons-rows {
+    margin-left: 90px;
+    margin-top: 7px;
+}
+
+.change-password-modal form .buttons-rows .modal-btn {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 450;
+    background: #EBE5E6;
+    border-radius: 10px;
+    padding: 7px 10px;
+    border: none;
+    max-height: 35px;
+}
+
+.change-password-modal form .buttons-rows .modal-btn:hover {
+    background: #DADADA;
+}
+
+.change-password-modal form .buttons-rows button {
+    background: red;
+}
+

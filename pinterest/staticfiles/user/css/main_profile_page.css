@@ -1,0 +1,404 @@
+* {
+    font-family: "Rubik";
+}
+
+body {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+}
+
+.navbar-brand {
+    color: red;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.navbar-brand:hover {
+    color: red;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.search-form {
+    width: 950px;
+    position: relative;
+}
+
+.search-form input {
+    width: 90%;
+    height: 90%;
+    border-radius: 25px;
+    padding: 10px 15px;
+    background: #E5E5E5;
+    margin-left: 15px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    font-size: 0.8rem;
+
+}
+
+.search-form input:hover {
+    background: #D0D0D0;
+    border: 2px solid #36E4FF;
+}
+
+.search-form button {
+    position: absolute;
+    border: none;
+    margin-top: 3px;
+    margin-left: 20px;
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#your-pins {
+    position: absolute;
+    border: none;
+    background: background: #E5E5E5;
+    margin-left: -100px;
+    font-size: 0.8rem;
+    margin-top: 0px;
+    height: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.create-arrow {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 77px;
+}
+
+#your-pins:hover {
+    background: #D0D0D0;
+}
+
+.tooltip-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+}
+
+#bell-btn {
+    margin-left: -80px;
+    margin-top: 3px;
+}
+
+#chat-btn {
+    margin-left: -40px;
+    margin-top: 0;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+#profile-btn {
+    margin-top: 2.5px;
+}
+
+#detail-btn {
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+#detail-btn:hover {
+    background-color: #D0D0D0;
+}
+
+#profile-btn:hover {
+    background-color: #D0D0D0;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: visible;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+#bell-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+#bell-btn:hover {
+    background-color: #D0D0D0;
+}
+
+#chat-btn:hover {
+    background-color: #D0D0D0;
+}
+
+.main-section {
+    justify-content: center;
+    text-align: center;
+}
+
+.main-profile-info {
+    margin-top: 1%;
+}
+
+.main-profile-info .user-login {
+    color: #B5B5B5;
+    margin-top: -5px;
+    font-size: 0.8rem;
+}
+
+.profile-p {
+    font-size: 0.9rem;
+}
+
+.subscribers-count {
+    margin-top: -10px;
+}
+
+.profile-btns {
+    margin-left: 60px;
+}
+
+.profile-btn {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    background: #D1D1D1;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+}
+
+.profile-btn:hover {
+    color: black;
+    background: #C6C6C6;
+}
+
+.filter-btn {
+    text-decoration: none;
+    color: black;
+    font-weight: semi-bold;
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px 15px;
+    border-radius: 7px;
+}
+
+.filter-btn:hover {
+    color: black;
+    background: #B9B9B9;
+}
+
+.filter-pins-btn .active:hover {
+    color: black;
+    background: white;
+}
+
+.filter-pins-btn {
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.filter-btn:last-child {
+    margin-left: 20px;
+}
+
+.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid black;
+    border-radius: 1.5px;
+}
+
+.order-by {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+    top: 100;
+    right: 100;
+    margin-top: 300px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.order-by:hover {
+    background-color: #B9B9B9;
+}
+
+.add-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50px;
+    margin-left: 1350px;
+    padding: 5px;
+    z-index: 1;
+}
+
+.add-btn:hover {
+    background-color: #B9B9B9;
+}
+
+.dropdown-content {
+    display: none;
+    list-style-type: none;
+    padding: 0 5px;
+    width: 170px;
+    margin: 0;
+    margin-left: -20px;
+    margin-top: 10px;
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 5px black;
+    z-index: 999;
+}
+
+.dropdown-content li {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 108%;
+    margin-left: -5px;
+    padding: 5px;
+}
+
+.dropdown-content li:hover {
+    background: #B9B9B9;
+}
+
+.tooltip-container .dropdown .dropdown-content small{
+    color: #AEAEAE;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.tooltip-container .dropdown .user-avatar {
+    margin-right: 10px;
+}
+
+.tooltip-container .dropdown .dropdown-content .user-info {
+    max-width: 10px;
+}
+
+.dropdown .dropdown-content .user-login{
+    margin-left: -75px;
+}
+
+.dropdown .dropdown-content .user-info {
+    display: flex;
+    width: 100px;
+}
+
+.dropdown .dropdown-content .user-info-without-avatar {
+    display: flex;
+    margin-left: -10px;
+}
+
+
+.tooltip-container .dropdown .dropdown-content ul {
+    list-style-type: none;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: -20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li i {
+    margin-left: 10px;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li:hover {
+    background: #B9B9B9;
+    border: 2px solid #36E4FF;
+    border-radius: 10px;
+}
+
+.tooltip-container .dropdown .dropdown-content ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.tooltip-container .dropdown .dropdown-content a {
+    text-decoration: none;
+    color: black;
+}
+
+#account-settings {
+    z-index: 999;
+    margin-left: -150px;
+    width: 270px;
+}
+
+.user-username {
+    width: 100px;
+    margin-left: 10px;
+}
+
+.account-type {
+    margin-top: 20px;
+    margin-right: -25px;
+    width: 100px;
+    height: 30px;
+    margin-left: -110px;
+    font-size: 0.5rem;
+}
+
+.user-login {
+    margin-top: 35px;
+    margin-bottom: -5px;
+}
+
+
+.rest-content-section {
+    margin-top: 50px;
+    z-index: 1;
+}
+
+
+.user-bio {
+    margin-top: -12px;
+}
+
+.user-site {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: -60px;
+}
+
+.user-site:hover {
+    text-decoration: underline;
+}
+
+.user-site a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.user-avatar {
+    border-radius: 50%;
+}

@@ -1,6 +1,6 @@
 console.log("In this page")
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     const currentUrl = window.location.href;
 
     $("#change-modal").submit(function(event) {
@@ -46,4 +46,4 @@ $(document).ready(function(){
             }
         })
     })
-})
+})*/

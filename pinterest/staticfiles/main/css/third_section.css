@@ -1,0 +1,189 @@
+* {
+      font-family: "Rubik";
+}
+
+#save {
+    height: 44em;
+    color: black;
+    background: #76F7FF;
+}
+
+.main-content {
+    display: flex;
+    height: 51em;
+    padding: 50px;
+}
+
+.text-content {
+    padding-top: 200px;
+    position: relative;
+    width: 50%;
+    color: #006E76;
+}
+
+.text-content .title-main {
+    width: 75%;
+    justify-content:center;
+    text-align: center;
+    font-size: 55px;
+}
+
+.text-content .title-main h1 {
+    font-size: 50px;
+}
+
+.text-content .title-main .title-desc {
+    font-size: 18px;
+    width: 60%;
+    justify-content: center;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.text-content .look-btn {
+    background: #006E76;
+    color: #76F7FF;
+    border: none;
+    border-radius: 30px;
+    padding: 0 7px;
+    margin-top: -60px;
+    font-weight: bold;
+}
+
+.image-content img {
+    border-radius: 40px;
+}
+
+.interior-image-block {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 70%;
+}
+
+.main-interior-container {
+    display: inline-block;
+    position: relative;
+    align-items: center;
+}
+
+.inner-images {
+    position: absolute;
+    bottom: -5%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50px;
+    marin-top: 200px;
+}
+
+.image-text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 13%;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+}
+
+.image-text p {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.inner-images img {
+    border-radius: 20px;
+}
+
+.interior-img{
+    margin: 1px 2px;
+}
+
+.image-content{
+    display: grid;
+    grid-template-column: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.bedroom-img-container {
+    position: relative;
+    margin-left: 95%;
+    margin-top: -95%;
+}
+
+#bedroom-img-text {
+    position: absolute;
+    bottom: 50px;
+    top: -50px;
+    left: 95px;
+    margin-left: 30px;
+}
+
+#bedroom-img-text p {
+    font-weight: 400;
+}
+
+.balcony-img {
+    position: relative;
+    margin-left: 70%;
+    margin-top: -35%
+}
+
+#balcony-img-text {
+    position: absolute;
+    top: -5px;
+    left: 100px;
+}
+
+#balcony-img-text p {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.style-food-img {
+    position: relative;
+    margin-left: 20%;
+    margin-top: -20%;
+}
+
+#style-food-text {
+    position: absolute;
+    top: -15px;
+    left: 95px;
+    max-width: 100px;
+}
+
+#style-food-text p {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.bathroom-img {
+    position: relative;
+    margin-left: 70%;
+    margin-top: -30%;
+    margin-bottom: 0;
+}
+
+#bathroom-ideas {
+    position: absolute;
+    top: -60px;
+    left: 80%;
+    z-index: 996;
+}
+
+#bathroom-ideas p {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+
+
+
+

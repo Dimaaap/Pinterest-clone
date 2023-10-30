@@ -11,7 +11,7 @@ let close = false;
 const openPasswordPopup = () => {
     modalWindow.style.display = "block";
     close = true;
-    newPasswordModalField.value = passwordField.value;
+    //newPasswordModalField.value = passwordField.value;
 }
 
 

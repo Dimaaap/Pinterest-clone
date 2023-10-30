@@ -13,6 +13,10 @@
     <script type="module" src="{% static 'user/js/account_settings_page.js' %}"></script>
     <script type="module" src="{% static 'user/js/change-password-modal-window.js' %}"></script>
     <script type="module" src="{% static 'user/js/get-error-message.js' %}"></script>
+    <script type="text/babel" src="{% static 'user/js/get_cookie.js' %}"></script>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script type="text/babel" src="{% static 'user/js/component.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -43,5 +47,4 @@
                 <button class="circle-button" id="help-button">?</button>
             </div>
         </div>
-    </div>
-{% endblock %}
+    </div>{% endblock %}
