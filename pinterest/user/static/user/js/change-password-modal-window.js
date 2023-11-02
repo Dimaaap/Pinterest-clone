@@ -26,8 +26,8 @@ openModalBtn.addEventListener("click", (event) => {
     }
 })
 
-closeModalBtn.addEventListener("click", (event) => {
+/*closeModalBtn.addEventListener("click", (event) => {
     if(close){
         closePasswordPopup();
     }
-})
+})*/
