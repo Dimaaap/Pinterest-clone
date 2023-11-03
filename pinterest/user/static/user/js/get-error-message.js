@@ -1,49 +1,38 @@
 console.log("In this page")
 
-/*$(document).ready(function(){
+$(document).ready(function(){
     const currentUrl = window.location.href;
+    const errorBlock = $("#error-messages");
 
-    $("#change-modal").submit(function(event) {
+    $("#modal-form").submit(function(event) {
         event.preventDefault();
         let formData = $(this).serialize();
         let csrfToken = $('input[name=csrfmiddlewaretoken]').val();
         formData += `&csrfmiddlewaretoken=${csrfToken}`;
-
-        console.log("before the AJAX request")
 
         $.ajax({
             type: "POST",
             url: currentUrl,
             data: formData,
             dataType: "json",
-            processData: false,
-            contentType: "application/json",
+            processData: true,
+            contentType: "application/x-www-form-urlencoded",
             headers: {
                 "X-CSRFToken": csrfToken
             },
             success: function(data){
-                console.log("in success")
                 if("errors" in data){
                     let errorMessages = $("#error-messages");
-                    console.log(errorMessages)
                     errorMessages.empty();
-
-                    for(let error in data.errors){
-                        console.log(error)
-                        errorMessages.append("<p>" + error + "</p>");
-                    }
+                    console.log(data.errors);
+                    errorMessages.append("<p>" + data.errors[0] + "</p>");
                 } else if("success" in data){
-                    console.log("All success")
                     errorMessages.append("<p>Пароль успішно змінено</p>")
                 }
             },
             error: function(xhr, status, error){
-                console.log(xhr)
-                console.log(status)
-                console.log("ERROR!")
                 console.log(error);
-                console.warn(xhr.responseText)
             }
         })
     })
-})*/
+})

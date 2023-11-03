@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.hashers import check_password
 
 from main.models import User
 
@@ -53,21 +54,53 @@ class SetNewPasswordForm(forms.Form):
         return repeat_new_password
 
 
-class UpdatePasswordFromAccountSettings(forms.Form):
+class PasswordMatchValidator:
+    def __init__(self, user):
+        self.user = user
+
+    def __call__(self, value):
+        if not self.user or not self.user.check_password(value):
+            raise forms.ValidationError("Ви ввели неправильне значення паролю")
+
+
+class UpdatePasswordFormAccountSettings(forms.Form):
     old_password = forms.CharField(max_length=55, label="Старий пароль - Забули?",
+                                   required=False,
                                    widget=forms.PasswordInput(attrs={
                                        "class": "form-input"
-                                   }))
+                                   }),
+                                   validators=[PasswordMatchValidator(user=None)])
 
     new_password = forms.CharField(max_length=55, label="Новий пароль",
+                                   required=False,
                                    widget=forms.PasswordInput(attrs={
                                        "class": "form-input"
                                    }))
 
     new_password_repeat = forms.CharField(max_length=55, label="Введіть пароль повторно",
+                                          required=False,
                                           widget=forms.PasswordInput(attrs={
                                               "class": "form-input"
                                           }))
 
-    def clean_old_password(self):
-        old_password = self.cleaned_data['old_password']
+    def __init__(self, user, *args, **kwargs):
+        super(UpdatePasswordFormAccountSettings, self).__init__(*args, **kwargs)
+        self.fields['old_password'].validators[0] = PasswordMatchValidator(user=user)
+
+
+    def clean_new_password(self):
+        new_password = self.cleaned_data.get("new_password")
+        if len(new_password) < 8:
+            print("It`s too short password")
+            raise forms.ValidationError("Пароль повинен містити не менше 8 символів")
+        if all([i.isdigit() for i in new_password]) or all([i.isalpha() for i in new_password]):
+            raise forms.ValidationError("Пароль містити хоча б одну цифру і літеру англійського алфівіту")
+        return new_password
+
+    def clean(self):
+        cleaned_data = super().clean()
+        new_password = cleaned_data.get('new_password')
+        new_password_repeat = cleaned_data.get("new_password_repeat")
+        if new_password != new_password_repeat:
+            raise forms.ValidationError("Значення паролів не співпадають")
+        return cleaned_data

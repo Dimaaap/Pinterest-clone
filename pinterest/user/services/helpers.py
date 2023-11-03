@@ -69,63 +69,6 @@ class Helper:
         return field_value_dict
 
     @staticmethod
-    def check_is_user_passwords_equal(request, input_password: str, user_password: str):
-        """
-        Статичний метод, який перевіряє, чи значення паролю, яке ввів користувач збігається зі значенням паролю,
-        яке розміщене в базі даних
-        Приймає input_password - значення паролю, яке увів користувач
-        user_password - пароль користувача в БД
-        """
-        if check_password(input_password, user_password):
-            return True
-        return "Неправильно введений пароль"
-
-    @staticmethod
-    def check_are_new_passwords_equal(request, new_password: str, repeat_new_password: str):
-        """
-        Метод, який приймає введене значення нового паролю користувача і повторне значення паролю користувача
-        і перевіряє, чи вони рівні, якщо рівні - повертає True, інакше - повідомлення про помилку
-        new_password - Значення поля "Новий пароль" у формі зміни паролю
-        repeat_new_password - Значення поля "Повторіть пароль" у формі зміни паролю
-        """
-        if new_password == repeat_new_password:
-            return True
-        return "Значення паролів не співпадають"
-
-    @staticmethod
-    def check_is_password_valid(request, password: str):
-        """
-        Метод, який перевіряє валідність паролю, тобто, чи його довжина більше 8-ми символів і
-        чи пароль не містить лише цифри або лише літери. Валідний пароль повинен бути від 8-ми
-        символів у довжину і містити як цифри, так і літери англійського алфавіту.
-        Приймає об'єкт request - об'єкт сесії користувача
-        password - Значення паролю, введеного користувачем
-        У випадку, якщо пароль валідний повертає True - інакше об'єкт messages.error із
-        повідомленням про помилку
-        """
-        if len(password) < 8:
-            return "Пароль повинен бути в дожину не менше 8 символів"
-        if all([i.isdigit() for i in password]) or all([i.isalpha() for i in password]):
-            return "Пароль повинен містити хоча б одну цифру і англійську літеру"
-        return True
-
-    def is_valid_form(self, request, input_password: str, user_password: str, new_password: str,
-                      repeat_new_password: str):
-        """
-        Загальний метод валідації, який виконує методи валідації check_is_user_passwords_equal,
-        check_are_new_passwords_equal і check_is_password_valid.
-        Якщо всі методи повернули True, тоді і цей метод повертає True, а інакше повертає об'єкт
-        messages.error методу, який повернув
-        """
-        validation_methods_set = {self.check_is_user_passwords_equal(request, input_password, user_password),
-                                  self.check_are_new_passwords_equal(request, new_password, repeat_new_password),
-                                  self.check_is_password_valid(request, new_password)
-                                  }
-        valid_form = True
-        messages_list = []
-        for i in validation_methods_set:
-            if not isinstance(i, bool):
-                messages_list.append(i)
-        if not messages_list:
-            return valid_form
-        return messages_list
+    def format_errors_message(error_obj):
+        errors_dict = dict(error_obj)
+        return list(errors_dict.values())

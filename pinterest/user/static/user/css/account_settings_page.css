@@ -510,3 +510,9 @@
     background: red;
 }
 
+#error-messages {
+    color: #BF0512;
+    font-size: 0.9rem;
+    justify-content: left;
+    text-align: left;
+}

@@ -1,0 +1,95 @@
+{% extends 'main/layout.html' %}
+
+
+{% load static %}
+{% block css_additional %}
+
+    <link rel="stylesheet" href="{% static 'user/css/convert_business.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/main_profile_page.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block js_additional %}
+    <script src="{% static 'user/js/main_profile_page.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main-container">
+        {% include '../_includes/login_header.html' %}
+        <div class="container">
+            <div class="main-content" id="main-content">
+                <div class="info">
+                    <h4 class="info-title">
+                        Перейдіть на безкоштовний корпоративний обліковий запис
+                    </h4>
+                    <p class="info-explanation">
+                        Розвивайте свій бізнес і бренд, використовуючи такі інструменти, як реклама та аналітика.
+                        Це не вплине на вміст, профіль і підписників. Ви можете знову повернутися до особистого
+                        облікового запису в розділі «Налаштування».
+                    </p>
+                </div>
+                <div class="main-content">
+                    <table class="advantages">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Особистий</th>
+                                <th>Бізнес</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="first-cell">
+                                    <i class="fa-solid fa-pen"></i><h6>Інструменти для публікації</h6>
+                                    <p>Діліться ідеями за допомогою зображень і відео</p>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-check" style="color: #5d8ddf;"></i>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-check" style="color: #5d8ddf;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first-cell">
+                                    <i class="fa-solid fa-info"></i><h6>Служба управління рекламою</h6>
+                                    <p>Керуйте кампаніями та відстежуйте їх</p>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-check" style="color: #5d8ddf;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first-cell">
+                                    <i class="fa-solid fa-chart-simple"></i><h6>Статистика й аналітика</h6>
+                                    <p>
+                                        Дізнайтесь, які з пінів і оголошень найефективніші
+                                    </p>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-check" style="color: #5d8ddf;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first-cell">
+                                    <i class="fa-regular fa-star"></i>
+                                    <h6>Кредити та пропозиції</h6>
+                                    <p>Беріть участь в акціях, отримуйте кредити на оголошення тощо</p>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-check" style="color: #5d8ddf;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

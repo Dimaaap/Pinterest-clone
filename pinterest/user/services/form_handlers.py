@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.http import JsonResponse
+from django.contrib.auth.hashers import check_password
+from django import forms
 
 from ..models import UserAdditionalInfo, UserPersonalData
 from ..services.db_services import DBService
@@ -7,6 +8,7 @@ from ..services.helpers import Helper
 from ..forms import UpdateUserInformationForm, UserAccountDataForm
 from ..data_storage import DataStorage
 from ..messages_store import *
+from password.forms import UpdatePasswordFormAccountSettings
 
 helper = Helper()
 db_service = DBService()
@@ -51,15 +53,7 @@ class FormHandler:
                                                            form.cleaned_data["new_password"],
                                                            form.cleaned_data["new_password_repeat"])
         user_model_password = user.password
-        form_valid = helper.is_valid_form(request, old_password, user_model_password,
-                                          new_password, new_password_repeat)
-        if isinstance(form_valid, bool):
-            user.set_password(new_password)
-            user.save()
-            return True
-            #return JsonResponse({"success": "Пароль успішно змінено"})
-        else:
-            message = form_valid[0]
-            #return JsonResponse({"errors": message})
-            return message
+        if not check_password(old_password, user_model_password):
+            raise UpdatePasswordFormAccountSettings.add_error("old_password", "Ви ввели неправильне значення паролю")
+        return True
 
