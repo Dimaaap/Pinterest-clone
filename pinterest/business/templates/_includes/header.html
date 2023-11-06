@@ -1,0 +1,75 @@
+<header class="business-header">
+    <div class="header-info">
+        <p class="header-name">Бізнес</p>
+    </div>
+    <div class="account-info">
+        {% if not user.avatar %}
+        <img alt="File:Eo circle green letter-d.svg"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+             decoding="async" width="25" height="25"
+             srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+             data-file-width="512"
+             data-file-height="512">
+        {% else %}
+        <img
+                src="{{ user.avatar.url }}"
+                width="25" height="25"
+                data-file-width="512"
+                data-file-height="512"
+        >
+        {% endif %}
+        <p class="username">
+            {{ user.username }}
+        </p>
+        <a href="#" id="open-modal">
+            <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <div class="modal-window">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p>Організації/<b>Ресурси</b></p>
+                </div>
+                <div class="user-info">
+                    <i class="fa-solid fa-angle-left" style="color: #000000;"></i>
+                    {% if not user.avatar %}
+                        <img alt="File:Eo circle green letter-d.svg"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+                             decoding="async" width="25" height="25"
+                             srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+                             data-file-width="512"
+                             data-file-height="512">
+                        {% else %}
+                        <img
+                            src="{{ user.avatar.url }}"
+                            width="25" height="25"
+                            data-file-width="512"
+                            data-file-height="512"
+                        >
+                    {% endif %}
+                    <p>{{ user.username }}</p>
+                    <i class="fa-solid fa-briefcase" id="briefcase" style="color: #000000;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="additional-info">
+        {% if not user.avatar %}
+        <img alt="File:Eo circle green letter-d.svg"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/512px-Eo_circle_green_letter-d.svg.png?20200417132624"
+             decoding="async" width="20" height="20"
+             srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
+             data-file-width="512"
+             data-file-height="512">
+        {% else %}
+        <img
+                src="{{ user.avatar.url }}"
+                width="20" height="20"
+                data-file-width="512"
+                data-file-height="512"
+        >
+        {% endif %}
+        <a href="#" id="open-another-modal">
+            <i class="fa-solid fa-angle-down"></i>
+        </a>
+    </div>
+</header>

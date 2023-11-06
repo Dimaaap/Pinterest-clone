@@ -163,11 +163,18 @@
     margin-left: 25%;
     width: 45%;
     font-size: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -1px 3px 17px -5px rgba(0,0,0,0.78);
+    -webkit-box-shadow: -1px 3px 17px -5px rgba(0,0,0,0.78);
+    -moz-box-shadow: -1px 3px 17px -5px rgba(0,0,0,0.78);
+    padding-top: 10px;
 }
 
 .main-content table thead th {
     font-weight: 500;
 }
+
 
 .main-content table thead th, .main-content table td {
     padding: 5px 15px;
@@ -176,10 +183,105 @@
     border-left: 1px solid #fff;
 }
 
+
+.main-content table thead th {
+    padding: 15px 15px;
+    font-size: 0.9rem;
+}
+
 .main-content table tr {
     border-bottom: 1px solid gray;
 }
 
 table tr .first-cell {
+    display: flex;
+    flex-direction: column;
+}
 
+table tr .first-cell .content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+table tr .first-cell i {
+    margin-right: 5px;
+}
+
+table tr p {
+    max-width: 50%;
+    font-size: 0.7rem;
+    color: #A4A2A2;
+    margin-bottom: 2px;
+    margin-top: -5px;
+}
+
+
+.icon-column {
+    text-align: center;
+    height: 100%;
+    line-height: 40px;
+}
+
+.buttons-row {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.buttons-row a {
+    display: inline-block;
+}
+
+.buttons-row .btn {
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 30px;
+}
+
+.buttons-row .cancel-btn {
+    background: #E8E5E5;
+}
+
+.buttons-row .cancel-btn:hover {
+    background: #DEDBDC;
+}
+
+.buttons-row .apply-btn {
+    color: white;
+    background: #E2323E;
+}
+
+.buttons-row .apply-btn:hover {
+    background: #BD0C17;
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: -100px;
+}
+
+.page-footer small {
+    font-size: 0.5rem;
+}
+
+.page-footer small a {
+    text-decoration: none;
+    color: gray;
+}
+
+.back-btn {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.back-btn:hover {
+    background: #DAD7D7;
 }
