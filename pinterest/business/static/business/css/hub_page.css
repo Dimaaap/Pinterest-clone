@@ -88,6 +88,7 @@ header .modal-window {
     right: 200px;
     border: 1px solid #C3BFBF;
     border-radius: 10px;
+    display: none;
 }
 
 .modal-window .modal-content .modal-header {
@@ -121,4 +122,154 @@ header .modal-window {
 
 .user-info #briefcase {
     margin-left: 90px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #E1DEDE;
+    width: 90%;
+    border-radius: 10px;
+    margin-left: 5%;
+    height: 50px;
+    padding: -5px 1px;
+    margin-bottom: 5px;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 0.7rem;
+    font-weight: 500;
+    height: 45px;
+}
+
+#first-label {
+    text-align: left;
+}
+
+#second-label {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    background-color: white;
+    color: black;
+}
+
+.radio-group input[type="radio"]:not(:checked) + label {
+    background: #E1DEDE;
+    color: black;
+    font-weight: 500;
+}
+
+.search-bar {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.search-bar i {
+    position: absolute;
+    top: 167px;
+    right: 248px;
+}
+
+.search-bar input {
+    font-size: 0.9rem;
+    width: 100%;
+    padding-left: 25px;
+    margin-left: 5%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #E1DEDE;
+}
+
+.search-bar input:hover {
+    border: 2 px solid #B5B5B5;
+}
+
+.puzzle-container {
+    margin-top: 25px;
+    margin-left: 33%;
+    margin-bottom: 25px;
+}
+
+.explanation-container {
+    text-align: center;
+    justify-content: center;
+}
+
+.explanation-container .gray-title {
+    font-size: 0.7rem;
+    color: #929191;
+    width: 100%;
+}
+
+.explanation-container .smaller {
+    margin-top: -8px;
+    width: 95%;
+    font-size: 0.6rem;
+}
+
+#add-account-btn {
+    background: #E60D0D;
+    display: inline-block;
+    width: 60%;
+    border-radius: 18px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: 500;
+    margin-left: 20%;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#add-account-btn:hover {
+    background: #D11313;
+}
+
+#open-modal-div #open-modal i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    margin-top: -45px;
+}
+
+#second-choice .accounts-list {
+    margin-left: 5%;
+    margin-top: -5px;
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 7px;
+}
+
+#second-choice .accounts-list:hover {
+    background: #C3C1C1;
+}
+
+#second-choice .accounts-list p {
+    margin-top: 15px;
+}
+
+#second-choice .accounts-list a {
+    display: inline-block;
+    margin-left: 95px;
+    cursor: pointer;
 }

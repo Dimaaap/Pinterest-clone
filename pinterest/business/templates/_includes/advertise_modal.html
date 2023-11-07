@@ -1,0 +1,21 @@
+<div class="modal-window">
+    <div class="modal-content">
+        <div class="modal-header">
+            <p>Організації/<b>Ресурси</b></p>
+        </div>
+        <div class="user-info">
+            <i class="fa-solid fa-angle-left" style="color: #000000;"></i>
+            {% include "../_includes/user_avatar_container.html" %}
+            <p>{{ user.username }}</p>
+            <i class="fa-solid fa-briefcase" id="briefcase" style="color: #000000;"></i>
+            <div class="radio-group">
+                <input type="radio" id="option1" name="radiogroup" checked>
+                <label for="option1" id="first-label">Рекламні облікові записи</label>
+                <input type="radio" id="option2" name="radiogroup">
+                <label for="option2" id="second-label">Профілі</label>
+            </div>
+            {% include "../_includes/first_radio_selected_block.html" %}
+            {% include '../_includes/second_radio_selected_block.html' %}
+        </div>
+    </div>
+</div>
