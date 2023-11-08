@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'business',
 
     'celery',
+    'formtools',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
