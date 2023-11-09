@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'celery',
     'formtools',
     'crispy_forms',
+    'multiselectfield'
 ]
 
 MIDDLEWARE = [

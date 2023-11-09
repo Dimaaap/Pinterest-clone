@@ -79,6 +79,8 @@ header img {
 
 .main-content {
     width: 80%;
+    padding-left: 20%;
+    padding-top: 5%;
 }
 
 header .modal-window {
@@ -309,4 +311,51 @@ header .modal-window {
 
 #first-img {
     margin-top: -40px;
+}
+
+.profile-form .form-title {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.profile-form label {
+    font-family: "Rubik";
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.profile-form .user-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+}
+
+.profile-form #id_0-business_name {
+    margin-top: -30px;
+    margin-left: 87px;
+
+}
+
+.profile-form .form-control {
+    width: 30%;
+    border-radius: 10px;
+    border; 1px solid gray;
+}
+
+.profile-form label[for="id_0-is_site_exists_0"],
+.profile-form label[for="id_0-is_site_exists_1"] {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.profile-form .form-label {
+    margin-top: 15px;
+}
+
+.profile-form #first-label {
+    margin-left: 90px;
+    margin-top: -70px;
+    margin-bottom: 30px;
+    display: block;
 }

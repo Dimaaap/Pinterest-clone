@@ -2,6 +2,7 @@
 
 
 {% load static %}
+{% load i18n %}
 {% block css_additional %}
 <link rel="stylesheet" href="{% static 'business/css/hub_page.css'%}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +19,44 @@
     <div class="wrapper">
         {% include '../_includes/image_sidebar.html' %}
         <div class="main-content">
-
+            <!--<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>-->
+            <form action="" method="post" class="profile-form">
+                {% csrf_token %}
+                {% if wizard.steps.step1 %}
+                    <h4 class="form-title">Створіть профіль</h4>
+                {% endif %}
+                <table>
+                    {{ wizard.management_form }}
+                    {% if wizard.form.forms %}
+                        {{ wizard.form.management_form }}
+                        {% for form in wizard.form.forms %}
+                            {{ form.as_table }}
+                        {% endfor %}
+                    {% else %}
+                        {% for field in wizard.form %}
+                            {% if forloop.first %}
+                                {% include '../_includes/user_avatar_container.html' %}
+                            {% endif %}
+                            {% if forloop.first %}
+                                <label class="form-label" id="first-label">{{ field.label }}</label>
+                                {{ field }}
+                            {% else %}
+                                <label class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </table>
+                {% if wizard.steps.prev %}
+                    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
+                        {% translate "first step" %}
+                    </button>
+                    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">
+                        {% translate "prev step" %}
+                    </button>
+                {% endif %}
+                <input type="submit" value="{% translate 'submit' %}"/>
+            </form>
         </div>
     </div>
 {% endblock %}

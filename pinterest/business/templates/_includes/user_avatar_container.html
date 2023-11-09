@@ -4,12 +4,14 @@
      decoding="async" width="25" height="25"
      srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/768px-Eo_circle_green_letter-d.svg.png?20200417132624 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eo_circle_green_letter-d.svg/1024px-Eo_circle_green_letter-d.svg.png?20200417132624 2x"
      data-file-width="512"
-     data-file-height="512">
+     data-file-height="512"
+     class="user-avatar">
 {% else %}
 <img
         src="{{ user.avatar.url }}"
         width="25" height="25"
         data-file-width="512"
         data-file-height="512"
+        class="user-avatar"
 >
 {% endif %}
