@@ -19,11 +19,16 @@
     <div class="wrapper">
         {% include '../_includes/image_sidebar.html' %}
         <div class="main-content">
-            <!--<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>-->
             <form action="" method="post" class="profile-form">
                 {% csrf_token %}
-                {% if wizard.steps.step1 %}
+                {% if wizard.steps.current == '0' %}
                     <h4 class="form-title">Створіть профіль</h4>
+                    {% include '../_includes/user_avatar_container.html' %}
+                {% elif wizard.steps.current == '1' %}
+                    <div class="form-header">
+                        <h4 class="form-title">Опишіть свою компанію</h4>
+                        <p class="form-subtitle">Отримуйте налаштовувані рекомендації на основі даних акаунту</p>
+                    </div>
                 {% endif %}
                 <table>
                     {{ wizard.management_form }}
@@ -33,18 +38,51 @@
                             {{ form.as_table }}
                         {% endfor %}
                     {% else %}
-                        {% for field in wizard.form %}
-                            {% if forloop.first %}
-                                {% include '../_includes/user_avatar_container.html' %}
-                            {% endif %}
-                            {% if forloop.first %}
-                                <label class="form-label" id="first-label">{{ field.label }}</label>
-                                {{ field }}
-                            {% else %}
-                                <label class="form-label">{{ field.label }}</label>
-                                {{ field }}
-                            {% endif %}
-                        {% endfor %}
+                        {% if wizard.steps.current == '0' %}
+                            <div class="first-form">
+                                {% for field in wizard.form %}
+                                    {% if field.errors %}
+                                        <div>{{ field.errors }}</div>
+                                    {% endif %}
+                                    {% if forloop.first %}
+                                        <label class="form-label" id="first-label">{{ field.label }}</label>
+                                        {{ field }}
+                                    {% elif forloop.last %}
+                                        <label class="form-label" id="last-label">{{ field.label }}</label>
+                                        {{ field }}
+                                    {% else %}
+                                        <label class="form-label">{{ field.label }}</label>
+                                        {{ field }}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% elif wizard.steps.current == '1' %}
+                            <div class="second-form">
+                                {% for field in wizard.form %}
+                                    {% if field.errors %}
+                                        <div>{{ field.errors }}</div>
+                                    {% endif %}
+                                    {% if forloop.first %}
+                                        <label class="first-label" for="{{ field.if_for_label }}">{{ field.label }}</label>
+                                        {{ field }}
+                                    {% else %}
+                                        <label class="rest-label {{ forloop.counter }}">{{ field.label }}</label>
+                                        <p class="label-description">
+                                            Оберіть до 3 цілей. Ви можете в будь-який час змінити
+                                            ці дані в розділі "Налаштування"
+                                        </p>
+                                        {{ field }}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% elif wizard.steps.current == '2' %}
+                            <div class="third-form">
+                                {% for field in wizard.form %}
+                                    <label>{{ field.label }}</label>
+                                    {{ field }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     {% endif %}
                 </table>
                 {% if wizard.steps.prev %}
@@ -55,7 +93,7 @@
                         {% translate "prev step" %}
                     </button>
                 {% endif %}
-                <input type="submit" value="{% translate 'submit' %}"/>
+                <input type="submit" value="{% translate 'Далі' %}"/>
             </form>
         </div>
     </div>

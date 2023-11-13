@@ -338,9 +338,10 @@ header .modal-window {
 }
 
 .profile-form .form-control {
-    width: 30%;
+    width: 37%;
     border-radius: 10px;
     border; 1px solid gray;
+    font-size: 0.8rem;
 }
 
 .profile-form label[for="id_0-is_site_exists_0"],
@@ -358,4 +359,104 @@ header .modal-window {
     margin-top: -70px;
     margin-bottom: 30px;
     display: block;
+}
+
+.profile-form #business-site-field {
+    margin-top: -70px;
+    margin-left: 60px;
+    width: 40%;
+}
+
+.profile-form .select {
+    width: 23%;
+    height: 30px;
+}
+
+.profile-form .second {
+    margin-left: 210px;
+    margin-top: -30px;
+}
+
+.profile-form #last-label {
+    position: absolute;
+    top: 48%;
+    left: 55%;
+}
+
+.profile-form input[type="submit"] {
+    border: none;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-family: 'Rubik';
+    font-weight: 500;
+    color: #868686;
+    padding: 7px 15px;
+    cursor: pointer;
+    margin-top: 190px;
+    margin-left: 380px;
+}
+
+.form-header {
+    margin-bottom: 10px;
+    width: 40%;
+    font-size: 0.8rem;
+}
+
+.form-header .form-title {
+    margin-bottom: 20px;
+}
+
+.form-header .form-subtitle {
+    margin-top: -15px;
+    margin-bottom: 50px;
+
+}
+
+.profile-form .second-form .first-label {
+    font-size: 0.9rem;
+    display: block;
+    position: absolute;
+    left: 55%;
+}
+
+.profile-form .second-form label[for=""] {
+    display: block;
+    margin-top: -35px;
+    margin-bottom: 20px;
+    margin-left: -215px;
+    font-size: 0.9rem
+}
+
+.profile-form .second-form #select-niche {
+    width: 45%;
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+
+.profile-form .second-form #id_1-business_aim {
+    margin-top: 30px;
+}
+
+.profile-form .second-form #id_1-business_aim div {
+    margin-top: 7px;
+}
+
+.profile-form .second-form #id_1-business_aim div label {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.second-form .label-description {
+    font-size: 0.8rem;
+    max-width: 40%;
+    margin-bottom: -15px;
+}
+
+table {
+    margin-bottom: -150px;
+}
+
+
+button[type="submit"] {
+    margin-top: -100px;
 }
