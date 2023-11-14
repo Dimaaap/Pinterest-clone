@@ -79,8 +79,8 @@ class CompanyDescriptionForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.label_suffix = ""
 
-    business_description = forms.ChoiceField(label="Опишіть свою компанію",
-                                             required=True, choices=data_storage.COMPANIES_DESCRIPTION,
+    business_description = forms.ChoiceField(label="",
+                                             required=False, choices=data_storage.COMPANIES_DESCRIPTION,
                                              widget=forms.RadioSelect)
 
 
@@ -93,6 +93,6 @@ class IsAddInterestingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.label_suffix = ""
 
-    would_like_start_add = forms.ChoiceField(label="Чи цікавить вас розміщення реклами на Pinterest",
-                                             required=True, choices=data_storage.START_ADD_CHOICE,
+    would_like_start_add = forms.ChoiceField(label="",
+                                             required=False, choices=data_storage.START_ADD_CHOICE,
                                              widget=forms.RadioSelect)

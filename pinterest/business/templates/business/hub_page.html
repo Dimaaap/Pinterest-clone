@@ -12,6 +12,7 @@
     <script src="{% static 'business/js/disappear_search_icon.js' %}"></script>
     <script src="{% static 'business/js/open_modal.js' %}"></script>
     <script src="{% static 'business/js/change_content.js' %}"></script>
+    <script src="{% static 'business/js/circle_indicator.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -39,7 +40,7 @@
                         {% endfor %}
                     {% else %}
                         {% if wizard.steps.current == '0' %}
-                            <div class="first-form">
+                            <div class="first-form" id="first-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
@@ -57,7 +58,7 @@
                                 {% endfor %}
                             </div>
                         {% elif wizard.steps.current == '1' %}
-                            <div class="second-form">
+                            <div class="second-form" id="second-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
@@ -76,8 +77,36 @@
                                 {% endfor %}
                             </div>
                             {% elif wizard.steps.current == '2' %}
-                            <div class="third-form">
+                            <div class="form-header">
+                                <h4 class="header-title">Опишіть свою компанію</h4>
+                                <p class="header-description">
+                                    Отримуйте налаштовувані рекомендації на основі даних акаунту
+                                </p>
+                            </div>
+                            <div class="third-form" id="third-form">
                                 {% for field in wizard.form %}
+                                    {% if field.errors %}
+                                        <div>{{ field.errors }}</div>
+                                    {% endif %}
+                                    <label>{{ field.label }}</label>
+                                    {{ field }}
+                                {% endfor %}
+                            </div>
+                        {% elif wizard.steps.current == '3' %}
+                            <div class="form-header">
+                                <h4 class="header-title">
+                                    Чи цікавить вас розміщення реклами на Pinterest?
+                                </h4>
+                                <p class="header-description">
+                                    Оголошення допомагають рекламувати бренди і товари серед
+                                    більш ніж 400 мільйонів людей, які використовують Pinterest щомісяця
+                                </p>
+                            </div>
+                            <div class="fourth-form" id="fourth-form">
+                                {% for field in wizard.form %}
+                                    {% if field.errors %}
+                                        <div>{{ field.errors }}</div>
+                                    {% endif %}
                                     <label>{{ field.label }}</label>
                                     {{ field }}
                                 {% endfor %}
@@ -86,15 +115,18 @@
                     {% endif %}
                 </table>
                 {% if wizard.steps.prev %}
-                    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
-                        {% translate "first step" %}
-                    </button>
-                    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">
-                        {% translate "prev step" %}
+                    <button name="wizard_goto_step" id="back-button" type="submit" value="{{ wizard.steps.prev }}">
+                        {% translate "Назад" %}
                     </button>
                 {% endif %}
-                <input type="submit" value="{% translate 'Далі' %}"/>
+                <input type="submit" id="submit-button" value="{% translate 'Далі' %}"/>
             </form>
+            <div class="step-indicator">
+                <div class="step-circle" id="step1"></div>
+                <div class="step-circle" id="step2"></div>
+                <div class="step-circle" id="step3"></div>
+                <div class="step-circle" id="step4"></div>
+            </div>
         </div>
     </div>
 {% endblock %}

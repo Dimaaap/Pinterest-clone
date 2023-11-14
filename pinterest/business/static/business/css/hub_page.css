@@ -460,3 +460,61 @@ table {
 button[type="submit"] {
     margin-top: -100px;
 }
+
+.third-form #id_2-business_description label {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.third-form #id_2-business_description div {
+    margin-top: 7px;
+}
+
+.third-form #id_2-business_description div:nth-child(1) {
+    margin-top: -35px;
+}
+
+.third-form .form-header {
+    margin-bottom: -100px;
+}
+
+.fourth-form #id_3-would_like_start_add label {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.fourth-form #id_3-would_like_start_add div {
+    margin-top: 7px;
+}
+
+.fourth-form #id_3-would_like_start_add div:nth-child(1) {
+    margin-top: -30px;
+}
+
+button[name="wizard_goto_step"] {
+    border: none;
+    border-radius: 15px;
+    padding: 7px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 220px;
+    margin-right: -380px;
+}
+
+.step-indicator {
+    display: flex;
+    margin-left: 130px;
+    margin-top: 10px;
+}
+
+.step-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 4px;
+    background: lightgray;
+}
+
+.step-circle.completed {
+    background: black;
+}
