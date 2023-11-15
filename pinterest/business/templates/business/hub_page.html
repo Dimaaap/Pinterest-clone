@@ -5,6 +5,7 @@
 {% load i18n %}
 {% block css_additional %}
 <link rel="stylesheet" href="{% static 'business/css/hub_page.css'%}">
+<link rel="stylesheet" href="{% static 'business/css/additional_info_modal.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
@@ -40,7 +41,7 @@
                         {% endfor %}
                     {% else %}
                         {% if wizard.steps.current == '0' %}
-                            <div class="first-form" id="first-form">
+                            <div class="first-form form" id="first-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
@@ -58,7 +59,7 @@
                                 {% endfor %}
                             </div>
                         {% elif wizard.steps.current == '1' %}
-                            <div class="second-form" id="second-form">
+                            <div class="second-form form" id="second-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
@@ -83,7 +84,7 @@
                                     Отримуйте налаштовувані рекомендації на основі даних акаунту
                                 </p>
                             </div>
-                            <div class="third-form" id="third-form">
+                            <div class="third-form form" id="third-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
@@ -102,7 +103,7 @@
                                     більш ніж 400 мільйонів людей, які використовують Pinterest щомісяця
                                 </p>
                             </div>
-                            <div class="fourth-form" id="fourth-form">
+                            <div class="fourth-form form" id="fourth-form">
                                 {% for field in wizard.form %}
                                     {% if field.errors %}
                                         <div>{{ field.errors }}</div>
