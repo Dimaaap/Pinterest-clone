@@ -18,53 +18,14 @@
             <i class="fa-solid fa-angle-down"></i>
         </a>
     </div>
-    <div class="additional-info-modal">
-            <div class="modal-content">
-                <small>Зараз:</small>
-                <div class="user-info">
-                    {% include "./user_avatar_container.html" %}
-                    <p class="user-username">{{ user.username }}</p>
-                    <p class="user-account-type">Бізнес-акаунт</p>
-                    <p class="user-email">{{ user.email }}</p>
-                    <i class="fa-solid fa-check" style="color: #878787;"></i>
-                </div>
-                <div class="user-functionality">
-                    <small>Ваші аккаунти</small>
-                    <ul class="functionality">
-                        <li class="user-choice">
-                            <a href="#">Додати аккаунт</a>
-                        </li>
-                        <li class="user-choice">
-                            <a href="#">Налаштування</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="info-block">
-                    <i class="fa-solid fa-circle-info" style="color: #4d8eff;"></i>
-                    <p>
-                        <strong>Розділ "Бізнес-доступ"</strong>
-                        тепер називається <strong>"Менеджер бізнес-аккаунту"</strong>
-                        ,і його можна знайти в списку компаній
-                    </p>
-                </div>
-                <small>Вміст</small>
-                <div class="help-container">
-                    <small>Довідка</small>
-                    <ul class="helper">
-                        <li class="helper-li">
-                            <a href="#">
-                                Отримати довідку
-                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </li>
-                        <li class="helper-li">
-                            <a href="#">
-                                Запросити функцію
-                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="header__additional_modal" id="header-modal">
+        <div class="additional_modal__content">
+            <div class="modal_content__user-info">
+                {% include './user_avatar_container.html' %}
+                <p class="user-info__username"><strong>{{ user.username }}</strong></p>
+                <small class="user-info__account_type">Бізнес-аккаунт</small>
+                <small class="user-info__user-email">{{ user.email }}</small>
             </div>
         </div>
+    </div>
 </header>
